@@ -4,7 +4,7 @@ import os, re, json, shutil, urllib.parse, collections
 from bs4 import BeautifulSoup
 
 RAW  = r"D:\Projekte\archive_dc_network\raw"
-SITE = r"D:\Projekte\archive_dc_network\site_skin"
+SITE = r"D:\Projekte\archive_dc_network\site"
 WIKI = os.path.join(RAW, "wiki")
 SCRATCH = os.path.dirname(os.path.abspath(__file__))
 
@@ -36,6 +36,7 @@ def resolve_page(target):
     t = urllib.parse.unquote(target).replace(" ", "_")
     if t in name2file: return name2file[t]
     if t.lower() in lower2name: return name2file[lower2name[t.lower()]]
+    if ":" in t: return None   # namespaced pages (Special:/File:/Category:) resolve by exact match only
     cands = [k for k in name2file if k.split("_-_")[0].lower() == t.lower()]
     if len(cands) == 1: return name2file[cands[0]]
     base = t.split("_-_")[0]
@@ -135,10 +136,7 @@ def process(path, name, out_name):
             rest = href[len("/wiki/"):]; frag = ""
             if "#" in rest: rest, frag = rest.split("#", 1)
             page = urllib.parse.unquote(rest)
-            if page.startswith(META_NS) or page.startswith("File:"):
-                target = None
-            else:
-                target = resolve_page(page)
+            target = resolve_page(page)   # resolves recovered Special:/Category: pages too
             if target:
                 a["href"] = target + (("#" + frag) if frag else "")
                 a.attrs.pop("title", None)

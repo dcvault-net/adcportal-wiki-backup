@@ -243,5 +243,47 @@
   "url": "http://www.adcportal.com/wiki/TIGR",
   "group": "articles",
   "bytes": 16301
+ },
+ "Special:AllPages": {
+  "file": "Special_AllPages.html",
+  "timestamp": "20110908191305",
+  "url": "http://www.adcportal.com/wiki/Special:AllPages",
+  "group": "special",
+  "bytes": 21015
+ },
+ "Special:Categories": {
+  "file": "Special_Categories.html",
+  "timestamp": "20110908204215",
+  "url": "http://www.adcportal.com/wiki/Special:Categories",
+  "group": "special",
+  "bytes": 13084
+ },
+ "Special:SpecialPages": {
+  "file": "Special_SpecialPages.html",
+  "timestamp": "20110908204621",
+  "url": "http://www.adcportal.com/wiki/Special:SpecialPages",
+  "group": "special",
+  "bytes": 19531
+ },
+ "Special:Statistics": {
+  "file": "Special_Statistics.html",
+  "timestamp": "20110908191625",
+  "url": "http://www.adcportal.com/wiki/Special:Statistics",
+  "group": "special",
+  "bytes": 13787
+ },
+ "Special:ListUsers": {
+  "file": "Special_ListUsers.html",
+  "timestamp": "20110908191656",
+  "url": "http://www.adcportal.com/wiki/Special:ListUsers",
+  "group": "special",
+  "bytes": 17515
+ },
+ "Special:RecentChanges": {
+  "file": "Special_RecentChanges.html",
+  "timestamp": "20110908202927",
+  "url": "http://www.adcportal.com/wiki/Special:RecentChanges",
+  "group": "special",
+  "bytes": 30755
  }
 }

@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<head>
+<title>User list - ADCPortal Wiki</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="MediaWiki 1.16.0" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/mediawiki/opensearch_desc.php" title="ADCPortal Wiki (en)" />
+<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+<link rel="alternate" type="application/atom+xml" title="ADCPortal Wiki Atom feed" href="/mediawiki/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="/mediawiki/skins/vector/main-ltr.css?270" media="screen" />
+<link rel="stylesheet" href="/mediawiki/skins/common/shared.css?270" media="screen" />
+<link rel="stylesheet" href="/mediawiki/skins/common/commonPrint.css?270" media="print" />
+<link rel="stylesheet" href="/mediawiki/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" />
+<link rel="stylesheet" href="/mediawiki/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" media="print" />
+<link rel="stylesheet" href="/mediawiki/index.php?title=MediaWiki:Vector.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" />
+<link rel="stylesheet" href="/mediawiki/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" />
+<script>
+var skin="vector",
+stylepath="/mediawiki/skins",
+wgUrlProtocols="http\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/wiki/$1",
+wgScriptPath="/mediawiki",
+wgScriptExtension=".php",
+wgScript="/mediawiki/index.php",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="http://www.adcportal.com",
+wgCanonicalNamespace="Special",
+wgCanonicalSpecialPageName="Listusers",
+wgNamespaceNumber=-1,
+wgPageName="Special:ListUsers",
+wgTitle="ListUsers",
+wgAction="view",
+wgArticleId=0,
+wgIsArticle=false,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=0,
+wgVersion="1.16.0",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "ADCPortal Wiki", "5": "ADCPortal Wiki talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "adcportal_wiki": 4, "adcportal_wiki_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="ADCPortal Wiki",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="/mediawiki/skins/common/wikibits.js?270"></script>
+<script src="/mediawiki/skins/common/ajax.js?270"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/mediawiki/skins/vector/csshover.htc")}</style><![endif]-->
+<script src="/mediawiki/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=vector&amp;270"></script>
+
+</head>
+<body class="mediawiki ltr ns--1 ns-special page-Special_ListUsers skin-vector">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<!-- content -->
+		<div id="content" >
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">User list</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From ADCPortal Wiki</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<div class="mw-spcontent"><form method="get" action="/mediawiki/index.php" id="mw-listusers-form"><fieldset>
+<legend>User list</legend>
+<input type="hidden" value="Special:ListUsers" name="title" /><label for="offset">Display users starting at:</label> <input name="username" size="20" value="" id="offset" /> <label for="group">Group:</label> <select name="group" id="group"><option value="">(all)</option><option value="sysop">Administrators</option><option value="bot">Bots</option><option value="bureaucrat">Bureaucrats</option></select><br /><input name="editsOnly" type="checkbox" value="1" id="editsOnly" />&nbsp;<label for="editsOnly">Show only users with edits</label>&nbsp;<input name="creationSort" type="checkbox" value="1" id="creationSort" />&nbsp;<label for="creationSort">Sort by creation date</label><br /><input type="hidden" value="50" name="limit" /><input type="submit" value="Go" /></fieldset></form><ul><li><a href="/mediawiki/index.php?title=User:Adrian_007&amp;action=edit&amp;redlink=1" class="new" title="User:Adrian 007 (page does not exist)">Adrian 007</a> (Created on 2 January 2009 at 18:43)</li><li><a href="/mediawiki/index.php?title=User:Andyhhp&amp;action=edit&amp;redlink=1" class="new" title="User:Andyhhp (page does not exist)">Andyhhp</a> (Created on 25 February 2010 at 18:26)</li><li><a href="/mediawiki/index.php?title=User:Arnetheduck&amp;action=edit&amp;redlink=1" class="new" title="User:Arnetheduck (page does not exist)">Arnetheduck</a> ‎(<a href="/mediawiki/index.php?title=ADCPortal_Wiki:Bureaucrats&amp;action=edit&amp;redlink=1" class="new" title="ADCPortal Wiki:Bureaucrats (page does not exist)">bureaucrat</a>, <a href="/mediawiki/index.php?title=ADCPortal_Wiki:Administrators&amp;action=edit&amp;redlink=1" class="new" title="ADCPortal Wiki:Administrators (page does not exist)">administrator</a>) (Created on 13 March 2009 at 21:01)</li><li><a href="/mediawiki/index.php?title=User:Ayo&amp;action=edit&amp;redlink=1" class="new" title="User:Ayo (page does not exist)">Ayo</a> (Created on 2 July 2011 at 19:39)</li><li><a href="/mediawiki/index.php?title=User:Big_Muscle&amp;action=edit&amp;redlink=1" class="new" title="User:Big Muscle (page does not exist)">Big Muscle</a> (Created on 2 September 2009 at 09:34)</li><li><a href="/mediawiki/index.php?title=User:Blastbeat&amp;action=edit&amp;redlink=1" class="new" title="User:Blastbeat (page does not exist)">Blastbeat</a> (Created on 18 October 2008 at 05:52)</li><li><a href="/mediawiki/index.php?title=User:Catalin&amp;action=edit&amp;redlink=1" class="new" title="User:Catalin (page does not exist)">Catalin</a> ‎(<a href="/mediawiki/index.php?title=ADCPortal_Wiki:Administrators&amp;action=edit&amp;redlink=1" class="new" title="ADCPortal Wiki:Administrators (page does not exist)">administrator</a>) (Created on 11 October 2008 at 18:13)</li><li><a href="/mediawiki/index.php?title=User:Cologic&amp;action=edit&amp;redlink=1" class="new" title="User:Cologic (page does not exist)">Cologic</a> (Created on 20 February 2010 at 01:40)</li><li><a href="/wiki/User:Crise" title="User:Crise">Crise</a> ‎(<a href="/mediawiki/index.php?title=ADCPortal_Wiki:Bureaucrats&amp;action=edit&amp;redlink=1" class="new" title="ADCPortal Wiki:Bureaucrats (page does not exist)">bureaucrat</a>, <a href="/mediawiki/index.php?title=ADCPortal_Wiki:Administrators&amp;action=edit&amp;redlink=1" class="new" title="ADCPortal Wiki:Administrators (page does not exist)">administrator</a>) (Created on 12 October 2008 at 10:35)</li><li><a href="/mediawiki/index.php?title=User:CyB&amp;action=edit&amp;redlink=1" class="new" title="User:CyB (page does not exist)">CyB</a> (Created on 31 October 2008 at 12:00)</li><li><a href="/wiki/User:DarkKlor" title="User:DarkKlor">DarkKlor</a> (Created on 26 July 2009 at 10:42)</li><li><a href="/wiki/User:Dj_Offset" title="User:Dj Offset">Dj Offset</a> (Created on 12 October 2008 at 18:02)</li><li><a href="/mediawiki/index.php?title=User:DrakKlor&amp;action=edit&amp;redlink=1" class="new" title="User:DrakKlor (page does not exist)">DrakKlor</a> (Created on 3 April 2010 at 09:15)</li><li><a href="/mediawiki/index.php?title=User:En_dator&amp;action=edit&amp;redlink=1" class="new" title="User:En dator (page does not exist)">En dator</a> (Created on 16 February 2009 at 21:51)</li><li><a href="/mediawiki/index.php?title=User:Flip&amp;action=edit&amp;redlink=1" class="new" title="User:Flip (page does not exist)">Flip</a> (Created on 27 May 2011 at 22:40)</li><li><a href="/mediawiki/index.php?title=User:FlipFlop&amp;action=edit&amp;redlink=1" class="new" title="User:FlipFlop (page does not exist)">FlipFlop</a> (Created on 9 July 2009 at 12:10)</li><li><a href="/mediawiki/index.php?title=User:Iceman&amp;action=edit&amp;redlink=1" class="new" title="User:Iceman (page does not exist)">Iceman</a> (Created on 28 June 2011 at 20:28)</li><li><a href="/mediawiki/index.php?title=User:Iceman50&amp;action=edit&amp;redlink=1" class="new" title="User:Iceman50 (page does not exist)">Iceman50</a> (Created on 26 March 2011 at 22:02)</li><li><a href="/wiki/User:Johan" title="User:Johan">Johan</a> (Created on 17 October 2008 at 14:36)</li><li><a href="/mediawiki/index.php?title=User:Lanowen&amp;action=edit&amp;redlink=1" class="new" title="User:Lanowen (page does not exist)">Lanowen</a> (Created on 4 September 2011 at 22:43)</li><li><a href="/mediawiki/index.php?title=User:Ophite&amp;action=edit&amp;redlink=1" class="new" title="User:Ophite (page does not exist)">Ophite</a> (Created on 30 December 2008 at 15:09)</li><li><a href="/mediawiki/index.php?title=User:PR0Ps&amp;action=edit&amp;redlink=1" class="new" title="User:PR0Ps (page does not exist)">PR0Ps</a> (Created on 27 May 2011 at 22:23)</li><li><a href="/wiki/User:Pietry" title="User:Pietry">Pietry</a> ‎(<a href="/mediawiki/index.php?title=ADCPortal_Wiki:Bureaucrats&amp;action=edit&amp;redlink=1" class="new" title="ADCPortal Wiki:Bureaucrats (page does not exist)">bureaucrat</a>, <a href="/mediawiki/index.php?title=ADCPortal_Wiki:Administrators&amp;action=edit&amp;redlink=1" class="new" title="ADCPortal Wiki:Administrators (page does not exist)">administrator</a>) (Created on 11 October 2008 at 16:12)</li><li><a href="/mediawiki/index.php?title=User:Poy&amp;action=edit&amp;redlink=1" class="new" title="User:Poy (page does not exist)">Poy</a> (Created on 9 September 2010 at 16:43)</li><li><a href="/mediawiki/index.php?title=User:Quicksilver&amp;action=edit&amp;redlink=1" class="new" title="User:Quicksilver (page does not exist)">Quicksilver</a> (Created on 22 November 2008 at 12:03)</li><li><a href="/mediawiki/index.php?title=User:Redirect_fixer&amp;action=edit&amp;redlink=1" class="new" title="User:Redirect fixer (page does not exist)">Redirect fixer</a> (Created on 30 November 2008 at 17:11)</li><li><a href="/mediawiki/index.php?title=User:Sulan&amp;action=edit&amp;redlink=1" class="new" title="User:Sulan (page does not exist)">Sulan</a> (Created on 16 January 2009 at 20:46)</li><li><a href="/mediawiki/index.php?title=User:Tehnick&amp;action=edit&amp;redlink=1" class="new" title="User:Tehnick (page does not exist)">Tehnick</a> (Created on 4 September 2011 at 22:42)</li><li><a href="/wiki/User:Toast" title="User:Toast">Toast</a> ‎(<a href="/mediawiki/index.php?title=ADCPortal_Wiki:Bureaucrats&amp;action=edit&amp;redlink=1" class="new" title="ADCPortal Wiki:Bureaucrats (page does not exist)">bureaucrat</a>) (Created on 11 October 2008 at 07:07)</li><li><a href="/mediawiki/index.php?title=User:Ullner&amp;action=edit&amp;redlink=1" class="new" title="User:Ullner (page does not exist)">Ullner</a> ‎(<a href="/mediawiki/index.php?title=ADCPortal_Wiki:Bureaucrats&amp;action=edit&amp;redlink=1" class="new" title="ADCPortal Wiki:Bureaucrats (page does not exist)">bureaucrat</a>, <a href="/mediawiki/index.php?title=ADCPortal_Wiki:Administrators&amp;action=edit&amp;redlink=1" class="new" title="ADCPortal Wiki:Administrators (page does not exist)">administrator</a>) (Created on 4 April 2010 at 12:12)</li></ul></div><div class="printfooter">
+Retrieved from "<a href="http://www.adcportal.com/wiki/Special:ListUsers">http://www.adcportal.com/wiki/Special:ListUsers</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id='catlinks' class='catlinks catlinks-allhidden'></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		<div id="mw-head" class="noprint">
+			
+<!-- 0 -->
+<div id="p-personal" class="">
+	<h5>Personal tools</h5>
+	<ul>
+					<li  id="pt-login"><a href="/mediawiki/index.php?title=Special:UserLogin&amp;returnto=Special:ListUsers" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+			<div id="left-navigation">
+				
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>Namespaces</h5>
+	<ul>
+					<li  id="ca-special" class="selected"><a href="/wiki/Special:ListUsers" ><span>Special page</span></a></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu emptyPortlet">
+	<h5><span>Variants</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+			</div>
+			<div id="right-navigation">
+				
+<!-- 0 -->
+<div id="p-views" class="vectorTabs emptyPortlet">
+	<h5>Views</h5>
+	<ul>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>Actions</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+
+<!-- 2 -->
+<div id="p-search">
+	<h5><label for="searchInput">Search</label></h5>
+	<form action="/mediawiki/index.php" id="searchform">
+		<input type='hidden' name="title" value="Special:Search"/>
+				<input id="searchInput" name="search" type="text"  title="Search ADCPortal Wiki [f]" accesskey="f"  value="" />
+		<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />
+		<input type="submit" name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+			</form>
+</div>
+
+<!-- /2 -->
+			</div>
+		</div>
+		<!-- /header -->
+		<!-- panel -->
+			<div id="mw-panel" class="noprint">
+				<!-- logo -->
+					<div id="p-logo"><a style="background-image: url(http://www.adcportal.com/misc/wiki_logo.png);" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+				<!-- /logo -->
+				
+<!-- navigation -->
+<div class="portal" id='p-navigation'>
+	<h5>Navigation</h5>
+	<div class="body">
+				<ul>
+					<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+					<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+					<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+					<li id="n-help"><a href="/wiki/Help:Contents" title="The place to find out">Help</a></li>
+				</ul>
+			</div>
+</div>
+
+<!-- /navigation -->
+
+<!-- SEARCH -->
+
+<!-- /SEARCH -->
+
+<!-- TOOLBOX -->
+<div class="portal" id="p-tb">
+	<h5>Toolbox</h5>
+	<div class="body">
+		<ul>
+																																							<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+													</ul>
+	</div>
+</div>
+
+<!-- /TOOLBOX -->
+
+<!-- LANGUAGES -->
+
+<!-- /LANGUAGES -->
+			</div>
+		<!-- /panel -->
+		<!-- footer -->
+		<div id="footer">
+																		<ul id="footer-places">
+																	<li id="footer-places-privacy"><a href="/wiki/ADCPortal_Wiki:Privacy_policy" title="ADCPortal Wiki:Privacy policy">Privacy policy</a></li>
+																							<li id="footer-places-about"><a href="/wiki/ADCPortal_Wiki:About" title="ADCPortal Wiki:About">About ADCPortal Wiki</a></li>
+																							<li id="footer-places-disclaimer"><a href="/wiki/ADCPortal_Wiki:General_disclaimer" title="ADCPortal Wiki:General disclaimer">Disclaimers</a></li>
+															</ul>
+										<ul id="footer-icons" class="noprint">
+								<li id="footer-icon-poweredby"><a href="http://www.mediawiki.org/"><img src="/mediawiki/skins/common/images/poweredby_mediawiki_88x31.png" height="31" width="88" alt="Powered by MediaWiki" /></a></li>
+												<li id="footer-icon-copyright"><a href="http://www.gnu.org/copyleft/fdl.html"><img src="/mediawiki/skins/common/images/gnu-fdl.png" alt="GNU Free Documentation License 1.2" width="88" height="31" /></a></li>
+							</ul>
+			<div style="clear:both"></div>
+		</div>
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script>
+		<!-- /fixalpha -->
+		
+<script>if (window.runOnloadHook) runOnloadHook();</script>
+		<!-- Served in 0.501 secs. -->			</body>
+</html>
