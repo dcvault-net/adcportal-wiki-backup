@@ -24,6 +24,18 @@ META_NS = ("Special:", "User:", "User_talk:", "Help:", "Talk:", "MediaWiki:",
            "File_talk:", "Help_talk:", "Media:")
 stats = collections.Counter()
 
+REDIRECTS = (
+    "# Map original MediaWiki URLs to the static files.\n"
+    "# Colon-namespaced pages (Special:/Category:) use \"_\" in the static filename.\n"
+    "/wiki/Special:*    /Special_:splat    301\n"
+    "/wiki/Category:*   /Category_:splat   301\n"
+    "/Special:*         /Special_:splat    301\n"
+    "/Category:*        /Category_:splat   301\n"
+    "/wiki/Main_Page    /                  301\n"
+    "/wiki              /                  301\n"
+    "/wiki/*            /:splat            301\n"
+)
+
 ARCHIVE_NOTE = (
     'This is a static archive of the ADCPortal wiki. It was reconstructed from '
     'all available <a href="https://web.archive.org/">Internet Archive</a> '
@@ -195,6 +207,10 @@ shutil.copy(os.path.join(SCRATCH, "overrides.css"), os.path.join(SITE, "override
 for name, meta in filemap.items():
     out = "index.html" if name == "Main_Page" else meta["file"]
     process(os.path.join(WIKI, meta["file"]), name, out)
+
+# Cloudflare Pages redirects so the original MediaWiki URLs resolve
+with open(os.path.join(SITE, "_redirects"), "w", encoding="utf-8") as fh:
+    fh.write(REDIRECTS)
 
 print("=== original-skin build stats ===")
 for k in sorted(stats): print(f"  {stats[k]:5}  {k}")

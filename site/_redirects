@@ -1,0 +1,9 @@
+# Map original MediaWiki URLs to the static files.
+# Colon-namespaced pages (Special:/Category:) use "_" in the static filename.
+/wiki/Special:*    /Special_:splat    301
+/wiki/Category:*   /Category_:splat   301
+/Special:*         /Special_:splat    301
+/Category:*        /Category_:splat   301
+/wiki/Main_Page    /                  301
+/wiki              /                  301
+/wiki/*            /:splat            301
