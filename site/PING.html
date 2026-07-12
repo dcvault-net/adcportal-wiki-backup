@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html dir="ltr" lang="en">
+<head>
+<title>PING - ADCPortal Wiki</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="MediaWiki 1.16.0" name="generator"/>
+
+
+<link href="/mediawiki/index.php?title=PING&amp;action=creativecommons" rel="meta" title="Creative Commons" type="application/rdf+xml"/>
+<link href="http://www.gnu.org/copyleft/fdl.html" rel="copyright"/>
+
+
+
+
+
+
+
+
+
+
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/mediawiki/skins/vector/csshover.htc")}</style><![endif]-->
+
+<link href="mediawiki/skins/vector/main-ltr.css" media="screen" rel="stylesheet"/><link href="mediawiki/skins/common/shared.css" media="screen" rel="stylesheet"/><link href="mediawiki/site-common.css" media="all" rel="stylesheet"/><link href="mediawiki/site-vector.css" media="all" rel="stylesheet"/><link href="mediawiki/gen.css" media="all" rel="stylesheet"/><link href="overrides.css" media="all" rel="stylesheet"/></head>
+<body class="mediawiki ltr ns-0 ns-subject page-PING skin-vector">
+<div class="noprint" id="mw-page-base"></div>
+<div class="noprint" id="mw-head-base"></div>
+<!-- content -->
+<div id="content">
+<a id="top"></a>
+<div id="mw-js-message" style="display:none;"></div>
+<!-- firstHeading -->
+<h1 class="firstHeading" id="firstHeading">PING</h1>
+<!-- /firstHeading -->
+<!-- bodyContent -->
+<div id="bodyContent">
+<!-- tagline -->
+<h3 id="siteSub">From ADCPortal Wiki</h3>
+<!-- /tagline -->
+<!-- subtitle -->
+<div id="contentSub"></div>
+<!-- /subtitle -->
+<!-- jumpto -->
+<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+</div>
+<!-- /jumpto -->
+<!-- bodytext -->
+<table cellspacing="5" class="infobox vevent" style="width: 22em; text-align: left; font-size: 88%; line-height: 1.5em;"><caption class="summary" style="font-size: 125%; font-weight: bold;">PING</caption>
+<tr><th style="">Inclusion date</th><td class="" style="">1.0, <small><span class="bday">2008-05-03</span><span class="noprint">; 1223 days ago</span></small></td></tr><tr><th style="">Created by</th><td class="" style=""><a class="archived-inert" href="#" title="Page not archived">Pietry</a></td></tr><tr><th style="">Contributers</th><td class="" style="">Catalin</td></tr>
+</table>
+<p>This extension can be supported by both clients and hubs, and when present, if hub
+supports it, it must send additional information to the client (otherwise normal
+base client).<sup class="reference" id="cite_ref-0"><a href="#cite_note-0">[1]</a></sup>
+</p><p>It's purpose is to send to hublist pingers additional information about the hub
+that otherwise it would be impossible to get as a normal user (eg. minimum share, maximum user count, etc).
+</p>
+<div class="table-scroll"><table class="toc" id="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#INF"><span class="tocnumber">1</span> <span class="toctext">INF</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Example"><span class="tocnumber">1.1</span> <span class="toctext">Example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-2"><a href="#Hub_-_Hublist_communication"><span class="tocnumber">2</span> <span class="toctext">Hub - Hublist communication</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Example_2"><span class="tocnumber">2.1</span> <span class="toctext">Example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="#References"><span class="tocnumber">3</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Links"><span class="tocnumber">4</span> <span class="toctext">Links</span></a></li>
+<li class="toclevel-1"><a href="#See_Also"><span class="tocnumber">5</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</td></tr></table></div>
+<h4> <span class="mw-headline" id="INF"> INF  </span></h4>
+<hr/>
+<p>Contexts : F
+</p><p>When the client supporting the PING extension connects, the hub must send its
+normal INF along with the following added fields (none mandatory, if not present,
+it means hub has no restrictions in that matter, or non existent):
+</p><p>[separator="|"]
+</p>
+<div class="table-scroll"><table border="0" class="wikitable">
+<tr>
+<th> Code
+</th><th> Type
+</th><th> Description
+</th></tr>
+<tr>
+<td> HH
+</td><td> string
+</td><td> Hub Host address (DNS or IP)
+</td></tr>
+<tr>
+<td> WS
+</td><td> url
+</td><td> Hub Website
+</td></tr>
+<tr>
+<td> NE
+</td><td> string
+</td><td> Hub Network
+</td></tr>
+<tr>
+<td> OW
+</td><td> string
+</td><td> Hub Owner name
+</td></tr>
+<tr>
+<td> UC
+</td><td> integer
+</td><td> Current User count
+</td></tr>
+<tr>
+<td> SS
+</td><td> integer
+</td><td> Total share size
+</td></tr>
+<tr>
+<td> SF
+</td><td> integer
+</td><td> Total files shared
+</td></tr>
+<tr>
+<td> MS
+</td><td> integer
+</td><td> Minimum share required to enter hub (bytes)
+</td></tr>
+<tr>
+<td> XS
+</td><td> integer
+</td><td> Maximum share for entering hub (bytes)
+</td></tr>
+<tr>
+<td> ML
+</td><td> integer
+</td><td> Minimum slots required to enter hub
+</td></tr>
+<tr>
+<td> XL
+</td><td> integer
+</td><td> Maximum slots for entering hub
+</td></tr>
+<tr>
+<td> MU
+</td><td> integer
+</td><td> Minimum hubs connected where clients can be users
+</td></tr>
+<tr>
+<td> MR
+</td><td> integer
+</td><td> Minimum hubs connected where client can be registered
+</td></tr>
+<tr>
+<td> MO
+</td><td> integer
+</td><td> Minimum hubs connected where client can be operators
+</td></tr>
+<tr>
+<td> XU
+</td><td> integer
+</td><td> Maximum hubs connected where clients can be users
+</td></tr>
+<tr>
+<td> XR
+</td><td> integer
+</td><td> Maximum hubs connected where client can be registered
+</td></tr>
+<tr>
+<td> XO
+</td><td> integer
+</td><td> Maximum hubs connected where client can be operators
+</td></tr>
+<tr>
+<td> MC
+</td><td> integer
+</td><td> Maximum possible clients (users) who can connect
+</td></tr>
+<tr>
+<td> UP
+</td><td> integer
+</td><td> Hub uptime (seconds)
+</td></tr>
+<tr>
+<td> NI
+</td><td> string
+</td><td> Hub name (from BASE)
+</td></tr>
+<tr>
+<td> DE
+</td><td> string
+</td><td> Hub description (from BASE)
+</td></tr>
+<tr>
+<td> VE
+</td><td> string
+</td><td> Hub software version (from BASE)
+</td></tr>
+</table></div>
+<p>The hub must continue to send the user list as for a normal user (move to
+NORMAL state). The pinger may decide to go through or disconnect (eg. if it
+doesn't require additional information about the users).
+</p>
+<h5> <span class="mw-headline" id="Example"> Example </span></h5>
+<pre>-pinger- HSUP ADBASE ADPING AD..
+-hub- ISUP ADBASE ADPING AD..
+-hub- ISID ..
+-hub- IINF NIhubname DEcurrent\stopic VE.. HHmyhub.no-ip.org:555 WShttp://myhub.no-ip.org/ OWmyname UC2231 SS.. SF.. MS0 ML0 MC5000
+- (pinger may disconnect)
+-..
+</pre>
+<p><br/>
+</p>
+<h4> <span class="mw-headline" id="Hub_-_Hublist_communication"> Hub - Hublist communication </span></h4>
+<hr/>
+<p>The same extension goes for hub- hublist communication. This way, the hub
+takes the role of the client and the hublist of the server.
+</p><p>The hublist may send INF about itself with NI field which would become hublist
+name and WS hublist web address.
+</p>
+<h5> <span class="mw-headline" id="Example_2"> Example </span></h5>
+<pre>-hub- HSUP ADBASE ADPING AD..
+-hublist- ISUP ADBASE ADPING AD..
+-hublist- IINF NIhublist_name WShublist_address
+-hub- HINF  NIhubname DEcurrent\stopic VE.. HHmyhub.no-ip.org:555 WShttp://myhub.no-ip.org/ OWmyname UC2231 SS.. SF.. MS0 ML0 MC5000
+-(disconnect)
+</pre>
+<h2> <span class="mw-headline" id="References">References</span></h2>
+<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> <a class="external text" href="http://dcpp.wordpress.com/2008/04/14/ping-extension-the-first-to-go-wild/" rel="nofollow">Ping Extension the first to go wild by Pietry (Apr 14, 2008)</a></li></ol>
+<h2> <span class="mw-headline" id="Links"> Links </span></h2>
+<ul><li><a class="external text" href="http://adc.svn.sourceforge.net/viewvc/adc/trunk/ADC-EXT.txt?view=log" rel="nofollow">Sourceforge Project: ADC - SVN Repository</a>
+</li><li> <a class="external text" href="https://launchpad.net/embla" rel="nofollow">Ping Library in Java (Embla)</a>
+</li></ul>
+<h2> <span class="mw-headline" id="See_Also"> See Also </span></h2>
+<!-- 
+NewPP limit report
+Preprocessor node count: 1104/1000000
+Post-expand include size: 3077/2097152 bytes
+Template argument size: 809/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<!-- Saved in parser cache with key a250657_wiki:pcache:idhash:25-0!1!0!!en!2!edit=0 and timestamp 20110908210329 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.adcportal.com/wiki/PING">http://www.adcportal.com/wiki/PING</a>"</div>
+<!-- /bodytext -->
+<!-- catlinks -->
+<div class="catlinks" id="catlinks"><div id="mw-normal-catlinks"><a class="archived-inert" href="#" title="Page not archived">Category</a>: <span dir="ltr"><a href="Category_Protocol.html">Protocol</a></span></div></div> <!-- /catlinks -->
+<div class="visualClear"></div>
+</div>
+<!-- /bodyContent -->
+</div>
+<!-- /content -->
+<!-- header -->
+<div class="noprint" id="mw-head">
+<!-- 0 -->
+<div class="" id="p-personal">
+<h5>Personal tools</h5>
+<ul>
+<li id="pt-login"><a accesskey="o" class="archived-inert" href="#" title="Not available in this archive">Log in</a></li>
+</ul>
+</div>
+<!-- /0 -->
+<div id="left-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-namespaces">
+<h5>Namespaces</h5>
+<ul>
+<li class="selected" id="ca-nstab-main"><a accesskey="c" href="PING.html"><span>Page</span></a></li>
+<li class="new" id="ca-talk"><a accesskey="t" class="archived-inert" href="#" title="Not available in this archive"><span>Discussion</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-variants">
+<h5><span>Variants</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+</div>
+<div id="right-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-views">
+<h5>Views</h5>
+<ul>
+<li class="selected" id="ca-view"><a href="PING.html"><span>Read</span></a></li>
+<li id="ca-viewsource"><a accesskey="e" class="archived-inert" href="#" title="Not available in this archive"><span>View source</span></a></li>
+<li class="collapsible" id="ca-history"><a accesskey="h" class="archived-inert" href="#" title="Not available in this archive"><span>View history</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-cactions">
+<h5><span>Actions</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+<!-- 2 -->
+<div id="p-search">
+<h5><label for="searchInput">Search</label></h5>
+<form action="#" id="searchform" onsubmit="return false">
+<input name="title" type="hidden" value="Special:Search"/>
+<input accesskey="f" id="searchInput" name="search" title="Search ADCPortal Wiki [f]" type="text" value=""/>
+<input class="searchButton" id="searchGoButton" name="go" title="Go to a page with this exact name if exists" type="submit" value="Go"/>
+<input class="searchButton" id="mw-searchButton" name="fulltext" title="Search the pages for this text" type="submit" value="Search"/>
+</form>
+</div>
+<!-- /2 -->
+</div>
+</div>
+<!-- /header -->
+<!-- panel -->
+<div class="noprint" id="mw-panel">
+<!-- logo -->
+<div id="p-logo"><a href="index.html" style="background-image: url(misc/wiki_logo.png);"></a></div>
+<!-- /logo -->
+<!-- navigation -->
+<div class="portal" id="p-navigation">
+<h5>Navigation</h5>
+<div class="body">
+<ul>
+<li id="n-mainpage-description"><a accesskey="z" href="index.html">Main page</a></li>
+<li id="n-recentchanges"><a accesskey="r" class="archived-inert" href="#" title="Page not archived">Recent changes</a></li>
+<li id="n-randompage"><a accesskey="x" class="archived-inert" href="#" title="Page not archived">Random page</a></li>
+<li id="n-help"><a class="archived-inert" href="#" title="Page not archived">Help</a></li>
+</ul>
+</div>
+</div>
+<!-- /navigation -->
+<!-- SEARCH -->
+<!-- /SEARCH -->
+<!-- TOOLBOX -->
+<div class="portal" id="p-tb">
+<h5>Toolbox</h5>
+<div class="body">
+<ul>
+<li id="t-whatlinkshere"><a accesskey="j" class="archived-inert" href="#" title="Page not archived">What links here</a></li>
+<li id="t-recentchangeslinked"><a accesskey="k" class="archived-inert" href="#" title="Page not archived">Related changes</a></li>
+<li id="t-specialpages"><a accesskey="q" class="archived-inert" href="#" title="Page not archived">Special pages</a></li>
+<li id="t-print"><a accesskey="p" class="archived-inert" href="#" rel="alternate" title="Not available in this archive">Printable version</a></li>
+<li id="t-permalink"><a class="archived-inert" href="#" title="Not available in this archive">Permanent link</a></li>
+</ul>
+</div>
+</div>
+<!-- /TOOLBOX -->
+<!-- LANGUAGES -->
+<!-- /LANGUAGES -->
+</div>
+<!-- /panel -->
+<!-- footer -->
+<div id="footer"><div class="archive-note">This is a static archive of the ADCPortal wiki. It was reconstructed from all available <a href="https://web.archive.org/">Internet Archive</a> snapshots and merged into the most complete version possible. Links to pages that were never captured by the archive are shown in <span class="na">red</span> and cannot be opened.</div>
+<ul id="footer-info">
+<li id="footer-info-lastmod"> This page was last modified on 13 January 2011, at 18:03.</li>
+<li id="footer-info-viewcount">This page has been accessed 2,514 times.</li>
+<li id="footer-info-copyright">Content is available under <a class="external" href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.2</a>.</li>
+</ul>
+<ul id="footer-places">
+<li id="footer-places-privacy"><a class="archived-inert" href="#" title="Page not archived">Privacy policy</a></li>
+<li id="footer-places-about"><a class="archived-inert" href="#" title="Page not archived">About ADCPortal Wiki</a></li>
+<li id="footer-places-disclaimer"><a class="archived-inert" href="#" title="Page not archived">Disclaimers</a></li>
+</ul>
+<ul class="noprint" id="footer-icons">
+<li id="footer-icon-poweredby"><a href="http://www.mediawiki.org/"><img alt="Powered by MediaWiki" height="31" src="mediawiki/skins/common/images/poweredby_mediawiki_88x31.png" width="88"/></a></li>
+<li id="footer-icon-copyright"><a href="http://www.gnu.org/copyleft/fdl.html"><img alt="GNU Free Documentation License 1.2" height="31" src="mediawiki/skins/common/images/gnu-fdl.png" width="88"/></a></li>
+</ul>
+<div style="clear:both"></div>
+</div>
+<!-- /footer -->
+<!-- fixalpha -->
+
+<!-- /fixalpha -->
+
+<!-- Served in 0.694 secs. --> </body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html dir="ltr" lang="en">
+<head>
+<title>UCMD - User Commands - ADCPortal Wiki</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="MediaWiki 1.16.0" name="generator"/>
+
+
+<link href="/mediawiki/index.php?title=UCMD_-_User_Commands&amp;action=creativecommons" rel="meta" title="Creative Commons" type="application/rdf+xml"/>
+<link href="http://www.gnu.org/copyleft/fdl.html" rel="copyright"/>
+
+
+
+
+
+
+
+
+
+
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/mediawiki/skins/vector/csshover.htc")}</style><![endif]-->
+
+<link href="mediawiki/skins/vector/main-ltr.css" media="screen" rel="stylesheet"/><link href="mediawiki/skins/common/shared.css" media="screen" rel="stylesheet"/><link href="mediawiki/site-common.css" media="all" rel="stylesheet"/><link href="mediawiki/site-vector.css" media="all" rel="stylesheet"/><link href="mediawiki/gen.css" media="all" rel="stylesheet"/><link href="overrides.css" media="all" rel="stylesheet"/></head>
+<body class="mediawiki ltr ns-0 ns-subject page-UCMD_-_User_Commands skin-vector">
+<div class="noprint" id="mw-page-base"></div>
+<div class="noprint" id="mw-head-base"></div>
+<!-- content -->
+<div id="content">
+<a id="top"></a>
+<div id="mw-js-message" style="display:none;"></div>
+<!-- firstHeading -->
+<h1 class="firstHeading" id="firstHeading">UCMD - User Commands</h1>
+<!-- /firstHeading -->
+<!-- bodyContent -->
+<div id="bodyContent">
+<!-- tagline -->
+<h3 id="siteSub">From ADCPortal Wiki</h3>
+<!-- /tagline -->
+<!-- subtitle -->
+<div id="contentSub"></div>
+<!-- /subtitle -->
+<!-- jumpto -->
+<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+</div>
+<!-- /jumpto -->
+<!-- bodytext -->
+<table cellspacing="5" class="infobox vevent" style="width: 22em; text-align: left; font-size: 88%; line-height: 1.5em;"><caption class="summary" style="font-size: 125%; font-weight: bold;">UCMD</caption>
+<tr><th style="">Inclusion date</th><td class="" style="">1.0.2, <small><span class="bday">2010-04-04</span><span class="noprint">; 522 days ago</span></small></td></tr><tr><th style="">Updated in</th><td class="" style="">1.0.4, <small><span class="bday">2010-08-29</span><span class="noprint">; 375 days ago</span></small><br/>1.0.5, <small><span class="bday">2010-09-16</span><span class="noprint">; 357 days ago</span></small></td></tr><tr><th style="">Created by</th><td class="" style="">arnetheduck</td></tr><tr><th style="">Contributers</th><td class="" style=""><a class="archived-inert" href="#" title="Page not archived">darkKlor</a></td></tr>
+</table>
+<p><br/>
+</p>
+<div class="table-scroll"><table class="toc" id="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#General"><span class="tocnumber">1</span> <span class="toctext">General</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Changes_to_the_protocol"><span class="tocnumber">2</span> <span class="toctext">Changes to the protocol</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example"><span class="tocnumber">3</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#See_Also"><span class="tocnumber">4</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</td></tr></table></div>
+<h3> <span class="mw-headline" id="General"> General </span></h3>
+<p>User commands are used to send hub-specific commands to the client which provide useful shortcuts for the user. These commands contain strings which must be sent back to the hub and keyword substitutions in the strings. Each user command has a display name, a string to be sent to the hub, and one or more categories where it may appear. The strings passed to the hub must first be passed through a dictionary replacement that replaces all keywords in the string and then through the equivalent of the C standard function "strftime", with the current time.
+</p>
+<h3> <span class="mw-headline" id="Changes_to_the_protocol"> Changes to the protocol </span></h3>
+<p>CMD
+</p>
+<pre>   CMD name
+</pre>
+<p>Context: F
+</p><p>Name uniquely (per hub) identifies a particular user command. The name may contain "/" to indicate a logical structure on the viewing client, where each "/" introduces a new submenu level. Other than name, the command also has a number of flags that further detail what to do with it.
+</p>
+<pre>RM | 1 = Remove command 
+</pre>
+<pre>CT | Message category, 
+ 1 = Hub command, client parameters only, 
+ 2 = User list command, client and user parameters, 
+ 4 = Search result command, client, user and file parameters, 
+ 8 = File list command, client, user and file parameters. 
+Multiple categories are specified by adding the numbers together. 
+</pre>
+<pre>TT | The full text to be sent to hub, including FOURCC, parameters and keywords.
+</pre>
+<pre>CO | 1 = Constrained, when sending this command on multiple users (for example in search results), constrain it to once per CID only 
+</pre>
+<pre>SP | 1 = Insert separator instead of command name (name must still be present to uniquely identify the command).
+</pre>
+<p>Keywords are specified using "%[keyword]". Unknown keywords must be replaced by the empty string. Additionally, all %-substitutions of the C function "strftime" must be supported.
+</p><p>The following tables specify the keywords that <b>must be supported</b>.
+</p><p>Client parameters
+</p>
+<pre>myCID | Client <a href="ADC_Protocol.html#Client_ID">CID</a> 
+mySID | Client <a href="ADC_Protocol.html#Session_ID">SID</a> 
+myXX | One for each flag on that particular hub; for example, myI4 and myNI
+</pre>
+<p>User parameters
+</p>
+<pre>userCID | User <a href="ADC_Protocol.html#Client_ID">CID</a>
+userSID | <a href="ADC_Protocol.html#Session_ID">SID</a> of the user 
+userXX | One for each flag the user sent; for example, userI4 and userNI
+</pre>
+<p>File parameters
+</p>
+<pre>fileXX | One for each flag contained within a search result or file list entry (see <a href="ADC_Protocol.html#RES">RES</a>)
+fileMN | Specify magnet link. <a class="external text" href="http://en.wikipedia.org/wiki/Magnet_link" rel="nofollow">Magnet links</a> are used to reference files across networks and applications. 
+         Clients may ignore parameters it does not understand, but are free to pass on the parameters to other programs.
+</pre>
+<p>Hub parameters
+</p>
+<pre>hubXX | One for each flag of the hub; for example, hubNI and hubVE
+</pre>
+<p>The following tables specify the keywords that are <b>optional</b>.
+</p><p>User parameters
+</p>
+<pre>line:info | Prompts the user for input where info is the displayed text description for the user input. info can be used for 
+            multiple values (combobox etc), and should be structured as "general info/default selection/value0/value1/…/valueN". 
+            The general info can be viewed as the caption of the user input dialog. Default selection is an integer k which signifies 
+            the default value to be used. Note that N &gt;= k &gt;= 0 and N &gt;= 1. Note that values are 0-index based. Values are separated 
+            with a forward slash (/). If a forward slash is part of a value, it should be escaped by using an additional forward slash (//).
+</pre>
+<h3> <span class="mw-headline" id="Example"> Example </span></h3>
+<p>Here are some examples of UCMD commands sent by the hub to the client:
+</p>
+<pre> ICMD ADCH++/Hub\smanagement/Register\snick TTHMSG\s+regnick\\s%[userNI]\\s%[line:Password\\s(leave\\sempty\\sto\\sun-reg)]\\s%[line:Level\\s(facultative;\\sdefaults\\sto\\syour\\sown\\slevel\\sminus\\sone)]\n CT2
+ ICMD ADCH++/Hub\smanagement/Reload\sbans TTHMSG\s+loadbans\n CT3
+ ICMD ADCH++/Hub\smanagement/Reload\sscripts TTHMSG\s+reload\n CT3
+ ICMD ADCH++/Info TTHMSG\s+info\\s%[userNI]\n CT2
+ ICMD ADCH++/Info TTHMSG\s+info\n CT1
+</pre>
+<h2> <span class="mw-headline" id="See_Also"> See Also </span></h2>
+<!-- 
+NewPP limit report
+Preprocessor node count: 1697/1000000
+Post-expand include size: 5531/2097152 bytes
+Template argument size: 2100/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<!-- Saved in parser cache with key a250657_wiki:pcache:idhash:58-0!1!0!!en!2!edit=0 and timestamp 20110908185812 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.adcportal.com/wiki/UCMD_-_User_Commands">http://www.adcportal.com/wiki/UCMD_-_User_Commands</a>"</div>
+<!-- /bodytext -->
+<!-- catlinks -->
+<div class="catlinks" id="catlinks"><div id="mw-normal-catlinks"><a class="archived-inert" href="#" title="Page not archived">Category</a>: <span dir="ltr"><a href="Category_Protocol.html">Protocol</a></span></div></div> <!-- /catlinks -->
+<div class="visualClear"></div>
+</div>
+<!-- /bodyContent -->
+</div>
+<!-- /content -->
+<!-- header -->
+<div class="noprint" id="mw-head">
+<!-- 0 -->
+<div class="" id="p-personal">
+<h5>Personal tools</h5>
+<ul>
+<li id="pt-login"><a accesskey="o" class="archived-inert" href="#" title="Not available in this archive">Log in</a></li>
+</ul>
+</div>
+<!-- /0 -->
+<div id="left-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-namespaces">
+<h5>Namespaces</h5>
+<ul>
+<li class="selected" id="ca-nstab-main"><a accesskey="c" href="UCMD_-_User_Commands.html"><span>Page</span></a></li>
+<li class="new" id="ca-talk"><a accesskey="t" class="archived-inert" href="#" title="Not available in this archive"><span>Discussion</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-variants">
+<h5><span>Variants</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+</div>
+<div id="right-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-views">
+<h5>Views</h5>
+<ul>
+<li class="selected" id="ca-view"><a href="UCMD_-_User_Commands.html"><span>Read</span></a></li>
+<li id="ca-viewsource"><a accesskey="e" class="archived-inert" href="#" title="Not available in this archive"><span>View source</span></a></li>
+<li class="collapsible" id="ca-history"><a accesskey="h" class="archived-inert" href="#" title="Not available in this archive"><span>View history</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-cactions">
+<h5><span>Actions</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+<!-- 2 -->
+<div id="p-search">
+<h5><label for="searchInput">Search</label></h5>
+<form action="#" id="searchform" onsubmit="return false">
+<input name="title" type="hidden" value="Special:Search"/>
+<input accesskey="f" id="searchInput" name="search" title="Search ADCPortal Wiki [f]" type="text" value=""/>
+<input class="searchButton" id="searchGoButton" name="go" title="Go to a page with this exact name if exists" type="submit" value="Go"/>
+<input class="searchButton" id="mw-searchButton" name="fulltext" title="Search the pages for this text" type="submit" value="Search"/>
+</form>
+</div>
+<!-- /2 -->
+</div>
+</div>
+<!-- /header -->
+<!-- panel -->
+<div class="noprint" id="mw-panel">
+<!-- logo -->
+<div id="p-logo"><a href="index.html" style="background-image: url(misc/wiki_logo.png);"></a></div>
+<!-- /logo -->
+<!-- navigation -->
+<div class="portal" id="p-navigation">
+<h5>Navigation</h5>
+<div class="body">
+<ul>
+<li id="n-mainpage-description"><a accesskey="z" href="index.html">Main page</a></li>
+<li id="n-recentchanges"><a accesskey="r" class="archived-inert" href="#" title="Page not archived">Recent changes</a></li>
+<li id="n-randompage"><a accesskey="x" class="archived-inert" href="#" title="Page not archived">Random page</a></li>
+<li id="n-help"><a class="archived-inert" href="#" title="Page not archived">Help</a></li>
+</ul>
+</div>
+</div>
+<!-- /navigation -->
+<!-- SEARCH -->
+<!-- /SEARCH -->
+<!-- TOOLBOX -->
+<div class="portal" id="p-tb">
+<h5>Toolbox</h5>
+<div class="body">
+<ul>
+<li id="t-whatlinkshere"><a accesskey="j" class="archived-inert" href="#" title="Page not archived">What links here</a></li>
+<li id="t-recentchangeslinked"><a accesskey="k" class="archived-inert" href="#" title="Page not archived">Related changes</a></li>
+<li id="t-specialpages"><a accesskey="q" class="archived-inert" href="#" title="Page not archived">Special pages</a></li>
+<li id="t-print"><a accesskey="p" class="archived-inert" href="#" rel="alternate" title="Not available in this archive">Printable version</a></li>
+<li id="t-permalink"><a class="archived-inert" href="#" title="Not available in this archive">Permanent link</a></li>
+</ul>
+</div>
+</div>
+<!-- /TOOLBOX -->
+<!-- LANGUAGES -->
+<!-- /LANGUAGES -->
+</div>
+<!-- /panel -->
+<!-- footer -->
+<div id="footer"><div class="archive-note">This is a static archive of the ADCPortal wiki. It was reconstructed from all available <a href="https://web.archive.org/">Internet Archive</a> snapshots and merged into the most complete version possible. Links to pages that were never captured by the archive are shown in <span class="na">red</span> and cannot be opened.</div>
+<ul id="footer-info">
+<li id="footer-info-lastmod"> This page was last modified on 13 January 2011, at 18:05.</li>
+<li id="footer-info-viewcount">This page has been accessed 2,311 times.</li>
+<li id="footer-info-copyright">Content is available under <a class="external" href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.2</a>.</li>
+</ul>
+<ul id="footer-places">
+<li id="footer-places-privacy"><a class="archived-inert" href="#" title="Page not archived">Privacy policy</a></li>
+<li id="footer-places-about"><a class="archived-inert" href="#" title="Page not archived">About ADCPortal Wiki</a></li>
+<li id="footer-places-disclaimer"><a class="archived-inert" href="#" title="Page not archived">Disclaimers</a></li>
+</ul>
+<ul class="noprint" id="footer-icons">
+<li id="footer-icon-poweredby"><a href="http://www.mediawiki.org/"><img alt="Powered by MediaWiki" height="31" src="mediawiki/skins/common/images/poweredby_mediawiki_88x31.png" width="88"/></a></li>
+<li id="footer-icon-copyright"><a href="http://www.gnu.org/copyleft/fdl.html"><img alt="GNU Free Documentation License 1.2" height="31" src="mediawiki/skins/common/images/gnu-fdl.png" width="88"/></a></li>
+</ul>
+<div style="clear:both"></div>
+</div>
+<!-- /footer -->
+<!-- fixalpha -->
+
+<!-- /fixalpha -->
+
+<!-- Served in 0.255 secs. --> </body>
+</html>

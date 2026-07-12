@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html dir="ltr" lang="en">
+<head>
+<title>DC++ - ADCPortal Wiki</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="MediaWiki 1.16.0" name="generator"/>
+
+
+<link href="/mediawiki/index.php?title=DC%2B%2B&amp;action=creativecommons" rel="meta" title="Creative Commons" type="application/rdf+xml"/>
+<link href="http://www.gnu.org/copyleft/fdl.html" rel="copyright"/>
+
+
+
+
+
+
+
+
+
+
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/mediawiki/skins/vector/csshover.htc")}</style><![endif]-->
+
+<link href="mediawiki/skins/vector/main-ltr.css" media="screen" rel="stylesheet"/><link href="mediawiki/skins/common/shared.css" media="screen" rel="stylesheet"/><link href="mediawiki/site-common.css" media="all" rel="stylesheet"/><link href="mediawiki/site-vector.css" media="all" rel="stylesheet"/><link href="mediawiki/gen.css" media="all" rel="stylesheet"/><link href="overrides.css" media="all" rel="stylesheet"/></head>
+<body class="mediawiki ltr ns-0 ns-subject page-DC skin-vector">
+<div class="noprint" id="mw-page-base"></div>
+<div class="noprint" id="mw-head-base"></div>
+<!-- content -->
+<div id="content">
+<a id="top"></a>
+<div id="mw-js-message" style="display:none;"></div>
+<!-- firstHeading -->
+<h1 class="firstHeading" id="firstHeading">DC++</h1>
+<!-- /firstHeading -->
+<!-- bodyContent -->
+<div id="bodyContent">
+<!-- tagline -->
+<h3 id="siteSub">From ADCPortal Wiki</h3>
+<!-- /tagline -->
+<!-- subtitle -->
+<div id="contentSub"></div>
+<!-- /subtitle -->
+<!-- jumpto -->
+<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+</div>
+<!-- /jumpto -->
+<!-- bodytext -->
+<table cellspacing="5" class="infobox vevent" style="width: 22em; text-align: left; font-size: 88%; line-height: 1.5em;"><caption class="summary" style="font-size: 125%; font-weight: bold;">DC++</caption>
+<tr><td class="" colspan="2" style="text-align:center; font-size: 125%; font-weight: bold;"><img alt="DC-Logo 128.png" height="100" src="mediawiki/images/thumb/3/34/DC-Logo_128.png/100px-DC-Logo_128.png" width="100"/></td></tr><tr><td class="" colspan="2" style="text-align:center;"> <img alt="Client connected.png" height="193" src="mediawiki/images/thumb/e/ee/Client_connected.png/265px-Client_connected.png" width="265"/> <br/>
+<span style="">DC++ 0.777 running in Windows 7</span></td></tr><tr><th style="">Developed by</th><td class="" style="">Jacek Sieka</td></tr><tr><th style="">Initial release</th><td class="" style="">2001</td></tr><tr><th style="">Stable release</th><td class="" style=""><span class="plainlinks"><a class="external text" href="http://www.adcportal.com/mediawiki/index.php?title=Template:Latest_stable_software_release/DC%2B%2B&amp;action=edit" rel="nofollow">0.770</a></span>  <small>(<span class="bday">2010-07-05</span><span class="noprint">; 430 days ago</span>)</small></td></tr><tr><th style="">Beta release</th><td class="" style=""><span class="plainlinks"><a class="external text" href="http://www.adcportal.com/mediawiki/index.php?title=Template:Latest_preview_software_release/&amp;action=edit" rel="nofollow">0.762</a></span>  <small>(<span class="bday">2010-05-16</span><span class="noprint">; 480 days ago</span>)</small></td></tr><tr><th style="">Written in</th><td class="" style="">C++, C</td></tr><tr><th style="">Platform</th><td class="" style="">Windows</td></tr><tr><th style="">Available in</th><td class="" style="">49 languages</td></tr><tr><th style="">Type</th><td class="" style=""><a href="Client.html">Client</a></td></tr><tr><th style="">License</th><td class="" style=""><a href="GNU_GPL_2.html">GNU GPL 2</a></td></tr><tr><th style="">Website</th><td class="" style=""><a class="external text" href="http://dcplusplus.sourceforge.net/" rel="nofollow">DC++ Official Website</a><br/><a class="external text" href="https://launchpad.net/dcplusplus" rel="nofollow">DC++ Launchpad Site</a></td></tr>
+</table>
+<div class="table-scroll"><table class="toc" id="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Advantages"><span class="tocnumber">1.1</span> <span class="toctext">Advantages</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Disadvantages"><span class="tocnumber">1.2</span> <span class="toctext">Disadvantages</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Misc"><span class="tocnumber">2</span> <span class="toctext">Misc</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Links"><span class="tocnumber">3</span> <span class="toctext">Links</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Implementations"><span class="tocnumber">4</span> <span class="toctext">Implementations</span></a></li>
+</ul>
+</td></tr></table></div>
+<h2> <span class="mw-headline" id="Introduction"> Introduction </span></h2>
+<p>DC++ is the most used <a href="Client.html">client</a> for the DC networks (and ADC there is). First version was available around fall 2001. It is maintained by the ADC protocol creators so it has the latest ADC implementations and is a base for most of the other clients on the market. Also it has the biggest share on it, around 90 %. DC++ was the first ADC client (since version 0.403, <a class="archived-inert" href="#" title="Page not archived">around 2004</a>). It's also the first ADC 1.0 client (since 0.704).<br/><br/>
+</p>
+<h3> <span class="mw-headline" id="Advantages"> Advantages </span></h3>
+<hr/>
+<ul><li>Very easy to use with a familiar design and buttons/menus makes it simple for new users and old ones as well.
+</li><li>Joins multiple hubs at the same time
+</li><li>List of bookmark-like favorite hubs and users
+</li><li>Shares large files and many files per your organization scheme
+</li><li><a href="TIGR.html">TIGR</a> support for passwords, hashes and more
+</li><li>Search across all (or selected) connected hub by type, size, or name
+</li><li>Resume of downloads, with optional search for alternate sources
+</li><li>Logging options and configuration for chat, private messages, downloads, and uploads
+</li><li>Autoconfiguration of UPnP routers
+</li><li><a class="mw-redirect archived-inert" href="#" title="Page not archived">MAGNET</a> link support for linking to specific content
+</li><li>Automatic and manual download priorities
+</li><li>Saving of user's file lists for browsing and queueing
+</li><li><a href="I18n.html">Translation into other languages</a> by custom supplied gettext po language files
+</li><li>Segmented downloading
+</li><li>Having the latest in ADC technology makes it a good choice for ADC user and even better for ADC <a class="archived-inert" href="#" title="Page not archived">developer</a>
+</li><li>It's the ADC software that implements the most extensions there are for the protocol
+</li></ul>
+<h3> <span class="mw-headline" id="Disadvantages"> Disadvantages </span></h3>
+<hr/>
+<ul><li>Lack of emoticon system
+</li><li>Lack of operator tools
+</li></ul>
+<h2> <span class="mw-headline" id="Misc"> Misc </span></h2>
+<p>Software Administrator : Jacek Sieka<br/>
+Contributors: poy, Fredrik Ullner, eMTee, Todd Pederzani, and more
+</p>
+<h2> <span class="mw-headline" id="Links"> Links </span></h2>
+<ul><li><a class="external text" href="http://dcplusplus.sourceforge.net/" rel="nofollow">DC++ Official Website</a>
+</li><li><a class="external text" href="https://launchpad.net/dcplusplus" rel="nofollow">DC++ Launchpad Site</a>
+</li></ul>
+<h2> <span class="mw-headline" id="Implementations"> Implementations  </span></h2>
+<div id="textsize" style="width:100%;text-align:left;font-size:95%;">
+<div class="notice metadata" id="supportbox" style="background: #F8F8F8; border: 1px solid #DDDDDD; padding: 5px;"><span class="noimg" title="Image not archived">Application.png</span> This product has implemented the following extensions: <a href="ADCS_-_Symmetrical_Encryption_in_ADC.html">ADCS</a>,<a href="BLOM_-_Bloom_Filter.html">BLOM</a>,<a href="FS_-_Free_slots_in_client.html">FS</a>,<a href="NATT_-_NAT_traversal.html">NATT</a>,<a href="RF_-_Referrer_notification.html">RF</a>,<a href="SEGA_-_Grouping_of_file_extensions_in_SCH.html">SEGA</a>,<a href="TIGR.html">TIGR</a>,<a href="UCMD.html">UCMD</a></div></div>
+<!-- 
+NewPP limit report
+Preprocessor node count: 1613/1000000
+Post-expand include size: 13469/2097152 bytes
+Template argument size: 3239/2097152 bytes
+Expensive parser function count: 2/100
+-->
+<!-- Saved in parser cache with key a250657_wiki:pcache:idhash:28-0!1!0!!en!2!edit=0 and timestamp 20110908190611 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.adcportal.com/wiki/DC%2B%2B">http://www.adcportal.com/wiki/DC%2B%2B</a>"</div>
+<!-- /bodytext -->
+<!-- catlinks -->
+<div class="catlinks" id="catlinks"><div id="mw-normal-catlinks"><a class="archived-inert" href="#" title="Page not archived">Categories</a>: <span dir="ltr"><a href="Category_Software.html">Software</a></span> | <span dir="ltr"><a class="archived-inert" href="#" title="Page not archived">GNU GPL 2 Software</a></span></div></div> <!-- /catlinks -->
+<div class="visualClear"></div>
+</div>
+<!-- /bodyContent -->
+</div>
+<!-- /content -->
+<!-- header -->
+<div class="noprint" id="mw-head">
+<!-- 0 -->
+<div class="" id="p-personal">
+<h5>Personal tools</h5>
+<ul>
+<li id="pt-login"><a accesskey="o" class="archived-inert" href="#" title="Not available in this archive">Log in</a></li>
+</ul>
+</div>
+<!-- /0 -->
+<div id="left-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-namespaces">
+<h5>Namespaces</h5>
+<ul>
+<li class="selected" id="ca-nstab-main"><a accesskey="c" href="DC++.html"><span>Page</span></a></li>
+<li class="new" id="ca-talk"><a accesskey="t" class="archived-inert" href="#" title="Not available in this archive"><span>Discussion</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-variants">
+<h5><span>Variants</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+</div>
+<div id="right-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-views">
+<h5>Views</h5>
+<ul>
+<li class="selected" id="ca-view"><a href="DC++.html"><span>Read</span></a></li>
+<li id="ca-viewsource"><a accesskey="e" class="archived-inert" href="#" title="Not available in this archive"><span>View source</span></a></li>
+<li class="collapsible" id="ca-history"><a accesskey="h" class="archived-inert" href="#" title="Not available in this archive"><span>View history</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-cactions">
+<h5><span>Actions</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+<!-- 2 -->
+<div id="p-search">
+<h5><label for="searchInput">Search</label></h5>
+<form action="#" id="searchform" onsubmit="return false">
+<input name="title" type="hidden" value="Special:Search"/>
+<input accesskey="f" id="searchInput" name="search" title="Search ADCPortal Wiki [f]" type="text" value=""/>
+<input class="searchButton" id="searchGoButton" name="go" title="Go to a page with this exact name if exists" type="submit" value="Go"/>
+<input class="searchButton" id="mw-searchButton" name="fulltext" title="Search the pages for this text" type="submit" value="Search"/>
+</form>
+</div>
+<!-- /2 -->
+</div>
+</div>
+<!-- /header -->
+<!-- panel -->
+<div class="noprint" id="mw-panel">
+<!-- logo -->
+<div id="p-logo"><a href="index.html" style="background-image: url(misc/wiki_logo.png);"></a></div>
+<!-- /logo -->
+<!-- navigation -->
+<div class="portal" id="p-navigation">
+<h5>Navigation</h5>
+<div class="body">
+<ul>
+<li id="n-mainpage-description"><a accesskey="z" href="index.html">Main page</a></li>
+<li id="n-recentchanges"><a accesskey="r" class="archived-inert" href="#" title="Page not archived">Recent changes</a></li>
+<li id="n-randompage"><a accesskey="x" class="archived-inert" href="#" title="Page not archived">Random page</a></li>
+<li id="n-help"><a class="archived-inert" href="#" title="Page not archived">Help</a></li>
+</ul>
+</div>
+</div>
+<!-- /navigation -->
+<!-- SEARCH -->
+<!-- /SEARCH -->
+<!-- TOOLBOX -->
+<div class="portal" id="p-tb">
+<h5>Toolbox</h5>
+<div class="body">
+<ul>
+<li id="t-whatlinkshere"><a accesskey="j" class="archived-inert" href="#" title="Page not archived">What links here</a></li>
+<li id="t-recentchangeslinked"><a accesskey="k" class="archived-inert" href="#" title="Page not archived">Related changes</a></li>
+<li id="t-specialpages"><a accesskey="q" class="archived-inert" href="#" title="Page not archived">Special pages</a></li>
+<li id="t-print"><a accesskey="p" class="archived-inert" href="#" rel="alternate" title="Not available in this archive">Printable version</a></li>
+<li id="t-permalink"><a class="archived-inert" href="#" title="Not available in this archive">Permanent link</a></li>
+</ul>
+</div>
+</div>
+<!-- /TOOLBOX -->
+<!-- LANGUAGES -->
+<!-- /LANGUAGES -->
+</div>
+<!-- /panel -->
+<!-- footer -->
+<div id="footer"><div class="archive-note">This is a static archive of the ADCPortal wiki. It was reconstructed from all available <a href="https://web.archive.org/">Internet Archive</a> snapshots and merged into the most complete version possible. Links to pages that were never captured by the archive are shown in <span class="na">red</span> and cannot be opened.</div>
+<ul id="footer-info">
+<li id="footer-info-lastmod"> This page was last modified on 21 August 2011, at 16:54.</li>
+<li id="footer-info-viewcount">This page has been accessed 3,349 times.</li>
+<li id="footer-info-copyright">Content is available under <a class="external" href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.2</a>.</li>
+</ul>
+<ul id="footer-places">
+<li id="footer-places-privacy"><a class="archived-inert" href="#" title="Page not archived">Privacy policy</a></li>
+<li id="footer-places-about"><a class="archived-inert" href="#" title="Page not archived">About ADCPortal Wiki</a></li>
+<li id="footer-places-disclaimer"><a class="archived-inert" href="#" title="Page not archived">Disclaimers</a></li>
+</ul>
+<ul class="noprint" id="footer-icons">
+<li id="footer-icon-poweredby"><a href="http://www.mediawiki.org/"><img alt="Powered by MediaWiki" height="31" src="mediawiki/skins/common/images/poweredby_mediawiki_88x31.png" width="88"/></a></li>
+<li id="footer-icon-copyright"><a href="http://www.gnu.org/copyleft/fdl.html"><img alt="GNU Free Documentation License 1.2" height="31" src="mediawiki/skins/common/images/gnu-fdl.png" width="88"/></a></li>
+</ul>
+<div style="clear:both"></div>
+</div>
+<!-- /footer -->
+<!-- fixalpha -->
+
+<!-- /fixalpha -->
+
+<!-- Served in 0.784 secs. --> </body>
+</html>

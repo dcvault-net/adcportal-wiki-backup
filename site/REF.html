@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html dir="ltr" lang="en">
+<head>
+<title>RF - Referrer notification - ADCPortal Wiki</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="MediaWiki 1.16.0" name="generator"/>
+<link href="/wiki/RF_-_Referrer_notification" rel="canonical"/>
+
+
+<link href="/mediawiki/index.php?title=RF_-_Referrer_notification&amp;action=creativecommons" rel="meta" title="Creative Commons" type="application/rdf+xml"/>
+<link href="http://www.gnu.org/copyleft/fdl.html" rel="copyright"/>
+
+
+
+
+
+
+
+
+
+
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/mediawiki/skins/vector/csshover.htc")}</style><![endif]-->
+
+<link href="mediawiki/skins/vector/main-ltr.css" media="screen" rel="stylesheet"/><link href="mediawiki/skins/common/shared.css" media="screen" rel="stylesheet"/><link href="mediawiki/site-common.css" media="all" rel="stylesheet"/><link href="mediawiki/site-vector.css" media="all" rel="stylesheet"/><link href="mediawiki/gen.css" media="all" rel="stylesheet"/><link href="overrides.css" media="all" rel="stylesheet"/></head>
+<body class="mediawiki ltr ns-0 ns-subject page-RF_-_Referrer_notification skin-vector">
+<div class="noprint" id="mw-page-base"></div>
+<div class="noprint" id="mw-head-base"></div>
+<!-- content -->
+<div id="content">
+<a id="top"></a>
+<div id="mw-js-message" style="display:none;"></div>
+<!-- firstHeading -->
+<h1 class="firstHeading" id="firstHeading">RF - Referrer notification</h1>
+<!-- /firstHeading -->
+<!-- bodyContent -->
+<div id="bodyContent">
+<!-- tagline -->
+<h3 id="siteSub">From ADCPortal Wiki</h3>
+<!-- /tagline -->
+<!-- subtitle -->
+<div id="contentSub">(Redirected from <a class="archived-inert" href="#" title="Not available in this archive">REF</a>)</div>
+<!-- /subtitle -->
+<!-- jumpto -->
+<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+</div>
+<!-- /jumpto -->
+<!-- bodytext -->
+<p><i>Proposed by <a class="archived-inert" href="#" title="Page not archived">Jan Vidar Krey</a></i>
+</p>
+<div class="table-scroll"><table class="toc" id="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#How_it_works"><span class="tocnumber">2</span> <span class="toctext">How it works</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Example"><span class="tocnumber">2.1</span> <span class="toctext">Example</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="#Conclusion"><span class="tocnumber">2.1.1</span> <span class="toctext">Conclusion</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#References"><span class="tocnumber">3</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#See_Also"><span class="tocnumber">4</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</td></tr></table></div>
+<h2> <span class="mw-headline" id="Introduction"> Introduction </span></h2>
+<p>Buggy hubs can be exploited, or malicious hub admins can initiate connection DDoS of servers by sending CTM messages to many users at a high rate. This problem has been ongoing for the past couple of years, and it is hard to deal with, since it is hard to figure out <b>who</b> is initiating the attack.<sup class="reference" id="cite_ref-0"><a href="#cite_note-0">[1]</a></sup><sup class="reference" id="cite_ref-1"><a href="#cite_note-1">[2]</a></sup><sup class="reference" id="cite_ref-2"><a href="#cite_note-2">[3]</a></sup><sup class="reference" id="cite_ref-3"><a href="#cite_note-3">[4]</a></sup><sup class="reference" id="cite_ref-4"><a href="#cite_note-4">[5]</a></sup><sup class="reference" id="cite_ref-5"><a href="#cite_note-5">[6]</a></sup><sup class="reference" id="cite_ref-6"><a href="#cite_note-6">[7]</a></sup><sup class="reference" id="cite_ref-7"><a href="#cite_note-7">[8]</a></sup><sup class="reference" id="cite_ref-8"><a href="#cite_note-8">[9]</a></sup>
+</p><p>When a client connects to another client it will send the address of the hub adc[s]://host:port . The address should be the same address as the client used to connect to the hub initially, so it does not have to be resolved to IP (hostname is fine).
+</p><p>Because of the ADC abstract, this can be done as simple protocol extension which should not break backwards compatibility for any sane client in any way. It is imperative that this information is among the first bytes send, and do not require the receiving host to reply in some specific way to obtain the information. For this reason this should be sent as part of the SUP message for the connecting client.
+</p><p>The purpose of this extension is to identify the hub source of a CTM attack (it doesn't have to be the actual DNS used by the hub or the most used port, just to point a way of connecting to the hub ).
+</p>
+<h2> <span class="mw-headline" id="How_it_works"> How it works </span></h2>
+<p>Extends the RF field of the INF to STA, allowing a client to notify clients and hubs upon SUP-negotiation from where the C-C or C-H originated from.
+</p>
+<div class="table-scroll"><table border="0" class="wikitable">
+<tr>
+<th> RF
+</th><td> URL of referrer
+</td></tr></table></div>
+<h3> <span class="mw-headline" id="Example"> Example </span></h3>
+<div class="table-scroll"><table border="0" class="wikitable">
+<tr>
+<th> Client 1
+</th><th> Client 2
+</th></tr>
+<tr>
+<td> CSUP ADBASE (...)
+</td><td> CSTA 000 referrer RFadc://example.com:1234
+</td></tr>
+</table></div>
+<h4> <span class="mw-headline" id="Conclusion"> Conclusion </span></h4>
+<ul><li>DDoS attacked hosts can now inspect incoming requests to pinpoint which hub(s) are assisting in the attack.
+</li><li>This information can still be obtained even if not all clients have the extension.
+</li><li>Fully backwards compatible extension, does not require anything for existing clients
+</li><li>Simple implementation, little required for full compliance.
+</li></ul>
+<h2> <span class="mw-headline" id="References"> References </span></h2>
+<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> <a class="external text" href="http://www.adcportal.com/forums/viewtopic.php?f=18&amp;t=412" rel="nofollow">Preventing CTM attacks by Dj_Offset (Jan 05, 2009)</a></li>
+<li id="cite_note-1"><a href="#cite_ref-1">↑</a> <a class="external text" href="https://dcpp.wordpress.com/2009/01/14/dc-ctm-proof/" rel="nofollow">DC++ CTM Proof by Pietry (Jan 14, 2009)</a></li>
+<li id="cite_note-2"><a href="#cite_ref-2">↑</a> <a class="external text" href="https://dcpp.wordpress.com/2008/12/30/are-centralized-networks-doomed-from-the-start/" rel="nofollow">Are centralized networks doomed from the start ? by Pietry (Dec 30, 2008)</a></li>
+<li id="cite_note-3"><a href="#cite_ref-3">↑</a> <a class="external text" href="https://dcpp.wordpress.com/2008/01/17/press-coverage-regarding-dc-being-used-as-a-ddos-tool/" rel="nofollow">Press coverage regarding DC being used as a DDoS tool by Fredrik Ullner (Jan 17, 2008)</a></li>
+<li id="cite_note-4"><a href="#cite_ref-4">↑</a> <a class="external text" href="https://dcpp.wordpress.com/2008/01/17/adc-hub-referrer/" rel="nofollow">ADC hub referrer by Fredrik Ullner (Jan 17, 2008)</a></li>
+<li id="cite_note-5"><a href="#cite_ref-5">↑</a> <a class="external text" href="http://www.adcportal.com/forums/viewtopic.php?f=10&amp;t=431" rel="nofollow">Part 2: CTM Review and the errors of past by Toast (Jan 27, 2009)</a></li>
+<li id="cite_note-6"><a href="#cite_ref-6">↑</a> <a class="external text" href="http://www.adcportal.com/forums/viewtopic.php?f=10&amp;t=428#p1315" rel="nofollow">Re: Part 1: Old Software and the impact of it by Catalin (Jan 25, 2009)</a></li>
+<li id="cite_note-7"><a href="#cite_ref-7">↑</a> <a class="external text" href="http://www.securityfocus.com/news/11466" rel="nofollow">Peer-to-peer networks co-opted for DOS attacks by Robert Lemos, <i>SecurityFocus</i> (May 28, 2007)</a></li>
+<li id="cite_note-8"><a href="#cite_ref-8">↑</a> <a class="external text" href="https://dcpp.wordpress.com/2009/02/11/dc-pointing-out-the-corrupted/" rel="nofollow">DC++ pointing out the corrupted by Pietry (Feb 11, 2009)</a></li></ol>
+<h2> <span class="mw-headline" id="See_Also"> See Also </span></h2>
+<!-- 
+NewPP limit report
+Preprocessor node count: 187/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<!-- Saved in parser cache with key a250657_wiki:pcache:idhash:59-0!1!0!!en!2!edit=0 and timestamp 20110908154724 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.adcportal.com/wiki/RF_-_Referrer_notification">http://www.adcportal.com/wiki/RF_-_Referrer_notification</a>"</div>
+<!-- /bodytext -->
+<!-- catlinks -->
+<div class="catlinks" id="catlinks"><div id="mw-normal-catlinks"><a class="archived-inert" href="#" title="Page not archived">Category</a>: <span dir="ltr"><a href="Category_Protocol.html">Protocol</a></span></div></div> <!-- /catlinks -->
+<div class="visualClear"></div>
+</div>
+<!-- /bodyContent -->
+</div>
+<!-- /content -->
+<!-- header -->
+<div class="noprint" id="mw-head">
+<!-- 0 -->
+<div class="" id="p-personal">
+<h5>Personal tools</h5>
+<ul>
+<li id="pt-login"><a accesskey="o" class="archived-inert" href="#" title="Not available in this archive">Log in</a></li>
+</ul>
+</div>
+<!-- /0 -->
+<div id="left-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-namespaces">
+<h5>Namespaces</h5>
+<ul>
+<li class="selected" id="ca-nstab-main"><a accesskey="c" href="RF_-_Referrer_notification.html"><span>Page</span></a></li>
+<li class="new" id="ca-talk"><a accesskey="t" class="archived-inert" href="#" title="Not available in this archive"><span>Discussion</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-variants">
+<h5><span>Variants</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+</div>
+<div id="right-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-views">
+<h5>Views</h5>
+<ul>
+<li class="selected" id="ca-view"><a href="RF_-_Referrer_notification.html"><span>Read</span></a></li>
+<li id="ca-viewsource"><a accesskey="e" class="archived-inert" href="#" title="Not available in this archive"><span>View source</span></a></li>
+<li class="collapsible" id="ca-history"><a accesskey="h" class="archived-inert" href="#" title="Not available in this archive"><span>View history</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-cactions">
+<h5><span>Actions</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+<!-- 2 -->
+<div id="p-search">
+<h5><label for="searchInput">Search</label></h5>
+<form action="#" id="searchform" onsubmit="return false">
+<input name="title" type="hidden" value="Special:Search"/>
+<input accesskey="f" id="searchInput" name="search" title="Search ADCPortal Wiki [f]" type="text" value=""/>
+<input class="searchButton" id="searchGoButton" name="go" title="Go to a page with this exact name if exists" type="submit" value="Go"/>
+<input class="searchButton" id="mw-searchButton" name="fulltext" title="Search the pages for this text" type="submit" value="Search"/>
+</form>
+</div>
+<!-- /2 -->
+</div>
+</div>
+<!-- /header -->
+<!-- panel -->
+<div class="noprint" id="mw-panel">
+<!-- logo -->
+<div id="p-logo"><a href="index.html" style="background-image: url(misc/wiki_logo.png);"></a></div>
+<!-- /logo -->
+<!-- navigation -->
+<div class="portal" id="p-navigation">
+<h5>Navigation</h5>
+<div class="body">
+<ul>
+<li id="n-mainpage-description"><a accesskey="z" href="index.html">Main page</a></li>
+<li id="n-recentchanges"><a accesskey="r" class="archived-inert" href="#" title="Page not archived">Recent changes</a></li>
+<li id="n-randompage"><a accesskey="x" class="archived-inert" href="#" title="Page not archived">Random page</a></li>
+<li id="n-help"><a class="archived-inert" href="#" title="Page not archived">Help</a></li>
+</ul>
+</div>
+</div>
+<!-- /navigation -->
+<!-- SEARCH -->
+<!-- /SEARCH -->
+<!-- TOOLBOX -->
+<div class="portal" id="p-tb">
+<h5>Toolbox</h5>
+<div class="body">
+<ul>
+<li id="t-whatlinkshere"><a accesskey="j" class="archived-inert" href="#" title="Page not archived">What links here</a></li>
+<li id="t-recentchangeslinked"><a accesskey="k" class="archived-inert" href="#" title="Page not archived">Related changes</a></li>
+<li id="t-specialpages"><a accesskey="q" class="archived-inert" href="#" title="Page not archived">Special pages</a></li>
+<li id="t-print"><a accesskey="p" class="archived-inert" href="#" rel="alternate" title="Not available in this archive">Printable version</a></li>
+<li id="t-permalink"><a class="archived-inert" href="#" title="Not available in this archive">Permanent link</a></li>
+</ul>
+</div>
+</div>
+<!-- /TOOLBOX -->
+<!-- LANGUAGES -->
+<!-- /LANGUAGES -->
+</div>
+<!-- /panel -->
+<!-- footer -->
+<div id="footer"><div class="archive-note">This is a static archive of the ADCPortal wiki. It was reconstructed from all available <a href="https://web.archive.org/">Internet Archive</a> snapshots and merged into the most complete version possible. Links to pages that were never captured by the archive are shown in <span class="na">red</span> and cannot be opened.</div>
+<ul id="footer-info">
+<li id="footer-info-lastmod"> This page was last modified on 5 December 2010, at 18:12.</li>
+<li id="footer-info-viewcount">This page has been accessed 2,182 times.</li>
+<li id="footer-info-copyright">Content is available under <a class="external" href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.2</a>.</li>
+</ul>
+<ul id="footer-places">
+<li id="footer-places-privacy"><a class="archived-inert" href="#" title="Page not archived">Privacy policy</a></li>
+<li id="footer-places-about"><a class="archived-inert" href="#" title="Page not archived">About ADCPortal Wiki</a></li>
+<li id="footer-places-disclaimer"><a class="archived-inert" href="#" title="Page not archived">Disclaimers</a></li>
+</ul>
+<ul class="noprint" id="footer-icons">
+<li id="footer-icon-poweredby"><a href="http://www.mediawiki.org/"><img alt="Powered by MediaWiki" height="31" src="mediawiki/skins/common/images/poweredby_mediawiki_88x31.png" width="88"/></a></li>
+<li id="footer-icon-copyright"><a href="http://www.gnu.org/copyleft/fdl.html"><img alt="GNU Free Documentation License 1.2" height="31" src="mediawiki/skins/common/images/gnu-fdl.png" width="88"/></a></li>
+</ul>
+<div style="clear:both"></div>
+</div>
+<!-- /footer -->
+<!-- fixalpha -->
+
+<!-- /fixalpha -->
+
+<!-- Served in 0.377 secs. --> </body>
+</html>

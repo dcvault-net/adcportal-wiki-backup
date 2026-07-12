@@ -1,0 +1,286 @@
+{
+ "articles": {
+  "ADC_Extensions": [
+   "20110908192739",
+   "http://www.adcportal.com/wiki/ADC_Extensions"
+  ],
+  "ADC_Protocol": [
+   "20110908193430",
+   "http://www.adcportal.com/wiki/ADC_Protocol"
+  ],
+  "ADC_Software_List": [
+   "20110908191806",
+   "http://www.adcportal.com/wiki/ADC_Software_List"
+  ],
+  "ADCH++": [
+   "20110908210517",
+   "http://www.adcportal.com/wiki/ADCH%2B%2B"
+  ],
+  "Adchpp": [
+   "20110908195526",
+   "http://www.adcportal.com/wiki/Adchpp"
+  ],
+  "ADCS_-_Symmetrical_Encryption_in_ADC": [
+   "20110908190136",
+   "http://www.adcportal.com/wiki/ADCS_-_Symmetrical_Encryption_in_ADC"
+  ],
+  "BLOM_-_Bloom_Filter": [
+   "20110908190341",
+   "http://www.adcportal.com/wiki/BLOM_-_Bloom_Filter"
+  ],
+  "Client": [
+   "20110908213037",
+   "http://www.adcportal.com/wiki/Client"
+  ],
+  "Client_Software": [
+   "20150609134502",
+   "http://www.adcportal.com/wiki/Client_Software"
+  ],
+  "DC++": [
+   "20110908190610",
+   "http://www.adcportal.com/wiki/DC%2B%2B"
+  ],
+  "FlexHub": [
+   "20111004091325",
+   "http://www.adcportal.com/wiki/FlexHub"
+  ],
+  "FS_-_Free_slots_in_client": [
+   "20110908184843",
+   "http://www.adcportal.com/wiki/FS_-_Free_slots_in_client"
+  ],
+  "GNU_GPL_2": [
+   "20110908213114",
+   "http://www.adcportal.com/wiki/GNU_GPL_2"
+  ],
+  "GNU_GPL_3": [
+   "20110908204456",
+   "http://www.adcportal.com/wiki/GNU_GPL_3"
+  ],
+  "Hub_Software": [
+   "20110908185528",
+   "http://www.adcportal.com/wiki/Hub_Software"
+  ],
+  "Hubsoft": [
+   "20111004085848",
+   "http://www.adcportal.com/wiki/Hubsoft"
+  ],
+  "I18n": [
+   "20110908203334",
+   "http://www.adcportal.com/wiki/I18n"
+  ],
+  "KEYP": [
+   "20110908213321",
+   "http://www.adcportal.com/wiki/KEYP"
+  ],
+  "Main_Page": [
+   "20110913003717",
+   "http://www.adcportal.com/wiki/Main_Page"
+  ],
+  "Misc_Software": [
+   "20110908210536",
+   "http://www.adcportal.com/wiki/Misc_Software"
+  ],
+  "NATT_-_NAT_traversal": [
+   "20110908184548",
+   "http://www.adcportal.com/wiki/NATT_-_NAT_traversal"
+  ],
+  "PING": [
+   "20110908210326",
+   "http://www.adcportal.com/wiki/PING"
+  ],
+  "REF": [
+   "20110908154724",
+   "http://www.adcportal.com/wiki/REF"
+  ],
+  "RF_-_Referrer_notification": [
+   "20110908183316",
+   "http://www.adcportal.com/wiki/RF_-_Referrer_notification"
+  ],
+  "SEGA_-_Grouping_of_file_extensions_in_SCH": [
+   "20110908184258",
+   "http://www.adcportal.com/wiki/SEGA_-_Grouping_of_file_extensions_in_SCH"
+  ],
+  "TIGR": [
+   "20110908185206",
+   "http://www.adcportal.com/wiki/TIGR"
+  ],
+  "UCMD": [
+   "20110908185810",
+   "http://www.adcportal.com/wiki/UCMD"
+  ],
+  "UCMD_-_User_Commands": [
+   "20110908185922",
+   "http://www.adcportal.com/wiki/UCMD_-_User_Commands"
+  ]
+ },
+ "categories": {
+  "Category:API": [
+   "20110908193219",
+   "http://www.adcportal.com/wiki/Category:API"
+  ],
+  "Category:Contributers": [
+   "20110908193651",
+   "http://www.adcportal.com/wiki/Category:Contributers"
+  ],
+  "Category:GNU_GPL_3_Software": [
+   "20110908203254",
+   "http://www.adcportal.com/wiki/Category:GNU_GPL_3_Software"
+  ],
+  "Category:Open_Source_Licenses": [
+   "20110908191541",
+   "http://www.adcportal.com/wiki/Category:Open_Source_Licenses"
+  ],
+  "Category:Protocol": [
+   "20110908193311",
+   "http://www.adcportal.com/wiki/Category:Protocol"
+  ],
+  "Category:Software": [
+   "20110908191334",
+   "http://www.adcportal.com/wiki/Category:Software"
+  ],
+  "Category:Wiki": [
+   "20110908192350",
+   "http://www.adcportal.com/wiki/Category:Wiki"
+  ]
+ },
+ "files": {
+  "File:Adchpp_icon.png": [
+   "20110908210457",
+   "http://www.adcportal.com/wiki/File:Adchpp_icon.png"
+  ],
+  "File:Application.png": [
+   "20110908202845",
+   "http://www.adcportal.com/wiki/File:Application.png"
+  ],
+  "File:Checklist.png": [
+   "20110908185141",
+   "http://www.adcportal.com/wiki/File:Checklist.png"
+  ],
+  "File:Client_connected.png": [
+   "20110908213212",
+   "http://www.adcportal.com/wiki/File:Client_connected.png"
+  ],
+  "File:DC-Logo_128.png": [
+   "20110908190304",
+   "http://www.adcportal.com/wiki/File:DC-Logo_128.png"
+  ],
+  "File:Discussion.png": [
+   "20110908212934",
+   "http://www.adcportal.com/wiki/File:Discussion.png"
+  ],
+  "File:Flexhub-icon-256x256.png": [
+   "20110908202947",
+   "http://www.adcportal.com/wiki/File:Flexhub-icon-256x256.png"
+  ],
+  "File:Flexhubscreen.png": [
+   "20110908204423",
+   "http://www.adcportal.com/wiki/File:Flexhubscreen.png"
+  ],
+  "File:Info.png": [
+   "20110908192931",
+   "http://www.adcportal.com/wiki/File:Info.png"
+  ],
+  "File:Jucy_icon.128.gif": [
+   "20110908184706",
+   "http://www.adcportal.com/wiki/File:Jucy_icon.128.gif"
+  ],
+  "File:Linux_icon.jpg": [
+   "20110908210432",
+   "http://www.adcportal.com/wiki/File:Linux_icon.jpg"
+  ],
+  "File:The-gnu-logo.png": [
+   "20110908185041",
+   "http://www.adcportal.com/wiki/File:The-gnu-logo.png"
+  ],
+  "File:Win_icon.png": [
+   "20110908185109",
+   "http://www.adcportal.com/wiki/File:Win_icon.png"
+  ]
+ },
+ "meta": {
+  "ADCPortal_Wiki:About": [
+   "20110908202725",
+   "http://www.adcportal.com/wiki/ADCPortal_Wiki:About"
+  ],
+  "ADCPortal_Wiki:General_disclaimer": [
+   "20110908204713",
+   "http://www.adcportal.com/wiki/ADCPortal_Wiki:General_disclaimer"
+  ],
+  "ADCPortal_Wiki:Privacy_policy": [
+   "20110908204820",
+   "http://www.adcportal.com/wiki/ADCPortal_Wiki:Privacy_policy"
+  ],
+  "Help:Contents": [
+   "20110908192535",
+   "http://www.adcportal.com/wiki/Help:Contents"
+  ],
+  "Special:AllPages": [
+   "20110908191305",
+   "http://www.adcportal.com/wiki/Special:AllPages"
+  ],
+  "Special:Categories": [
+   "20110908204215",
+   "http://www.adcportal.com/wiki/Special:Categories"
+  ],
+  "Special:ListUsers": [
+   "20110908191656",
+   "http://www.adcportal.com/wiki/Special:ListUsers"
+  ],
+  "Special:RecentChanges": [
+   "20110908202927",
+   "http://www.adcportal.com/wiki/Special:RecentChanges"
+  ],
+  "Special:RecentChangesLinked/ADCS_-_Symmetrical_Encryption_in_ADC": [
+   "20110908212408",
+   "http://www.adcportal.com/wiki/Special:RecentChangesLinked/ADCS_-_Symmetrical_Encryption_in_ADC"
+  ],
+  "Special:RecentChangesLinked/Flexhub": [
+   "20110908202224",
+   "http://www.adcportal.com/wiki/Special:RecentChangesLinked/Flexhub"
+  ],
+  "Special:RecentChangesLinked/FS_-_Free_slots_in_client": [
+   "20110908205902",
+   "http://www.adcportal.com/wiki/Special:RecentChangesLinked/FS_-_Free_slots_in_client"
+  ],
+  "Special:RecentChangesLinked/SEGA_-_Grouping_of_file_extensions_in_SCH": [
+   "20110908205248",
+   "http://www.adcportal.com/wiki/Special:RecentChangesLinked/SEGA_-_Grouping_of_file_extensions_in_SCH"
+  ],
+  "Special:SpecialPages": [
+   "20110908204621",
+   "http://www.adcportal.com/wiki/Special:SpecialPages"
+  ],
+  "Special:Statistics": [
+   "20110908191625",
+   "http://www.adcportal.com/wiki/Special:Statistics"
+  ],
+  "Special:WhatLinksHere/ADCS_-_Symmetrical_Encryption_in_ADC": [
+   "20110908212457",
+   "http://www.adcportal.com/wiki/Special:WhatLinksHere/ADCS_-_Symmetrical_Encryption_in_ADC"
+  ],
+  "Special:WhatLinksHere/Flexhub": [
+   "20110908204249",
+   "http://www.adcportal.com/wiki/Special:WhatLinksHere/Flexhub"
+  ],
+  "Special:WhatLinksHere/FS_-_Free_slots_in_client": [
+   "20110908205939",
+   "http://www.adcportal.com/wiki/Special:WhatLinksHere/FS_-_Free_slots_in_client"
+  ],
+  "Special:WhatLinksHere/SEGA_-_Grouping_of_file_extensions_in_SCH": [
+   "20110908205111",
+   "http://www.adcportal.com/wiki/Special:WhatLinksHere/SEGA_-_Grouping_of_file_extensions_in_SCH"
+  ],
+  "Talk:BLOM_-_Bloom_Filter": [
+   "20110908212948",
+   "http://www.adcportal.com/wiki/Talk:BLOM_-_Bloom_Filter"
+  ],
+  "User:DarkKlor": [
+   "20110908212330",
+   "http://www.adcportal.com/wiki/User:DarkKlor"
+  ],
+  "User:Dj_Offset": [
+   "20110908182616",
+   "http://www.adcportal.com/wiki/User:Dj_Offset"
+  ]
+ }
+}

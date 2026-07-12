@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<head>
+<title>BLOM - Bloom Filter - ADCPortal Wiki</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="MediaWiki 1.16.0" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/mediawiki/opensearch_desc.php" title="ADCPortal Wiki (en)" />
+<link title="Creative Commons" type="application/rdf+xml" href="/mediawiki/index.php?title=BLOM_-_Bloom_Filter&amp;action=creativecommons" rel="meta" />
+<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+<link rel="alternate" type="application/atom+xml" title="ADCPortal Wiki Atom feed" href="/mediawiki/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="/mediawiki/skins/vector/main-ltr.css?270" media="screen" />
+<link rel="stylesheet" href="/mediawiki/skins/common/shared.css?270" media="screen" />
+<link rel="stylesheet" href="/mediawiki/skins/common/commonPrint.css?270" media="print" />
+<link rel="stylesheet" href="/mediawiki/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" />
+<link rel="stylesheet" href="/mediawiki/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" media="print" />
+<link rel="stylesheet" href="/mediawiki/index.php?title=MediaWiki:Vector.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" />
+<link rel="stylesheet" href="/mediawiki/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" />
+<script>
+var skin="vector",
+stylepath="/mediawiki/skins",
+wgUrlProtocols="http\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/wiki/$1",
+wgScriptPath="/mediawiki",
+wgScriptExtension=".php",
+wgScript="/mediawiki/index.php",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="http://www.adcportal.com",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="BLOM_-_Bloom_Filter",
+wgTitle="BLOM - Bloom Filter",
+wgAction="view",
+wgArticleId=43,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=3887,
+wgVersion="1.16.0",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "ADCPortal Wiki", "5": "ADCPortal Wiki talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "adcportal_wiki": 4, "adcportal_wiki_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="ADCPortal Wiki",
+wgCategories=["Protocol"],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="/mediawiki/skins/common/wikibits.js?270"></script>
+<script src="/mediawiki/skins/common/ajax.js?270"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/mediawiki/skins/vector/csshover.htc")}</style><![endif]-->
+<script src="/mediawiki/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=vector&amp;270"></script>
+
+</head>
+<body class="mediawiki ltr ns-0 ns-subject page-BLOM_-_Bloom_Filter skin-vector">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<!-- content -->
+		<div id="content" >
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">BLOM - Bloom Filter</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From ADCPortal Wiki</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="infobox vevent" cellspacing="5" style="width: 22em; text-align: left; font-size: 88%; line-height: 1.5em;"><caption class="summary" style="font-size: 125%; font-weight: bold;">BLOM</caption>
+<tr><th style="">Inclusion date</th><td class="" style="">1.0.3 <small><span class="bday">2010-06-26</span><span class="noprint">; 439 days ago</span></small></td></tr><tr><th style="">Created by</th><td class="" style="">arnetheduck</td></tr>
+</table>
+<table class="infobox" cellspacing="3" style="width: 25em; font-size: 88%; line-height: 1.2em; border:2px solid #D6D6FF; text-align: left;">
+
+<tr>
+<td> <a href="/wiki/File:Discussion.png" class="image" title="Contains a discussion page"><img alt="Contains a discussion page" src="/mediawiki/images/thumb/8/82/Discussion.png/40px-Discussion.png" width="40" height="40" /></a> <big><b>Discussion Page Available</b></big>
+</td></tr>
+<tr>
+<td> <div align="center">This page contains a <a href="/wiki/Talk:BLOM_-_Bloom_Filter" title="Talk:BLOM - Bloom Filter">discussion</a> page.</div>
+</td></tr></table>
+<p><br />
+Bloom filters allow the hub to filter certain searches using bitmap that represents the hashes of the files in the users share. BLOM is an extension that allows hub software to create a map (bloom filter) of the shared files on the hub, but with minimal effort, e.g. the hub doesn't keep a list of files, but a filter that never produces false negatives but only possible false positives. This can potentially save bandwidth and effort on the client side. When the user updates the share, the client must send an INF containing the flag SF. The hub may at any time request that the client sends an updated version of its bloom filter by sending a GET command to the client. The client will then respond using SND and send the bloom filter binary data. 
+</p>
+<table id="toc" class="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Legend"><span class="tocnumber">1</span> <span class="toctext">Legend</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Restrictions"><span class="tocnumber">2</span> <span class="toctext">Restrictions</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Probability"><span class="tocnumber">2.1</span> <span class="toctext">Probability</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Protocol_changes"><span class="tocnumber">2.2</span> <span class="toctext">Protocol changes</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Algorithm"><span class="tocnumber">2.3</span> <span class="toctext">Algorithm</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Probability_calculations"><span class="tocnumber">2.4</span> <span class="toctext">Probability calculations</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Sample_implementations"><span class="tocnumber">2.5</span> <span class="toctext">Sample implementations</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="#Tiger"><span class="tocnumber">2.5.1</span> <span class="toctext">Tiger</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#Links"><span class="tocnumber">3</span> <span class="toctext">Links</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#See_Also"><span class="tocnumber">4</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</td></tr></table><script>if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<h3> <span class="mw-headline" id="Legend"> Legend </span></h3>
+<table class="wikitable" border="0">
+<tr>
+<td>b
+</td><td>Number of bits used for file hashes
+</td></tr>
+<tr>
+<td>n
+</td><td>Number of files in the user's share
+</td></tr>
+<tr>
+<td>m
+</td><td>Size of the bloom filter in bits
+</td></tr>
+<tr>
+<td>k
+</td><td>Number of sub-hashes constructed from the file hash
+</td></tr>
+<tr>
+<td>h
+</td><td>Number of bits to use for each sub-hash
+</td></tr>
+<tr>
+<td>p
+</td><td>Propability of a false positive
+</td></tr></table>
+<p>The hub chooses k, h and m.
+</p>
+<h3> <span class="mw-headline" id="Restrictions"> Restrictions </span></h3>
+<table class="wikitable" border="0">
+<tr>
+<td>k * h &lt; = b
+</td></tr>
+<tr>
+<td>h &lt; = 64
+</td></tr>
+<tr>
+<td>2^h^ &gt; m
+</td></tr>
+<tr>
+<td>m mod 64 == 0
+</td></tr></table>
+<h4> <span class="mw-headline" id="Probability"> Probability </span></h4>
+<table class="wikitable" border="0">
+<tr>
+<td>p == (1 - (1 - 1 / m)^(k * n)^)^k^
+</td><td>False positives
+</td></tr>
+<tr>
+<td>p == 0
+</td><td>False negatives
+</td></tr></table>
+<h4> <span class="mw-headline" id="Protocol_changes"> Protocol changes </span></h4>
+<p>Signal BLOM in SUP. 
+</p><p>For the SND type, adds H as message type. 
+</p><p>For the GET type, adds I as message type. 
+</p><p>For the GET type, adds "blom" as type. 
+</p><p>For the GET type, "/" shall be used as namespace. 
+</p><p>For the GET type, 0 (zero) shall be used as start position. 
+</p><p>For the GET type, m / 8 shall be used as byte amount. 
+</p><p>Updates GET with the following flags; 
+</p>
+<table class="wikitable" border="1">
+<tr>
+<td>BK
+</td><td>Specify 'k'.
+</td></tr>
+<tr>
+<td>BH
+</td><td>Specify 'h'.
+</td></tr>
+</table>
+<h4> <span class="mw-headline" id="Algorithm"> Algorithm </span></h4>
+<p>The client constructs the bloom filter by creating a bit array of m bits set to 0 (zero). For each file it then sets to "1" k positions constructed from the file hash. Seeing the file hash as a stream of bits (starting from the lowest bit of the first byte, ending at the highest bit of the last byte), the client should use h bits starting at the first bit of the first byte to create an integer and apply modulo m to get the position in the bit array, then redo the process k times advancing the starting position by h each time. 
+</p><p>Once the hub has received the bloom filter bit array, for each search command it processes, if it contains a hash search term, it can skip broadcasting the search to a particular client if at least one of the k bits in that clients bit array is "0", calculating positions as the client does when setting bits to "1". The hub has to evaluate the filter for each client that it has a bloom filter for, for each search. 
+</p>
+<h4> <span class="mw-headline" id="Probability_calculations"> Probability calculations </span></h4>
+<p>p = (1 - (1 - 1 / m)^(k * n)^)^k^, thus p becomes smaller as m grows and larger as n grows. Larger m means more bits to transfer but also fewer false positives. The optimum value for k given m and n is (m / n) * ln 2. The largest k supported by a hash of a certain size is b / h, so if the hub wants the smallest p possible, it should choose the smallest possible h which gives the largest k, and then calculate m = k * n/ln 2, checking that the resulting m &lt; 2^h^. 2^h^ should much be larger than m (at least 3-4 times), because of how the modulo operator works. Also, with m grows the required bandwidth to transfer the bloom filter, so the hub may wish to cap m. In that case, it should still choose k according to m / n * ln 2, but send an h as big as possible to alleviate biasing problems. 
+</p>
+<h4> <span class="mw-headline" id="Sample_implementations"> Sample implementations </span></h4>
+<h5> <span class="mw-headline" id="Tiger"> Tiger </span></h5>
+<p>For TTH roots, b is 192 and a reasonable value for h is 24, giving a maximum k = 8 which means that m = 8 * n / ln 2 ≈ 11.5 * n. The required bandwidth then becomes 11.5 * n / 8 bytes, so approximately 1.44 bytes per file in the users share. For 20000 files, m should then be 230016 (taking into account the modulo 64 requirement), giving a p = 0.004, in other words ~99.6% of all searches that don't match a users share would not be sent, saving valuable upload bandwidth for the hub. The client calculates i valid positions, if x is an array of bytes containing the hash of the file, on a little-endian machine, by doing pos = x[0+i*h/8] | (x[1+i*h/8] &lt;&lt; 8) | (x[2+i*h/8] &lt;&lt; 16) for i = [0;k). This is of course a special case where h&nbsp;% 8 = 0, the actual algorithm has to take into consideration values for h where the integer crosses byte boundaries. 
+</p><p>For test vectors, see <a href="/wiki/Talk:BLOM" title="Talk:BLOM" class="mw-redirect"> wiki talk page</a>.
+</p>
+<h2> <span class="mw-headline" id="Links"> Links </span></h2>
+<ul><li><a href="http://www.partow.net/programming/hashfunctions/index.html" class="external text" rel="nofollow">Implementation in C++ and Object Pascal</a>
+</li><li><a href="http://code.google.com/p/bloomerl/" class="external text" rel="nofollow">Implementation in Erlang</a>
+</li><li><a href="http://hackage.haskell.org/cgi-bin/hackage-scripts/package/bloomfilter" class="external text" rel="nofollow">Implementation in Haskell</a>
+</li><li><a href="http://la.ma.la/misc/js/bloomfilter/" class="external text" rel="nofollow">Implementation in Javascript</a>
+</li><li><a href="http://lemonodor.com/archives/000881.html" class="external text" rel="nofollow">Implementation in Lisp</a>
+</li><li><a href="http://search.cpan.org/dist/Bloom-Filter/" class="external text" rel="nofollow">Implementation in Perl</a>
+</li><li><a href="http://www.imperialviolet.org/pybloom.html" class="external text" rel="nofollow">Implementation in Python</a>
+</li><li><a href="http://www.rubyinside.com/bloom-filters-a-powerful-tool-599.html" class="external text" rel="nofollow">Implementation in Ruby</a>
+</li><li><a href="/wiki/Code_Example:Blom" title="Code Example:Blom">Implementation in Python</a>
+</li></ul>
+<ul><li><a href="http://www.cc.gatech.edu/fac/Pete.Manolios/bloom-filters/calculator.html" class="external text" rel="nofollow">Online Bloom Filter Calculator</a>
+</li></ul>
+<h2> <span class="mw-headline" id="See_Also"> See Also </span></h2>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 1086/1000000
+Post-expand include size: 2950/2097152 bytes
+Template argument size: 743/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key a250657_wiki:pcache:idhash:43-0!1!0!!en!2!edit=0 and timestamp 20110908183819 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.adcportal.com/wiki/BLOM_-_Bloom_Filter">http://www.adcportal.com/wiki/BLOM_-_Bloom_Filter</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/wiki/Category:Protocol" title="Category:Protocol">Protocol</a></span></div></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		<div id="mw-head" class="noprint">
+			
+<!-- 0 -->
+<div id="p-personal" class="">
+	<h5>Personal tools</h5>
+	<ul>
+					<li  id="pt-login"><a href="/mediawiki/index.php?title=Special:UserLogin&amp;returnto=BLOM_-_Bloom_Filter" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+			<div id="left-navigation">
+				
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>Namespaces</h5>
+	<ul>
+					<li  id="ca-nstab-main" class="selected"><a href="/wiki/BLOM_-_Bloom_Filter"  title="View the content page [c]" accesskey="c"><span>Page</span></a></li>
+					<li  id="ca-talk"><a href="/wiki/Talk:BLOM_-_Bloom_Filter"  title="Discussion about the content page [t]" accesskey="t"><span>Discussion</span></a></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu emptyPortlet">
+	<h5><span>Variants</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+			</div>
+			<div id="right-navigation">
+				
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>Views</h5>
+	<ul>
+					<li id="ca-view" class="selected"><a href="/wiki/BLOM_-_Bloom_Filter" ><span>Read</span></a></li>
+					<li id="ca-viewsource"><a href="/mediawiki/index.php?title=BLOM_-_Bloom_Filter&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li>
+					<li id="ca-history" class="collapsible "><a href="/mediawiki/index.php?title=BLOM_-_Bloom_Filter&amp;action=history"  title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>Actions</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+
+<!-- 2 -->
+<div id="p-search">
+	<h5><label for="searchInput">Search</label></h5>
+	<form action="/mediawiki/index.php" id="searchform">
+		<input type='hidden' name="title" value="Special:Search"/>
+				<input id="searchInput" name="search" type="text"  title="Search ADCPortal Wiki [f]" accesskey="f"  value="" />
+		<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />
+		<input type="submit" name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+			</form>
+</div>
+
+<!-- /2 -->
+			</div>
+		</div>
+		<!-- /header -->
+		<!-- panel -->
+			<div id="mw-panel" class="noprint">
+				<!-- logo -->
+					<div id="p-logo"><a style="background-image: url(http://www.adcportal.com/misc/wiki_logo.png);" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+				<!-- /logo -->
+				
+<!-- navigation -->
+<div class="portal" id='p-navigation'>
+	<h5>Navigation</h5>
+	<div class="body">
+				<ul>
+					<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+					<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+					<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+					<li id="n-help"><a href="/wiki/Help:Contents" title="The place to find out">Help</a></li>
+				</ul>
+			</div>
+</div>
+
+<!-- /navigation -->
+
+<!-- SEARCH -->
+
+<!-- /SEARCH -->
+
+<!-- TOOLBOX -->
+<div class="portal" id="p-tb">
+	<h5>Toolbox</h5>
+	<div class="body">
+		<ul>
+					<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/BLOM_-_Bloom_Filter" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+						<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/BLOM_-_Bloom_Filter" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+																																										<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+									<li id="t-print"><a href="/mediawiki/index.php?title=BLOM_-_Bloom_Filter&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+						<li id="t-permalink"><a href="/mediawiki/index.php?title=BLOM_-_Bloom_Filter&amp;oldid=3887" title="Permanent link to this revision of the page">Permanent link</a></li>
+						</ul>
+	</div>
+</div>
+
+<!-- /TOOLBOX -->
+
+<!-- LANGUAGES -->
+
+<!-- /LANGUAGES -->
+			</div>
+		<!-- /panel -->
+		<!-- footer -->
+		<div id="footer">
+											<ul id="footer-info">
+																	<li id="footer-info-lastmod"> This page was last modified on 21 August 2011, at 17:19.</li>
+																							<li id="footer-info-viewcount">This page has been accessed 4,244 times.</li>
+																							<li id="footer-info-copyright">Content is available under <a href="http://www.gnu.org/copyleft/fdl.html" class="external ">GNU Free Documentation License 1.2</a>.</li>
+															</ul>
+															<ul id="footer-places">
+																	<li id="footer-places-privacy"><a href="/wiki/ADCPortal_Wiki:Privacy_policy" title="ADCPortal Wiki:Privacy policy">Privacy policy</a></li>
+																							<li id="footer-places-about"><a href="/wiki/ADCPortal_Wiki:About" title="ADCPortal Wiki:About">About ADCPortal Wiki</a></li>
+																							<li id="footer-places-disclaimer"><a href="/wiki/ADCPortal_Wiki:General_disclaimer" title="ADCPortal Wiki:General disclaimer">Disclaimers</a></li>
+															</ul>
+										<ul id="footer-icons" class="noprint">
+								<li id="footer-icon-poweredby"><a href="http://www.mediawiki.org/"><img src="/mediawiki/skins/common/images/poweredby_mediawiki_88x31.png" height="31" width="88" alt="Powered by MediaWiki" /></a></li>
+												<li id="footer-icon-copyright"><a href="http://www.gnu.org/copyleft/fdl.html"><img src="/mediawiki/skins/common/images/gnu-fdl.png" alt="GNU Free Documentation License 1.2" width="88" height="31" /></a></li>
+							</ul>
+			<div style="clear:both"></div>
+		</div>
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script>
+		<!-- /fixalpha -->
+		
+<script>if (window.runOnloadHook) runOnloadHook();</script>
+		<!-- Served in 0.249 secs. -->			</body>
+</html>

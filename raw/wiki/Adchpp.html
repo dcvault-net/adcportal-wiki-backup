@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<head>
+<title>ADCH++ - ADCPortal Wiki</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="MediaWiki 1.16.0" />
+<link rel="canonical" href="/wiki/ADCH%2B%2B" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/mediawiki/opensearch_desc.php" title="ADCPortal Wiki (en)" />
+<link title="Creative Commons" type="application/rdf+xml" href="/mediawiki/index.php?title=ADCH%2B%2B&amp;action=creativecommons" rel="meta" />
+<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+<link rel="alternate" type="application/atom+xml" title="ADCPortal Wiki Atom feed" href="/mediawiki/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="/mediawiki/skins/vector/main-ltr.css?270" media="screen" />
+<link rel="stylesheet" href="/mediawiki/skins/common/shared.css?270" media="screen" />
+<link rel="stylesheet" href="/mediawiki/skins/common/commonPrint.css?270" media="print" />
+<link rel="stylesheet" href="/mediawiki/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" />
+<link rel="stylesheet" href="/mediawiki/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" media="print" />
+<link rel="stylesheet" href="/mediawiki/index.php?title=MediaWiki:Vector.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" />
+<link rel="stylesheet" href="/mediawiki/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" />
+<script>
+var skin="vector",
+stylepath="/mediawiki/skins",
+wgUrlProtocols="http\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/wiki/$1",
+wgScriptPath="/mediawiki",
+wgScriptExtension=".php",
+wgScript="/mediawiki/index.php",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="http://www.adcportal.com",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="ADCH++",
+wgTitle="ADCH++",
+wgAction="view",
+wgArticleId=12,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=3384,
+wgVersion="1.16.0",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "ADCPortal Wiki", "5": "ADCPortal Wiki talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "adcportal_wiki": 4, "adcportal_wiki_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="ADCPortal Wiki",
+wgCategories=["Software", "GNU GPL 2 Software"],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="/mediawiki/skins/common/wikibits.js?270"></script>
+<script src="/mediawiki/skins/common/ajax.js?270"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/mediawiki/skins/vector/csshover.htc")}</style><![endif]-->
+<script src="/mediawiki/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=vector&amp;270"></script>
+
+<style type="text/css">/*<![CDATA[*/
+.source-python {line-height: normal;}
+.source-python li, .source-python pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for python
+ * CSS class: source-python, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.python.source-python .de1, .python.source-python .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.python.source-python  {font-family:monospace;}
+.python.source-python .imp {font-weight: bold; color: red;}
+.python.source-python li, .python.source-python .li1 {font-weight: normal; vertical-align:top;}
+.python.source-python .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.python.source-python .li2 {font-weight: bold; vertical-align:top;}
+.python.source-python .kw1 {color: #ff7700;font-weight:bold;}
+.python.source-python .kw2 {color: #008000;}
+.python.source-python .kw3 {color: #dc143c;}
+.python.source-python .kw4 {color: #0000cd;}
+.python.source-python .co1 {color: #808080; font-style: italic;}
+.python.source-python .coMULTI {color: #808080; font-style: italic;}
+.python.source-python .es0 {color: #000099; font-weight: bold;}
+.python.source-python .br0 {color: black;}
+.python.source-python .sy0 {color: #66cc66;}
+.python.source-python .st0 {color: #483d8b;}
+.python.source-python .nu0 {color: #ff4500;}
+.python.source-python .me1 {color: black;}
+.python.source-python .ln-xtra, .python.source-python li.ln-xtra, .python.source-python div.ln-xtra {background-color: #ffc;}
+.python.source-python span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/mediawiki/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-lua {line-height: normal;}
+.source-lua li, .source-lua pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for lua
+ * CSS class: source-lua, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.lua.source-lua .de1, .lua.source-lua .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.lua.source-lua  {font-family:monospace;}
+.lua.source-lua .imp {font-weight: bold; color: red;}
+.lua.source-lua li, .lua.source-lua .li1 {font-weight: normal; vertical-align:top;}
+.lua.source-lua .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.lua.source-lua .li2 {font-weight: bold; vertical-align:top;}
+.lua.source-lua .kw1 {color: #b1b100;}
+.lua.source-lua .co1 {color: #808080; font-style: italic;}
+.lua.source-lua .coMULTI {color: #808080; font-style: italic;}
+.lua.source-lua .es0 {color: #000099; font-weight: bold;}
+.lua.source-lua .br0 {color: #66cc66;}
+.lua.source-lua .sy0 {color: #66cc66;}
+.lua.source-lua .st0 {color: #ff0000;}
+.lua.source-lua .nu0 {color: #cc66cc;}
+.lua.source-lua .me0 {color: #b1b100;}
+.lua.source-lua .ln-xtra, .lua.source-lua li.ln-xtra, .lua.source-lua div.ln-xtra {background-color: #ffc;}
+.lua.source-lua span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/mediawiki/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style></head>
+<body class="mediawiki ltr ns-0 ns-subject page-ADCH skin-vector">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<!-- content -->
+		<div id="content" >
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">ADCH++</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From ADCPortal Wiki</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub">(Redirected from <a href="/mediawiki/index.php?title=Adchpp&amp;redirect=no" title="Adchpp">Adchpp</a>)</div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="infobox vevent" cellspacing="5" style="width: 22em; text-align: left; font-size: 88%; line-height: 1.5em;"><caption class="summary" style="font-size: 125%; font-weight: bold;">ADCH++</caption>
+<tr><td colspan="2" class="" style="text-align:center; font-size: 125%; font-weight: bold;"><a href="/wiki/File:Adchpp_icon.png" class="image"><img alt="Adchpp icon.png" src="/mediawiki/images/thumb/d/d5/Adchpp_icon.png/100px-Adchpp_icon.png" width="100" height="100" /></a></td></tr><tr><td colspan="2" class="" style="text-align:center;"> <a href="/wiki/File:Adchpp_screenshot.png" class="image"><img alt="Adchpp screenshot.png" src="/mediawiki/images/thumb/4/47/Adchpp_screenshot.png/265px-Adchpp_screenshot.png" width="265" height="134" /></a> <br />
+<span style="">ADCH++ 2.3 rev 221 running in Windows 7</span></td></tr><tr><th style="">Developed by</th><td class="" style="">Jacek Sieka</td></tr><tr><th style="">Initial release</th><td class="" style="">2008</td></tr><tr><th style="">Stable release</th><td class="" style="">N / A <sub class="plainlinks">[<a href="http://www.adcportal.com/mediawiki/index.php?title=Template:Latest_stable_software_release/ADCH%2B%2B&amp;action=edit&amp;preload=Template:LSR/syntax" class="external text" rel="nofollow">edit</a>]</sub></td></tr><tr><th style="">Beta release</th><td class="" style=""><span class="plainlinks"><a href="http://www.adcportal.com/mediawiki/index.php?title=Template:Latest_preview_software_release/ADCH%2B%2B&amp;action=edit" class="external text" rel="nofollow">2.5.2</a></span> &nbsp;<small>(<span class="bday">2010-08-01</span><span class="noprint">; 403 days ago</span>)</small></td></tr><tr><th style="">Written in</th><td class="" style="">C++, C</td></tr><tr><th style="">Platform</th><td class="" style="">Windows, Linux</td></tr><tr><th style="">Available in</th><td class="" style="">1 languages</td></tr><tr><th style="">Type</th><td class="" style=""><a href="/wiki/Hubsoft" title="Hubsoft" class="mw-redirect">Hubsoft</a></td></tr><tr><th style="">License</th><td class="" style=""><a href="/wiki/GNU_GPL_2" title="GNU GPL 2">GNU GPL 2</a></td></tr><tr><th style="">Website</th><td class="" style=""><a href="http://adchpp.sf.net" class="external text" rel="nofollow">ADCH++ Sourceforge Site</a><br /><a href="https://launchpad.net/adchpp" class="external text" rel="nofollow">ADCH++ Launchpad Site</a></td></tr>
+</table>
+<table id="toc" class="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1"><a href="#Scripting_Example"><span class="tocnumber">2</span> <span class="toctext">Scripting Example</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Advantages"><span class="tocnumber">3</span> <span class="toctext">Advantages</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Disadvantages"><span class="tocnumber">4</span> <span class="toctext">Disadvantages</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Misc"><span class="tocnumber">5</span> <span class="toctext">Misc</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Links"><span class="tocnumber">7</span> <span class="toctext">Links</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Implementations"><span class="tocnumber">8</span> <span class="toctext">Implementations</span></a></li>
+</ul>
+</td></tr></table><script>if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<h2> <span class="mw-headline" id="Introduction"> Introduction </span></h2>
+<p>ADCH++ is a <a href="/wiki/Hubsoft" title="Hubsoft" class="mw-redirect">hubsoft</a> written in C++ the first version was pushed out in 2008 <sup id="cite_ref-0" class="reference"><a href="#cite_note-0">[1]</a></sup>, the hubsoft has a python and lua interface that makes it easy for <a href="/mediawiki/index.php?title=Scripter&amp;action=edit&amp;redlink=1" class="new" title="Scripter (page does not exist)">scripters</a> to insert functions into adchpp module<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[2]</a></sup>.
+</p><p>ADCH++ runs under both Windows and Unix systems (see requirements below) for compiling your version of ADCH++ or use the build archive (Windows only), the distribution is released on Sourceforge and it consists of an windows installer, a windows binary package and a platform independent source zip for each release but for bleeding edge source ADCH++ uses <a href="https://code.launchpad.net/adchpp" class="external text" rel="nofollow">launchpad bazaar branch</a>.
+</p><p>Another part of ADCH++ thats is being worked on is a GUI <sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[3]</a></sup><sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[4]</a></sup> written in python, this uses the core of ADCH++ as a plugin over a python interface and its available at <a href="https://launchpad.net/adchppgui" class="external text" rel="nofollow">Launchpad</a>.
+</p><p>For documentation on the API for both LUA and Python use <a href="http://www.doxygen.org" class="external text" rel="nofollow">Doxygen</a> or our <a href="http://adchpp.sourceforge.net/doc/" class="external text" rel="nofollow">online documentation</a> on <a href="http://adchpp.sourceforge.net/" class="external text" rel="nofollow">Sourceforge</a> for futher information on how to build a plugin for ADCH++ can be found at the following adress:
+</p><p><a href="http://adchpp.sourceforge.net/doc/pluginapi.html" class="external free" rel="nofollow">http://adchpp.sourceforge.net/doc/pluginapi.html</a>
+</p>
+<h2> <span class="mw-headline" id="Scripting_Example"> Scripting Example </span></h2>
+<p>The following section is information about how to script in python <sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[5]</a></sup> for ADCH++ for more information about this subject visit: <a href="http://www.adcportal.com" class="external free" rel="nofollow">http://www.adcportal.com</a> or the <a href="http://adchpp.sourceforge.net/doc/" class="external text" rel="nofollow">online documentation</a>
+</p><p>Here are an example:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="python source-python"><pre class="de1"><span class="co1">#!/usr/bin/python</span>
+&nbsp;
+<span class="co1">#import python adchpp module</span>
+<span class="kw1">import</span> pyadchpp
+<span class="co1">#import os module</span>
+<span class="kw1">import</span> <span class="kw3">os</span>
+<span class="kw1">import</span> <span class="kw3">time</span>
+&nbsp;
+<span class="kw1">def</span> run<span class="br0">&#40;</span><span class="br0">&#41;</span>:
+   <span class="co1">#initialize the hubsoft with the complete path to your config directory containing adchpp.xml</span>
+   pyadchpp.<span class="me1">initialize</span><span class="br0">&#40;</span><span class="kw3">os</span>.<span class="me1">getcwd</span><span class="br0">&#40;</span><span class="br0">&#41;</span>+<span class="st0">'<span class="es0">\c</span>onfig<span class="es0">\\</span>'</span><span class="br0">&#41;</span>
+   pyadchpp.<span class="me1">startup</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+   <span class="co1">#create a loop so the program doesnt exit</span>
+   <span class="kw1">while</span> <span class="nu0">1</span>:
+      <span class="kw3">time</span>.<span class="me1">sleep</span><span class="br0">&#40;</span><span class="nu0">0.1</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="kw1">if</span> __name__== <span class="st0">'__main__'</span>:
+   run<span class="br0">&#40;</span><span class="br0">&#41;</span></pre></div></div>
+<p>The following section is information about how to script in LUA for ADCH++ here are an example: 
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="lua source-lua"><pre class="de1"><span class="co1">-- This is an example script that scripters might want to use as a basis for their work. It</span>
+<span class="co1">-- documents the bare minimum needed to make an Lua script interface with ADCH++.</span>
+&nbsp;
+<span class="co1">-- For more detailed information, peeking into other, more evolved (but less documented) example</span>
+<span class="co1">-- scripts as well as the Doxygen documentation of ADCH++ &lt;http://adchpp.sourceforge.net/doc&gt; would</span>
+<span class="co1">-- be a good idea.</span>
+&nbsp;
+<span class="co1">-- Generally, to reach member &quot;bar&quot; of the class &quot;foo&quot; of ADCH++, one has to use: adchpp.foo_bar.</span>
+<span class="co1">-- Examples: adchpp.Util_getCfgPath(), adchpp.AdcCommand_CMD_MSG, adchpp.Entity_STATE_NORMAL...</span>
+&nbsp;
+<span class="co1">-- When manipulating Entity objects, it can be useful to convert them to Client objects (which</span>
+<span class="co1">-- are aware of socket features such as a send method) by using:</span>
+<span class="co1">-- local client = entity:asClient()</span>
+&nbsp;
+<span class="co1">-- Feel free to use &lt;https://answers.launchpad.net/adchpp&gt; or &lt;www.adcportal.com&gt; if you need help.</span>
+&nbsp;
+<span class="co1">-- The global functions of Lua are privately imported into &quot;base&quot;; therefore, be sure to always</span>
+<span class="co1">-- reference it when calling these functions; eg base.print(&quot;blah&quot;), base.pcall(protected_func)...</span>
+<span class="kw1">local</span> base <span class="sy0">=</span> <span class="kw1">_G</span>
+&nbsp;
+module<span class="br0">&#40;</span><span class="st0">&quot;example&quot;</span><span class="br0">&#41;</span> <span class="co1">-- Give each module a unique name so they don't clash.</span>
+&nbsp;
+<span class="co1">-- Import the ADCH++ Lua DLL (luadchpp.dll).</span>
+base.<span class="kw1">require</span><span class="br0">&#40;</span><span class="st0">'luadchpp'</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> adchpp <span class="sy0">=</span> base.luadchpp
+&nbsp;
+<span class="co1">-- Import various base sets of Lua methods. Only import those you need for your specific module.</span>
+<span class="kw1">local</span> <span class="kw1">io</span> <span class="sy0">=</span> base.<span class="kw1">require</span><span class="br0">&#40;</span><span class="st0">'io'</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> <span class="kw1">math</span> <span class="sy0">=</span> base.<span class="kw1">require</span><span class="br0">&#40;</span><span class="st0">'math'</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> <span class="kw1">os</span> <span class="sy0">=</span> base.<span class="kw1">require</span><span class="br0">&#40;</span><span class="st0">'os'</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> <span class="kw1">string</span> <span class="sy0">=</span> base.<span class="kw1">require</span><span class="br0">&#40;</span><span class="st0">'string'</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> <span class="kw1">table</span> <span class="sy0">=</span> base.<span class="kw1">require</span><span class="br0">&#40;</span><span class="st0">'table'</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- Import some utilitary Lua Scripts; these don't need to be explicitly loaded by ADCH++ (eg if</span>
+<span class="co1">-- using the adchppd daemon, they don't need to be referenced in Scripts.xml).</span>
+<span class="kw1">local</span> autil <span class="sy0">=</span> base.<span class="kw1">require</span><span class="br0">&#40;</span><span class="st0">'autil'</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> json <span class="sy0">=</span> base.<span class="kw1">require</span><span class="br0">&#40;</span><span class="st0">'json'</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- Cache pointers to some managers of ADCH++ that we frequently use.</span>
+<span class="kw1">local</span> cm <span class="sy0">=</span> adchpp.getCM<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="co1">-- ClientManager</span>
+<span class="kw1">local</span> pm <span class="sy0">=</span> adchpp.getPM<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="co1">-- PluginManager</span>
+&nbsp;
+<span class="co1">-- Listeners to connect to ADCH++. Define one unique identifier for each listener (i chose to call</span>
+<span class="co1">-- them example_1, example_2 and so on) to make sure the variable holding the listener doesn't get</span>
+<span class="co1">-- collected by Lua's garbage collector until the program is over.</span>
+&nbsp;
+<span class="co1">-- ClientManager::signalConnected: called after an Entity entity has connected.</span>
+example_1 <span class="sy0">=</span> cm:signalConnected<span class="br0">&#40;</span><span class="br0">&#41;</span>:connect<span class="br0">&#40;</span><span class="kw1">function</span><span class="br0">&#40;</span>entity<span class="br0">&#41;</span>
+	<span class="co1">-- Process signalConnected here.</span>
+<span class="kw1">end</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- ClientManager::signalReceive: called when an AdcCommand cmd is received from Entity entity.</span>
+example_2 <span class="sy0">=</span> cm:signalReceive<span class="br0">&#40;</span><span class="br0">&#41;</span>:connect<span class="br0">&#40;</span><span class="kw1">function</span><span class="br0">&#40;</span>entity, cmd, ok<span class="br0">&#41;</span>
+	<span class="kw1">local</span> res <span class="sy0">=</span> <span class="br0">&#40;</span><span class="kw1">function</span><span class="br0">&#40;</span>entity, cmd, ok<span class="br0">&#41;</span>
+		<span class="co1">-- Skip messages that have been handled and deemed as discardable by others.</span>
+		<span class="kw1">if</span> <span class="kw1">not</span> ok <span class="kw1">then</span>
+			<span class="kw1">return</span> ok
+		<span class="kw1">end</span>
+		<span class="co1">-- Process signalReceive here.</span>
+		<span class="co1">-- Return true to let the command be dispatched, false to block it.</span>
+	<span class="kw1">end</span><span class="br0">&#41;</span><span class="br0">&#40;</span>entity, cmd, ok<span class="br0">&#41;</span>
+	<span class="kw1">if</span> <span class="kw1">not</span> res <span class="kw1">then</span>
+		cmd:setPriority<span class="br0">&#40;</span>adchpp.AdcCommand_PRIORITY_IGNORE<span class="br0">&#41;</span>
+	<span class="kw1">end</span>
+	<span class="kw1">return</span> res
+<span class="kw1">end</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- ClientManager::signalState: called after the state of an online Entity entity has changed.</span>
+example_3 <span class="sy0">=</span> cm:signalState<span class="br0">&#40;</span><span class="br0">&#41;</span>:connect<span class="br0">&#40;</span><span class="kw1">function</span><span class="br0">&#40;</span>entity<span class="br0">&#41;</span>
+	<span class="co1">-- Process signalState here.</span>
+<span class="kw1">end</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- ClientManager::signalDisconnected: called after an Entity entity has disconnected.</span>
+example_4 <span class="sy0">=</span> cm:signalDisconnected<span class="br0">&#40;</span><span class="br0">&#41;</span>:connect<span class="br0">&#40;</span><span class="kw1">function</span><span class="br0">&#40;</span>entity<span class="br0">&#41;</span>
+	<span class="co1">-- Process signalDisconnected here.</span>
+<span class="kw1">end</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- PluginManager::getCommandSignal(string): called when a +command managed by another plugin is</span>
+<span class="co1">-- being executed.</span>
+example_5 <span class="sy0">=</span> pm:getCommandSignal<span class="br0">&#40;</span><span class="st0">&quot;blah&quot;</span><span class="br0">&#41;</span>:connect<span class="br0">&#40;</span><span class="kw1">function</span><span class="br0">&#40;</span>entity, list, ok<span class="br0">&#41;</span>
+	<span class="co1">-- Skip messages that have been handled and deemed as discardable by others.</span>
+	<span class="kw1">if</span> <span class="kw1">not</span> ok <span class="kw1">then</span>
+		<span class="kw1">return</span> ok
+	<span class="kw1">end</span>
+	<span class="co1">-- Process getCommandSignal here.</span>
+	<span class="co1">-- Return true to let the command be executed, false to block it.</span>
+<span class="kw1">end</span><span class="br0">&#41;</span></pre></div></div>
+<p>additionally you can now run Ptokax scripts in ADCH++ via <a href="https://launchpad.net/adchpp-ptokax" class="external text" rel="nofollow">ADCH++ Ptokax Bridge</a> since that emulates the Ptokax LUA API.
+</p>
+<h2> <span class="mw-headline" id="Advantages"> Advantages </span></h2>
+<ul><li>Being created by the actual <a href="/wiki/Developer" title="Developer">developer</a> of the protocol , it has the latest innovation there is, and this also makes this software a point of reference for all the other <a href="/wiki/Hubsoft" title="Hubsoft" class="mw-redirect">hubsoft</a> developers. It probably has the most strict ADC implementation on the market, in the exact line of the protocol.<br />
+</li><li>As multiplatform, is very useful for users running multiple operating systems and has a wide market of delivery as a consequence.<br />
+</li><li>Being the only hubsoft implementing the drafting <a href="/wiki/BLOM" title="BLOM" class="mw-redirect">BLOM</a> extension <sup id="cite_ref-5" class="reference"><a href="#cite_note-5">[6]</a></sup>, it makes it very interesting for people wanting to test new things in the ADC world that were never tried before.<br />
+</li><li>The programming language used for this software is C++ a very powerful and stable language and the compiler (gcc) also provides quality executables.
+</li><li> Scripting support makes ADCH++ very powerful since commands can be issued via scripting api.
+</li></ul>
+<h2> <span class="mw-headline" id="Disadvantages"> Disadvantages </span></h2>
+<ul><li>No I18n support since LUA doesn't support it.
+</li></ul>
+<h2> <span class="mw-headline" id="Misc"> Misc </span></h2>
+<ul><li>Software administrator&nbsp;: Jacek Sieka (arnetheduck) 
+</li><li>Contributors: poy
+</li></ul>
+<h2> <span class="mw-headline" id="References">References</span></h2>
+<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> <a href="http://dcpp.wordpress.com/2008/01/06/adch-first-release/" class="external text" rel="nofollow">ADCH++ First Release by Pietry (Jan 6, 2008)</a></li>
+<li id="cite_note-1"><a href="#cite_ref-1">↑</a> <a href="http://dcpp.wordpress.com/2009/09/30/adch-now-more-then-an-empty-shell/" class="external text" rel="nofollow">ADCH++ now more then an empty shell by Toast (Sep 30, 2009)</a></li>
+<li id="cite_note-2"><a href="#cite_ref-2">↑</a> <a href="http://adcportal.sourceforge.net/forums/viewtopic.php?f=10&amp;t=438" class="external text" rel="nofollow">First Looks at the ADCH++ Gui by Toast (Feb 02, 2009)</a></li>
+<li id="cite_note-3"><a href="#cite_ref-3">↑</a> <a href="http://adcportal.sourceforge.net/forums/viewtopic.php?f=10&amp;t=449" class="external text" rel="nofollow">ADCH++ Gui update by Toast (Sun Feb 08)</a></li>
+<li id="cite_note-4"><a href="#cite_ref-4">↑</a> <a href="http://adcportal.sourceforge.net/forums/viewtopic.php?f=38&amp;t=424" class="external text" rel="nofollow">ADCH++ Python scripts by Sulan (Jan 21, 2009)</a></li>
+<li id="cite_note-5"><a href="#cite_ref-5">↑</a> <a href="http://dcpp.wordpress.com/2008/01/07/bloom-filters/" class="external text" rel="nofollow">Bloom filters by cologic (Jan 7, 2008)</a></li></ol>
+<h2> <span class="mw-headline" id="Links"> Links </span></h2>
+<ul><li><a href="http://adchpp.sf.net" class="external text" rel="nofollow">ADCH++ Sourceforge Site</a>
+</li><li><a href="https://launchpad.net/adchpp" class="external text" rel="nofollow">ADCH++ Launchpad Site</a>
+</li><li><a href="http://adchpp.sourceforge.net/doc/" class="external text" rel="nofollow">ADCH++ Online Documentation</a>
+</li><li><a href="https://answers.launchpad.net/adchpp/+faqs" class="external text" rel="nofollow">ADCH++ Frequently Asked Questions</a>
+</li><li><a href="http://builds.adcportal.com/adchpp/" class="external text" rel="nofollow">ADCH++ Build Archive</a>
+</li></ul>
+<h2> <span class="mw-headline" id="Implementations"> Implementations  </span></h2>
+<div id="textsize" style="width:100%;text-align:left;font-size:95%;">
+<div style="background: #F8F8F8; border: 1px solid #DDDDDD; padding: 5px;" class="notice metadata" id="supportbox"><a href="/wiki/File:Application.png" class="image"><img alt="Application.png" src="/mediawiki/images/thumb/8/87/Application.png/25px-Application.png" width="25" height="25" /></a> This product has implemented the following extensions: <a href="/wiki/ADCS_-_Symmetrical_Encryption_in_ADC" title="ADCS - Symmetrical Encryption in ADC">ADCS</a>,<a href="/wiki/BLOM_-_Bloom_Filter" title="BLOM - Bloom Filter">BLOM</a>,<a href="/wiki/PING" title="PING">PING</a>,<a href="/wiki/TIGR" title="TIGR">TIGR</a>,<a href="/wiki/UCMD" title="UCMD" class="mw-redirect">UCMD</a></div></div>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 1438/1000000
+Post-expand include size: 12058/2097152 bytes
+Template argument size: 2607/2097152 bytes
+Expensive parser function count: 2/100
+-->
+
+<!-- Saved in parser cache with key a250657_wiki:pcache:idhash:12-0!1!0!!en!2!edit=0 and timestamp 20110908195527 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.adcportal.com/wiki/ADCH%2B%2B">http://www.adcportal.com/wiki/ADCH%2B%2B</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Software" title="Category:Software">Software</a></span> | <span dir='ltr'><a href="/wiki/Category:GNU_GPL_2_Software" title="Category:GNU GPL 2 Software">GNU GPL 2 Software</a></span></div></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		<div id="mw-head" class="noprint">
+			
+<!-- 0 -->
+<div id="p-personal" class="">
+	<h5>Personal tools</h5>
+	<ul>
+					<li  id="pt-login"><a href="/mediawiki/index.php?title=Special:UserLogin&amp;returnto=ADCH%2B%2B" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+			<div id="left-navigation">
+				
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>Namespaces</h5>
+	<ul>
+					<li  id="ca-nstab-main" class="selected"><a href="/wiki/ADCH%2B%2B"  title="View the content page [c]" accesskey="c"><span>Page</span></a></li>
+					<li  id="ca-talk" class="new"><a href="/mediawiki/index.php?title=Talk:ADCH%2B%2B&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t"><span>Discussion</span></a></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu emptyPortlet">
+	<h5><span>Variants</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+			</div>
+			<div id="right-navigation">
+				
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>Views</h5>
+	<ul>
+					<li id="ca-view" class="selected"><a href="/wiki/ADCH%2B%2B" ><span>Read</span></a></li>
+					<li id="ca-viewsource"><a href="/mediawiki/index.php?title=ADCH%2B%2B&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li>
+					<li id="ca-history" class="collapsible "><a href="/mediawiki/index.php?title=ADCH%2B%2B&amp;action=history"  title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>Actions</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+
+<!-- 2 -->
+<div id="p-search">
+	<h5><label for="searchInput">Search</label></h5>
+	<form action="/mediawiki/index.php" id="searchform">
+		<input type='hidden' name="title" value="Special:Search"/>
+				<input id="searchInput" name="search" type="text"  title="Search ADCPortal Wiki [f]" accesskey="f"  value="" />
+		<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />
+		<input type="submit" name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+			</form>
+</div>
+
+<!-- /2 -->
+			</div>
+		</div>
+		<!-- /header -->
+		<!-- panel -->
+			<div id="mw-panel" class="noprint">
+				<!-- logo -->
+					<div id="p-logo"><a style="background-image: url(http://www.adcportal.com/misc/wiki_logo.png);" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+				<!-- /logo -->
+				
+<!-- navigation -->
+<div class="portal" id='p-navigation'>
+	<h5>Navigation</h5>
+	<div class="body">
+				<ul>
+					<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+					<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+					<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+					<li id="n-help"><a href="/wiki/Help:Contents" title="The place to find out">Help</a></li>
+				</ul>
+			</div>
+</div>
+
+<!-- /navigation -->
+
+<!-- SEARCH -->
+
+<!-- /SEARCH -->
+
+<!-- TOOLBOX -->
+<div class="portal" id="p-tb">
+	<h5>Toolbox</h5>
+	<div class="body">
+		<ul>
+					<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/ADCH%2B%2B" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+						<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/ADCH%2B%2B" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+																																										<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+									<li id="t-print"><a href="/mediawiki/index.php?title=ADCH%2B%2B&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+						<li id="t-permalink"><a href="/mediawiki/index.php?title=ADCH%2B%2B&amp;oldid=3384" title="Permanent link to this revision of the page">Permanent link</a></li>
+						</ul>
+	</div>
+</div>
+
+<!-- /TOOLBOX -->
+
+<!-- LANGUAGES -->
+
+<!-- /LANGUAGES -->
+			</div>
+		<!-- /panel -->
+		<!-- footer -->
+		<div id="footer">
+											<ul id="footer-info">
+																	<li id="footer-info-lastmod"> This page was last modified on 19 December 2010, at 16:42.</li>
+																							<li id="footer-info-viewcount">This page has been accessed 12,269 times.</li>
+																							<li id="footer-info-copyright">Content is available under <a href="http://www.gnu.org/copyleft/fdl.html" class="external ">GNU Free Documentation License 1.2</a>.</li>
+															</ul>
+															<ul id="footer-places">
+																	<li id="footer-places-privacy"><a href="/wiki/ADCPortal_Wiki:Privacy_policy" title="ADCPortal Wiki:Privacy policy">Privacy policy</a></li>
+																							<li id="footer-places-about"><a href="/wiki/ADCPortal_Wiki:About" title="ADCPortal Wiki:About">About ADCPortal Wiki</a></li>
+																							<li id="footer-places-disclaimer"><a href="/wiki/ADCPortal_Wiki:General_disclaimer" title="ADCPortal Wiki:General disclaimer">Disclaimers</a></li>
+															</ul>
+										<ul id="footer-icons" class="noprint">
+								<li id="footer-icon-poweredby"><a href="http://www.mediawiki.org/"><img src="/mediawiki/skins/common/images/poweredby_mediawiki_88x31.png" height="31" width="88" alt="Powered by MediaWiki" /></a></li>
+												<li id="footer-icon-copyright"><a href="http://www.gnu.org/copyleft/fdl.html"><img src="/mediawiki/skins/common/images/gnu-fdl.png" alt="GNU Free Documentation License 1.2" width="88" height="31" /></a></li>
+							</ul>
+			<div style="clear:both"></div>
+		</div>
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script>
+		<!-- /fixalpha -->
+		
+<script>if (window.runOnloadHook) runOnloadHook();</script>
+		<!-- Served in 1.025 secs. -->			</body>
+</html>

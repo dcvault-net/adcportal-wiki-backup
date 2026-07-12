@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<head>
+<title>NATT - NAT traversal - ADCPortal Wiki</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="MediaWiki 1.16.0" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/mediawiki/opensearch_desc.php" title="ADCPortal Wiki (en)" />
+<link title="Creative Commons" type="application/rdf+xml" href="/mediawiki/index.php?title=NATT_-_NAT_traversal&amp;action=creativecommons" rel="meta" />
+<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+<link rel="alternate" type="application/atom+xml" title="ADCPortal Wiki Atom feed" href="/mediawiki/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="/mediawiki/skins/vector/main-ltr.css?270" media="screen" />
+<link rel="stylesheet" href="/mediawiki/skins/common/shared.css?270" media="screen" />
+<link rel="stylesheet" href="/mediawiki/skins/common/commonPrint.css?270" media="print" />
+<link rel="stylesheet" href="/mediawiki/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" />
+<link rel="stylesheet" href="/mediawiki/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" media="print" />
+<link rel="stylesheet" href="/mediawiki/index.php?title=MediaWiki:Vector.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" />
+<link rel="stylesheet" href="/mediawiki/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" />
+<script>
+var skin="vector",
+stylepath="/mediawiki/skins",
+wgUrlProtocols="http\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/wiki/$1",
+wgScriptPath="/mediawiki",
+wgScriptExtension=".php",
+wgScript="/mediawiki/index.php",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="http://www.adcportal.com",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="NATT_-_NAT_traversal",
+wgTitle="NATT - NAT traversal",
+wgAction="view",
+wgArticleId=217,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=3667,
+wgVersion="1.16.0",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "ADCPortal Wiki", "5": "ADCPortal Wiki talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "adcportal_wiki": 4, "adcportal_wiki_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="ADCPortal Wiki",
+wgCategories=["Protocol"],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="/mediawiki/skins/common/wikibits.js?270"></script>
+<script src="/mediawiki/skins/common/ajax.js?270"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/mediawiki/skins/vector/csshover.htc")}</style><![endif]-->
+<script src="/mediawiki/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=vector&amp;270"></script>
+
+</head>
+<body class="mediawiki ltr ns-0 ns-subject page-NATT_-_NAT_traversal skin-vector">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<!-- content -->
+		<div id="content" >
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">NATT - NAT traversal</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From ADCPortal Wiki</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="infobox vevent" cellspacing="5" style="width: 22em; text-align: left; font-size: 88%; line-height: 1.5em;"><caption class="summary" style="font-size: 125%; font-weight: bold;">NATT</caption>
+<tr><th style="">Inclusion date</th><td class="" style="">1.0.4 <small><span class="bday">2010-08-29</span><span class="noprint">; 375 days ago</span></small></td></tr><tr><th style="">Created by</th><td class="" style="">cologic</td></tr>
+</table>
+<table id="toc" class="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#NATT_-_NAT_traversal"><span class="tocnumber">1</span> <span class="toctext">NATT - NAT traversal</span></a>
+<ul>
+<li class="toclevel-2 tocsection-1"><a href="#BASE_RCM_updates"><span class="tocnumber">1.1</span> <span class="toctext">BASE RCM updates</span></a></li>
+<li class="toclevel-2 tocsection-2"><a href="#NAT"><span class="tocnumber">1.2</span> <span class="toctext">NAT</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#RNT"><span class="tocnumber">1.3</span> <span class="toctext">RNT</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Example"><span class="tocnumber">1.4</span> <span class="toctext">Example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#References"><span class="tocnumber">2</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Links"><span class="tocnumber">3</span> <span class="toctext">Links</span></a></li>
+<li class="toclevel-1"><a href="#See_Also"><span class="tocnumber">4</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</td></tr></table><script>if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<h3> <span class="mw-headline" id="NATT_-_NAT_traversal">NATT - NAT traversal</span></h3>
+<p>NAT traversal allow two passive clients to connect to each other. For more information about NAT traversal.<sup id="cite_ref-0" class="reference"><a href="#cite_note-0">[1]</a></sup><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[2]</a></sup>
+</p><p>If a client does not support TCP4 or TCP6, it will send an RCM to the client it is trying to connect to. If the other client also doesn't support TCP4 (or TCP6 correspondingly), NAT traversal may instead be used.  The feature should be signalled in SUP as NATT.
+</p><p>Do note that the hub must forward I4 or I6 for respective clients' INF.
+</p>
+<h4> <span class="mw-headline" id="BASE_RCM_updates">BASE RCM updates</span></h4>
+<p>When receiving an RCM and the client does not support TCP4 or TCP6, and if NAT-T is supported in the remote client, a NAT command should be sent repeating the protocol and token. The port shall be the outbound port to the connected hub.
+</p>
+<h4> <span class="mw-headline" id="NAT">NAT</span></h4>
+<p><b>NAT protocol port token</b> 
+</p><p>Contexts: T
+</p><p>States: NORMAL
+</p><p>Upon receiving this, try and connect to the specified port.  An RNT command should be sent repeating the protocol and token. The port shall be the outbound port to the connected hub. Upon receiving this, try and connect to the specified port.
+</p>
+<h4> <span class="mw-headline" id="RNT">RNT</span></h4>
+<p><b>RNT protocol port token</b>
+</p><p>Contexts: T
+</p><p>States: NORMAL
+</p><p>Upon receiving this, try and connect to the specified port.
+</p>
+<h4> <span class="mw-headline" id="Example">Example</span></h4>
+<p>Client A is connected to hub A with the outbound port 1000 and client B is connected to hub A with the outbound port 2000. Client A has the SID AAAA and client B has the SID BBBB.
+</p><p><br />
+</p>
+<table class="wikitable" border="0">
+
+<tr>
+<td> Client A: DRCM AAAA BBBB ADC/1.0 foobar
+</td><td> Client B: DNAT BBBB AAAA ADC/1.0 2000 foobar
+</td></tr>
+<tr>
+<th> &lt;Client A connects to client B's IP address and port 2000&gt;
+</th></tr>
+<tr>
+<td> Client A:  DRNT AAAA BBBB ADC/1.0 1000 foobar
+</td></tr>
+<tr>
+<th>
+</th><th> &lt;Client B connects  to client A's IP address and port 1000&gt;
+</th></tr></table>
+<h2> <span class="mw-headline" id="References">References</span></h2>
+<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> <a href="https://dcpp.wordpress.com/2010/06/15/nat-traversal-constraints/" class="external text" rel="nofollow">NAT Traversal Constraints by Cologic (Jun 15, 2010)</a></li>
+<li id="cite_note-1"><a href="#cite_ref-1">↑</a> <a href="https://dcpp.wordpress.com/2010/02/13/passive-mode-c-c-connections-and-nat-traversal/" class="external text" rel="nofollow">Passive Mode C-C Connections and NAT Traversal by Cologic (Feb 13, 2010)</a></li></ol>
+<h2> <span class="mw-headline" id="Links">Links</span></h2>
+<p><a href="https://dcpp.wordpress.com/2010/06/14/nat-traversal-compatibility-survey/|" class="external text" rel="nofollow">NAT Traversal Compatibility Survey</a>
+</p>
+<h2> <span class="mw-headline" id="See_Also"> See Also </span></h2>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 1111/1000000
+Post-expand include size: 2559/2097152 bytes
+Template argument size: 731/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key a250657_wiki:pcache:idhash:217-0!1!0!!en!2!edit=0 and timestamp 20110908184548 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.adcportal.com/wiki/NATT_-_NAT_traversal">http://www.adcportal.com/wiki/NATT_-_NAT_traversal</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/wiki/Category:Protocol" title="Category:Protocol">Protocol</a></span></div></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		<div id="mw-head" class="noprint">
+			
+<!-- 0 -->
+<div id="p-personal" class="">
+	<h5>Personal tools</h5>
+	<ul>
+					<li  id="pt-login"><a href="/mediawiki/index.php?title=Special:UserLogin&amp;returnto=NATT_-_NAT_traversal" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+			<div id="left-navigation">
+				
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>Namespaces</h5>
+	<ul>
+					<li  id="ca-nstab-main" class="selected"><a href="/wiki/NATT_-_NAT_traversal"  title="View the content page [c]" accesskey="c"><span>Page</span></a></li>
+					<li  id="ca-talk" class="new"><a href="/mediawiki/index.php?title=Talk:NATT_-_NAT_traversal&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t"><span>Discussion</span></a></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu emptyPortlet">
+	<h5><span>Variants</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+			</div>
+			<div id="right-navigation">
+				
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>Views</h5>
+	<ul>
+					<li id="ca-view" class="selected"><a href="/wiki/NATT_-_NAT_traversal" ><span>Read</span></a></li>
+					<li id="ca-viewsource"><a href="/mediawiki/index.php?title=NATT_-_NAT_traversal&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li>
+					<li id="ca-history" class="collapsible "><a href="/mediawiki/index.php?title=NATT_-_NAT_traversal&amp;action=history"  title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>Actions</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+
+<!-- 2 -->
+<div id="p-search">
+	<h5><label for="searchInput">Search</label></h5>
+	<form action="/mediawiki/index.php" id="searchform">
+		<input type='hidden' name="title" value="Special:Search"/>
+				<input id="searchInput" name="search" type="text"  title="Search ADCPortal Wiki [f]" accesskey="f"  value="" />
+		<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />
+		<input type="submit" name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+			</form>
+</div>
+
+<!-- /2 -->
+			</div>
+		</div>
+		<!-- /header -->
+		<!-- panel -->
+			<div id="mw-panel" class="noprint">
+				<!-- logo -->
+					<div id="p-logo"><a style="background-image: url(http://www.adcportal.com/misc/wiki_logo.png);" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+				<!-- /logo -->
+				
+<!-- navigation -->
+<div class="portal" id='p-navigation'>
+	<h5>Navigation</h5>
+	<div class="body">
+				<ul>
+					<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+					<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+					<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+					<li id="n-help"><a href="/wiki/Help:Contents" title="The place to find out">Help</a></li>
+				</ul>
+			</div>
+</div>
+
+<!-- /navigation -->
+
+<!-- SEARCH -->
+
+<!-- /SEARCH -->
+
+<!-- TOOLBOX -->
+<div class="portal" id="p-tb">
+	<h5>Toolbox</h5>
+	<div class="body">
+		<ul>
+					<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/NATT_-_NAT_traversal" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+						<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/NATT_-_NAT_traversal" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+																																										<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+									<li id="t-print"><a href="/mediawiki/index.php?title=NATT_-_NAT_traversal&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+						<li id="t-permalink"><a href="/mediawiki/index.php?title=NATT_-_NAT_traversal&amp;oldid=3667" title="Permanent link to this revision of the page">Permanent link</a></li>
+						</ul>
+	</div>
+</div>
+
+<!-- /TOOLBOX -->
+
+<!-- LANGUAGES -->
+
+<!-- /LANGUAGES -->
+			</div>
+		<!-- /panel -->
+		<!-- footer -->
+		<div id="footer">
+											<ul id="footer-info">
+																	<li id="footer-info-lastmod"> This page was last modified on 13 January 2011, at 18:07.</li>
+																							<li id="footer-info-viewcount">This page has been accessed 1,355 times.</li>
+																							<li id="footer-info-copyright">Content is available under <a href="http://www.gnu.org/copyleft/fdl.html" class="external ">GNU Free Documentation License 1.2</a>.</li>
+															</ul>
+															<ul id="footer-places">
+																	<li id="footer-places-privacy"><a href="/wiki/ADCPortal_Wiki:Privacy_policy" title="ADCPortal Wiki:Privacy policy">Privacy policy</a></li>
+																							<li id="footer-places-about"><a href="/wiki/ADCPortal_Wiki:About" title="ADCPortal Wiki:About">About ADCPortal Wiki</a></li>
+																							<li id="footer-places-disclaimer"><a href="/wiki/ADCPortal_Wiki:General_disclaimer" title="ADCPortal Wiki:General disclaimer">Disclaimers</a></li>
+															</ul>
+										<ul id="footer-icons" class="noprint">
+								<li id="footer-icon-poweredby"><a href="http://www.mediawiki.org/"><img src="/mediawiki/skins/common/images/poweredby_mediawiki_88x31.png" height="31" width="88" alt="Powered by MediaWiki" /></a></li>
+												<li id="footer-icon-copyright"><a href="http://www.gnu.org/copyleft/fdl.html"><img src="/mediawiki/skins/common/images/gnu-fdl.png" alt="GNU Free Documentation License 1.2" width="88" height="31" /></a></li>
+							</ul>
+			<div style="clear:both"></div>
+		</div>
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script>
+		<!-- /fixalpha -->
+		
+<script>if (window.runOnloadHook) runOnloadHook();</script>
+		<!-- Served in 0.603 secs. -->			</body>
+</html>

@@ -1,0 +1,177 @@
+{
+ "ADCH++": {
+  "file": "ADCH++.html",
+  "heading": "ADCH++",
+  "group": "articles"
+ },
+ "ADCS_-_Symmetrical_Encryption_in_ADC": {
+  "file": "ADCS_-_Symmetrical_Encryption_in_ADC.html",
+  "heading": "ADCS - Symmetrical Encryption in ADC",
+  "group": "articles"
+ },
+ "ADC_Extensions": {
+  "file": "ADC_Extensions.html",
+  "heading": "ADC Extensions",
+  "group": "articles"
+ },
+ "ADC_Protocol": {
+  "file": "ADC_Protocol.html",
+  "heading": "ADC Protocol",
+  "group": "articles"
+ },
+ "ADC_Software_List": {
+  "file": "ADC_Software_List.html",
+  "heading": "ADC Software List",
+  "group": "articles"
+ },
+ "Adchpp": {
+  "file": "Adchpp.html",
+  "heading": "ADCH++",
+  "group": "articles"
+ },
+ "BLOM_-_Bloom_Filter": {
+  "file": "BLOM_-_Bloom_Filter.html",
+  "heading": "BLOM - Bloom Filter",
+  "group": "articles"
+ },
+ "Client": {
+  "file": "Client.html",
+  "heading": "Client Software",
+  "group": "articles"
+ },
+ "Client_Software": {
+  "file": "Client_Software.html",
+  "heading": "Client Software",
+  "group": "articles"
+ },
+ "DC++": {
+  "file": "DC++.html",
+  "heading": "DC++",
+  "group": "articles"
+ },
+ "FS_-_Free_slots_in_client": {
+  "file": "FS_-_Free_slots_in_client.html",
+  "heading": "FS - Free slots in client",
+  "group": "articles"
+ },
+ "FlexHub": {
+  "file": "FlexHub.html",
+  "heading": "Flexhub",
+  "group": "articles"
+ },
+ "GNU_GPL_2": {
+  "file": "GNU_GPL_2.html",
+  "heading": "GNU GPL 2",
+  "group": "articles"
+ },
+ "GNU_GPL_3": {
+  "file": "GNU_GPL_3.html",
+  "heading": "GNU GPL 3",
+  "group": "articles"
+ },
+ "Hub_Software": {
+  "file": "Hub_Software.html",
+  "heading": "Hub Software",
+  "group": "articles"
+ },
+ "Hubsoft": {
+  "file": "Hubsoft.html",
+  "heading": "Hub Software",
+  "group": "articles"
+ },
+ "I18n": {
+  "file": "I18n.html",
+  "heading": "I18n",
+  "group": "articles"
+ },
+ "KEYP": {
+  "file": "KEYP.html",
+  "heading": "KEYP",
+  "group": "articles"
+ },
+ "Main_Page": {
+  "file": "index.html",
+  "heading": "Main Page",
+  "group": "articles"
+ },
+ "RF_-_Referrer_notification": {
+  "file": "RF_-_Referrer_notification.html",
+  "heading": "RF - Referrer notification",
+  "group": "articles"
+ },
+ "UCMD": {
+  "file": "UCMD.html",
+  "heading": "UCMD - User Commands",
+  "group": "articles"
+ },
+ "UCMD_-_User_Commands": {
+  "file": "UCMD_-_User_Commands.html",
+  "heading": "UCMD - User Commands",
+  "group": "articles"
+ },
+ "Category:API": {
+  "file": "Category_API.html",
+  "heading": "Category:API",
+  "group": "categories"
+ },
+ "Category:Contributers": {
+  "file": "Category_Contributers.html",
+  "heading": "Category:Contributers",
+  "group": "categories"
+ },
+ "Category:GNU_GPL_3_Software": {
+  "file": "Category_GNU_GPL_3_Software.html",
+  "heading": "Category:GNU GPL 3 Software",
+  "group": "categories"
+ },
+ "Category:Open_Source_Licenses": {
+  "file": "Category_Open_Source_Licenses.html",
+  "heading": "Category:Open Source Licenses",
+  "group": "categories"
+ },
+ "Category:Protocol": {
+  "file": "Category_Protocol.html",
+  "heading": "Category:Protocol",
+  "group": "categories"
+ },
+ "Category:Software": {
+  "file": "Category_Software.html",
+  "heading": "Category:Software",
+  "group": "categories"
+ },
+ "Category:Wiki": {
+  "file": "Category_Wiki.html",
+  "heading": "Category:Wiki",
+  "group": "categories"
+ },
+ "Misc_Software": {
+  "file": "Misc_Software.html",
+  "heading": "Misc Software",
+  "group": "articles"
+ },
+ "NATT_-_NAT_traversal": {
+  "file": "NATT_-_NAT_traversal.html",
+  "heading": "NATT - NAT traversal",
+  "group": "articles"
+ },
+ "PING": {
+  "file": "PING.html",
+  "heading": "PING",
+  "group": "articles"
+ },
+ "REF": {
+  "file": "REF.html",
+  "heading": "RF - Referrer notification",
+  "group": "articles"
+ },
+ "SEGA_-_Grouping_of_file_extensions_in_SCH": {
+  "file": "SEGA_-_Grouping_of_file_extensions_in_SCH.html",
+  "heading": "SEGA - Grouping of file extensions in SCH",
+  "group": "articles"
+ },
+ "TIGR": {
+  "file": "TIGR.html",
+  "heading": "TIGR",
+  "group": "articles"
+ }
+}

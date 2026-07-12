@@ -1,0 +1,241 @@
+/* CSS placed here will be applied to all skins */
+
+/* Main Page columns */
+.columnsParent { border-spacing: 8px; margin: 0 -8px }
+
+.featuredArticle {
+  border: 1px solid #cef2e0;
+  background-color: #f5fffa;
+  vertical-align: top;
+  color: #000;
+ }
+.featuredArticle .contents {
+  background-color: #f5fffa;
+  vertical-align: top;
+ }
+.featuredArticle .heading {
+  margin: 0 !important;
+  background-color: #cef2e0;
+  font-family: sans-serif;
+  font-size: 120%;
+  font-weight: bold;
+  border: 1px solid #a3bfb1;
+  text-align: left;
+  color: #000;
+  padding-left: 0.4em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+ }
+
+.rightBlocks {
+  border: 1px solid #cedff2;
+  background-color: #f5faff;
+  vertical-align: top;
+  color: #000;
+ }
+.rightBlocks .contents {
+  background-color: #f5faff;
+  vertical-align: top;
+ }
+.rightBlocks .heading {
+  margin:0 !important;
+  background-color: #cedff2;
+  font-family: sans-serif;
+  font-size: 120%;
+  font-weight: bold;
+  border: 1px solid #a3b0bf;
+  text-align: left;
+  color: #000;
+  padding-left: 0.4em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+ }
+
+/* Main Page style fixes -- added as problems are found */
+.featuredArticle .thumb { border-color: #f5fffa !important; }
+.rightBlocks .thumb { border-color: #f5faff !important; }
+
+/* extra buttons for edit dialog */
+.my-buttons { padding: 0.5em; }
+.my-buttons a {
+  color: black;
+  background-color: #ccddee !important;
+  font-weight: bold;
+  font-size: 0.9em;
+  text-decoration: none;
+  border: thin #006699 outset;
+  padding: 0 0.1em 0.1em 0.1em;
+ }
+.my-buttons a:hover, .my-buttons a:active {
+  background-color: #bbccdd;
+  border-style: inset;
+ }
+
+/* Infobox template style */
+.infobox {
+  border: 1px solid #aaa;
+  background-color: #f9f9f9;
+  color: black;
+  margin: 0.5em 0 0.5em 1em;
+  padding: 0.2em;
+  float: right;
+  clear: right;
+ }
+.infobox td,
+.infobox th {
+  vertical-align: top;
+ }
+.infobox caption {
+  font-size: larger;
+ }
+.infobox.bordered {
+  border-collapse: collapse;
+ }
+.infobox.bordered td,
+.infobox.bordered th {
+  border: 1px solid #aaa;
+ }
+.infobox.bordered .borderless td,
+.infobox.bordered .borderless th {
+  border: 0;
+ }
+.infobox.sisterproject {
+  width: 20em;
+  font-size: 90%;
+ }
+.infobox.standard-talk {
+  border: 1px solid #c0c090;
+  background-color: #f8eaba;
+ }
+.infobox.standard-talk.bordered td,
+.infobox.standard-talk.bordered th {
+  border: 1px solid #c0c090;
+ }
+
+/* styles for bordered infobox with merged rows */
+.infobox.bordered .mergedtoprow td,
+.infobox.bordered .mergedtoprow th {
+  border: 0;
+  border-top: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+ }
+.infobox.bordered .mergedrow td,
+.infobox.bordered .mergedrow th {
+  border: 0;
+  border-right: 1px solid #aaa;
+ }
+
+/* Standard Navigation hide/show. */
+div.NavFrame {
+  margin: 0;
+  padding: 4px;
+  border: 1px solid #aaa;
+  text-align: center;
+  border-collapse: collapse;
+  font-size: 95%;
+ }
+div.NavFrame + div.NavFrame {
+  border-top-style: none;
+  border-top-style: hidden;
+ }
+div.NavPic {
+  background-color: #fff;
+  margin: 0;
+  padding: 2px;
+  float: left;
+ }
+div.NavFrame div.NavHead {
+  height: 1.6em;
+  font-weight: bold;
+  background-color: #ccf;
+  position:relative;
+ }
+div.NavFrame p {
+  font-size: 100%;
+ }
+div.NavFrame div.NavContent {
+  font-size: 100%;
+ }
+div.NavFrame div.NavContent p {
+  font-size: 100%;
+ }
+div.NavEnd {
+  margin: 0;
+  padding: 0;
+  line-height: 1px;
+  clear: both;
+ }
+a.NavToggle {
+  position: absolute;
+  top: 0;
+  right: 3px;
+  font-weight: normal;
+  font-size: 90%;
+ }
+.collapseButton {		/* 'show'/'hide' buttons created dynamically by the		*/
+	float: right;		/* CollapsibleTables JavaScript in [[MediaWiki:Common.js]] */
+	font-weight: normal;	/* are styled here so they can be customised.		  */
+	text-align: right;
+	width: auto;
+}
+/* Default skin for navigation boxes */
+table.navbox {            /* Navbox container style */
+  border: 1px solid #aaa;
+  width: 100%; 
+  margin: auto;
+  clear: both;
+  font-size: 88%;
+  text-align: center;
+  padding: 1px;
+}
+table.navbox + table.navbox {  /* Single pixel border between adjacent navboxes */
+  margin-top: -1px;            /* (doesn't work for IE6, but that's okay)       */
+}
+.navbox-title,
+.navbox-abovebelow,
+table.navbox th {
+  text-align: center;      /* Title and above/below styles */
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.navbox-group {            /* Group style */
+  white-space: nowrap;
+  text-align: right;
+  font-weight: bold;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.navbox, .navbox-subgroup {
+  background: #fdfdfd;     /* Background color */
+}
+.navbox-list {
+  border-color: #fdfdfd;   /* Must match background color */
+}
+.navbox-title,
+table.navbox th {
+  background: #ccccff;     /* Level 1 color */
+}
+.navbox-abovebelow,
+.navbox-group,
+.navbox-subgroup .navbox-title {
+  background: #ddddff;     /* Level 2 color */
+}
+.navbox-subgroup .navbox-group, .navbox-subgroup .navbox-abovebelow {
+  background: #e6e6ff;     /* Level 3 color */
+}
+.navbox-even {
+  background: #f7f7f7;     /* Even row striping */
+}
+.navbox-odd {
+  background: transparent; /* Odd row striping */
+}
+ 
+.collapseButton {          /* 'show'/'hide' buttons created dynamically */
+    float: right;          /* by the CollapsibleTables javascript in    */
+    font-weight: normal;   /* [[MediaWiki:Common.js]]are styled here    */
+    text-align: right;     /* so they can be customised.                */
+    width: auto;
+}
+.navbox .collapseButton {  /* In navboxes, the show/hide button balances */
+    width: 6em;            /* the vde links from [[Template:Tnavbar]],   */
+}                          /* so they need to be the same width.         */

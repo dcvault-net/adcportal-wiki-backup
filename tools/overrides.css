@@ -1,0 +1,56 @@
+/* Minimal overrides for the archived original-skin reconstruction.
+   Loaded LAST, after the recovered Vector + shared + Common + gen CSS.
+   Only adds what the static archive needs; it does not restyle the wiki. */
+
+/* logo: the recovered inline background needs sane sizing */
+#p-logo a {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+/* content links to pages that were never archived are marked red (like native
+   MediaWiki redlinks) and made inert, with a tooltip on hover */
+a.archived-inert { cursor: help; }
+#bodyContent a.archived-inert,
+#bodyContent a.archived-inert:visited { color: #CC2200 !important; }
+#searchInput, #searchButton, #mw-searchButton { cursor: default; }
+
+/* footer note explaining the reconstruction */
+.archive-note {
+  margin: 0.4em 0 1em;
+  padding: 0.6em 0.85em;
+  border: 1px solid #c8ccd1;
+  background: #f8f9fa;
+  font-size: 0.85em;
+  line-height: 1.5;
+  color: #54595d;
+}
+.archive-note a { color: #36c; }
+.archive-note .na { color: #CC2200; font-weight: bold; }
+
+/* never-archived images */
+.noimg {
+  display: inline-block;
+  font-size: 0.85em;
+  color: #72777d;
+  border: 1px dashed #a2a9b1;
+  border-radius: 2px;
+  padding: 0 0.3em;
+  background: #f8f9fa;
+  cursor: help;
+  vertical-align: middle;
+}
+.noimg.block { display: block; padding: 0.8rem; text-align: center; margin: 0.6rem 0; }
+
+/* wide tables scroll inside their own box, page never scrolls sideways */
+.table-scroll { overflow-x: auto; max-width: 100%; margin: 0.6em 0; }
+.table-scroll > table { margin: 0; }
+
+/* GeSHi syntax colours (MediaWiki:Geshi.css was not archived) */
+pre .kw1, pre .kw2, pre .kw3 { color: #0000aa; font-weight: 600; }
+pre .co1, pre .co2, pre .coMULTI { color: #6a737d; font-style: italic; }
+pre .st0, pre .st_h { color: #a31515; }
+pre .nu0 { color: #098658; }
+pre .me1, pre .me2 { color: #795e26; }
+pre .re0, pre .re1, pre .re2 { color: #101010; }

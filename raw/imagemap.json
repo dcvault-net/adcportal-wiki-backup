@@ -1,0 +1,240 @@
+{
+ "images": {
+  "/mediawiki/images/thumb/0/09/Eiskaltdc.png/20px-Eiskaltdc.png": {
+   "local": "mediawiki/images/thumb/0/09/Eiskaltdc.png/20px-Eiskaltdc.png",
+   "timestamp": "20110810095749",
+   "bytes": 1200
+  },
+  "/mediawiki/images/thumb/1/14/Flexhub-icon-256x256.png/100px-Flexhub-icon-256x256.png": {
+   "local": "mediawiki/images/thumb/1/14/Flexhub-icon-256x256.png/100px-Flexhub-icon-256x256.png",
+   "timestamp": "20110908182036",
+   "bytes": 11807
+  },
+  "/mediawiki/images/thumb/2/2c/Win_icon.png/20px-Win_icon.png": {
+   "local": "mediawiki/images/thumb/2/2c/Win_icon.png/20px-Win_icon.png",
+   "timestamp": "20111004091452",
+   "bytes": 1087
+  },
+  "/mediawiki/images/thumb/3/31/Rsz_xmpl.png/20px-Rsz_xmpl.png": {
+   "local": "mediawiki/images/thumb/3/31/Rsz_xmpl.png/20px-Rsz_xmpl.png",
+   "timestamp": "20110810095821",
+   "bytes": 689
+  },
+  "/mediawiki/images/thumb/3/32/Linux_icon.jpg/20px-Linux_icon.jpg": {
+   "local": "mediawiki/images/thumb/3/32/Linux_icon.jpg/20px-Linux_icon.jpg",
+   "timestamp": "20110908185605",
+   "bytes": 1219
+  },
+  "/mediawiki/images/thumb/3/34/DC-Logo_128.png/100px-DC-Logo_128.png": {
+   "local": "mediawiki/images/thumb/3/34/DC-Logo_128.png/100px-DC-Logo_128.png",
+   "timestamp": "20110908190657",
+   "bytes": 14652
+  },
+  "/mediawiki/images/thumb/3/34/DC-Logo_128.png/20px-DC-Logo_128.png": {
+   "local": "mediawiki/images/thumb/3/34/DC-Logo_128.png/20px-DC-Logo_128.png",
+   "timestamp": "20111004091606",
+   "bytes": 1281
+  },
+  "/mediawiki/images/thumb/3/3e/Android_icon.png/20px-Android_icon.png": {
+   "local": "mediawiki/images/thumb/3/3e/Android_icon.png/20px-Android_icon.png",
+   "timestamp": "20110810095904",
+   "bytes": 574
+  },
+  "/mediawiki/images/thumb/3/3f/Apex.png/20px-Apex.png": {
+   "local": "mediawiki/images/thumb/3/3f/Apex.png/20px-Apex.png",
+   "timestamp": "20110810095919",
+   "bytes": 990
+  },
+  "/mediawiki/images/thumb/3/3f/Core_issue.png/20px-Core_issue.png": {
+   "local": "mediawiki/images/thumb/3/3f/Core_issue.png/20px-Core_issue.png",
+   "timestamp": "20111004091659",
+   "bytes": 938
+  },
+  "/mediawiki/images/thumb/4/45/Bsd_icon.png/20px-Bsd_icon.png": {
+   "local": "mediawiki/images/thumb/4/45/Bsd_icon.png/20px-Bsd_icon.png",
+   "timestamp": "20111004092144",
+   "bytes": 985
+  },
+  "/mediawiki/images/thumb/4/4a/Droiddc.png/20px-Droiddc.png": {
+   "local": "mediawiki/images/thumb/4/4a/Droiddc.png/20px-Droiddc.png",
+   "timestamp": "20110810100058",
+   "bytes": 874
+  },
+  "/mediawiki/images/thumb/5/5a/Flylink.gif/20px-Flylink.gif": {
+   "local": "mediawiki/images/thumb/5/5a/Flylink.gif/20px-Flylink.gif",
+   "timestamp": "20111004091623",
+   "bytes": 303
+  },
+  "/mediawiki/images/thumb/5/5e/Freedcpp.png/20px-Freedcpp.png": {
+   "local": "mediawiki/images/thumb/5/5e/Freedcpp.png/20px-Freedcpp.png",
+   "timestamp": "20111004091554",
+   "bytes": 603
+  },
+  "/mediawiki/images/thumb/5/5e/Jucy_icon.128.gif/20px-Jucy_icon.128.gif": {
+   "local": "mediawiki/images/thumb/5/5e/Jucy_icon.128.gif/20px-Jucy_icon.128.gif",
+   "timestamp": "20110908155113",
+   "bytes": 484
+  },
+  "/mediawiki/images/thumb/6/62/Flexhubscreen.png/265px-Flexhubscreen.png": {
+   "local": "mediawiki/images/thumb/6/62/Flexhubscreen.png/265px-Flexhubscreen.png",
+   "timestamp": "20110908182440",
+   "bytes": 60996
+  },
+  "/mediawiki/images/thumb/7/74/Rsz_airdc_site_logo.png/20px-Rsz_airdc_site_logo.png": {
+   "local": "mediawiki/images/thumb/7/74/Rsz_airdc_site_logo.png/20px-Rsz_airdc_site_logo.png",
+   "timestamp": "20110810100127",
+   "bytes": 1073
+  },
+  "/mediawiki/images/thumb/7/76/Linuxdcpp_icon.png/20px-Linuxdcpp_icon.png": {
+   "local": "mediawiki/images/thumb/7/76/Linuxdcpp_icon.png/20px-Linuxdcpp_icon.png",
+   "timestamp": "20110810100205",
+   "bytes": 1228
+  },
+  "/mediawiki/images/thumb/8/82/Discussion.png/40px-Discussion.png": {
+   "local": "mediawiki/images/thumb/8/82/Discussion.png/40px-Discussion.png",
+   "timestamp": "20110908190538",
+   "bytes": 2632
+  },
+  "/mediawiki/images/thumb/8/8f/Alert.svg/18px-Alert.svg.png": {
+   "local": "mediawiki/images/thumb/8/8f/Alert.svg/18px-Alert.svg.png",
+   "timestamp": "20110810100256",
+   "bytes": 1146
+  },
+  "/mediawiki/images/thumb/9/93/Mit_icon.png/20px-Mit_icon.png": {
+   "local": "mediawiki/images/thumb/9/93/Mit_icon.png/20px-Mit_icon.png",
+   "timestamp": "20111004091802",
+   "bytes": 771
+  },
+  "/mediawiki/images/thumb/a/a7/Hand.png/20px-Hand.png": {
+   "local": "mediawiki/images/thumb/a/a7/Hand.png/20px-Hand.png",
+   "timestamp": "20110810100405",
+   "bytes": 593
+  },
+  "/mediawiki/images/thumb/a/af/Question_mark.png/20px-Question_mark.png": {
+   "local": "mediawiki/images/thumb/a/af/Question_mark.png/20px-Question_mark.png",
+   "timestamp": "20110810100434",
+   "bytes": 440
+  },
+  "/mediawiki/images/thumb/b/b3/Info.png/40px-Info.png": {
+   "local": "mediawiki/images/thumb/b/b3/Info.png/40px-Info.png",
+   "timestamp": "20110908173606",
+   "bytes": 2830
+  },
+  "/mediawiki/images/thumb/b/ba/Discontinued.png/20px-Discontinued.png": {
+   "local": "mediawiki/images/thumb/b/ba/Discontinued.png/20px-Discontinued.png",
+   "timestamp": "20110908210845",
+   "bytes": 790
+  },
+  "/mediawiki/images/thumb/b/bc/Rsx_logo.png/20px-Rsx_logo.png": {
+   "local": "mediawiki/images/thumb/b/bc/Rsx_logo.png/20px-Rsx_logo.png",
+   "timestamp": "20111004091846",
+   "bytes": 761
+  },
+  "/mediawiki/images/thumb/c/ca/FreeBSD_icon.png/20px-FreeBSD_icon.png": {
+   "local": "mediawiki/images/thumb/c/ca/FreeBSD_icon.png/20px-FreeBSD_icon.png",
+   "timestamp": "20111004092046",
+   "bytes": 1226
+  },
+  "/mediawiki/images/thumb/d/d5/Adchpp_icon.png/20px-Adchpp_icon.png": {
+   "local": "mediawiki/images/thumb/d/d5/Adchpp_icon.png/20px-Adchpp_icon.png",
+   "timestamp": "20110908185708",
+   "bytes": 1350
+  },
+  "/mediawiki/images/thumb/d/d5/Checklist.png/20px-Checklist.png": {
+   "local": "mediawiki/images/thumb/d/d5/Checklist.png/20px-Checklist.png",
+   "timestamp": "20110908155303",
+   "bytes": 749
+  },
+  "/mediawiki/images/thumb/d/de/Status_unknown.png/20px-Status_unknown.png": {
+   "local": "mediawiki/images/thumb/d/de/Status_unknown.png/20px-Status_unknown.png",
+   "timestamp": "20111004091641",
+   "bytes": 994
+  },
+  "/mediawiki/images/thumb/e/e4/Dcpp_clients.png/1000px-Dcpp_clients.png": {
+   "local": "mediawiki/images/thumb/e/e4/Dcpp_clients.png/1000px-Dcpp_clients.png",
+   "timestamp": "20110810100824",
+   "bytes": 115858
+  },
+  "/mediawiki/images/thumb/e/e4/The-gnu-logo.png/20px-The-gnu-logo.png": {
+   "local": "mediawiki/images/thumb/e/e4/The-gnu-logo.png/20px-The-gnu-logo.png",
+   "timestamp": "20110908160254",
+   "bytes": 1252
+  },
+  "/mediawiki/images/thumb/e/ee/Client_connected.png/265px-Client_connected.png": {
+   "local": "mediawiki/images/thumb/e/ee/Client_connected.png/265px-Client_connected.png",
+   "timestamp": "20110908190736",
+   "bytes": 50401
+  },
+  "/mediawiki/images/thumb/f/f2/Macosx_icon.png/20px-Macosx_icon.png": {
+   "local": "mediawiki/images/thumb/f/f2/Macosx_icon.png/20px-Macosx_icon.png",
+   "timestamp": "20111004091718",
+   "bytes": 933
+  },
+  "/mediawiki/images/thumb/f/fc/BCDCPlusPlus.png/20px-BCDCPlusPlus.png": {
+   "local": "mediawiki/images/thumb/f/fc/BCDCPlusPlus.png/20px-BCDCPlusPlus.png",
+   "timestamp": "20111004091823",
+   "bytes": 1160
+  },
+  "/mediawiki/skins/common/images/gnu-fdl.png": {
+   "local": "mediawiki/skins/common/images/gnu-fdl.png",
+   "timestamp": "20111004092127",
+   "bytes": 1730
+  },
+  "/mediawiki/skins/common/images/poweredby_mediawiki_88x31.png": {
+   "local": "mediawiki/skins/common/images/poweredby_mediawiki_88x31.png",
+   "timestamp": "20110908182402",
+   "bytes": 1927
+  }
+ },
+ "missing": [
+  "/mediawiki/extensions/CategoryTree/CategoryTree.js?5",
+  "/mediawiki/images/4/43/Flowlib_graph.png",
+  "/mediawiki/images/e/e9/Embla_graph.png",
+  "/mediawiki/images/thumb/1/11/NetChatLink_Icon.png/20px-NetChatLink_Icon.png",
+  "/mediawiki/images/thumb/1/14/Flexhub-icon-256x256.png/20px-Flexhub-icon-256x256.png",
+  "/mediawiki/images/thumb/2/22/Dcwatch_logo.png/20px-Dcwatch_logo.png",
+  "/mediawiki/images/thumb/3/38/License.png/20px-License.png",
+  "/mediawiki/images/thumb/3/3a/Luadch_logo.jpg/20px-Luadch_logo.jpg",
+  "/mediawiki/images/thumb/3/3f/Contributer.png/20px-Contributer.png",
+  "/mediawiki/images/thumb/4/43/Uhub_logo.png/20px-Uhub_logo.png",
+  "/mediawiki/images/thumb/4/47/Adchpp_screenshot.png/265px-Adchpp_screenshot.png",
+  "/mediawiki/images/thumb/5/5e/Document.png/40px-Document.png",
+  "/mediawiki/images/thumb/6/63/Bmdc64x64.png/20px-Bmdc64x64.png",
+  "/mediawiki/images/thumb/6/6a/Logo192_192.jpg/20px-Logo192_192.jpg",
+  "/mediawiki/images/thumb/7/72/Starhub.png/20px-Starhub.png",
+  "/mediawiki/images/thumb/8/80/Public_domain_icon.png/20px-Public_domain_icon.png",
+  "/mediawiki/images/thumb/8/87/Application.png/20px-Application.png",
+  "/mediawiki/images/thumb/8/87/Application.png/25px-Application.png",
+  "/mediawiki/images/thumb/b/b3/DiCePlusPlus.png/20px-DiCePlusPlus.png",
+  "/mediawiki/images/thumb/d/d1/Documentation.png/20px-Documentation.png",
+  "/mediawiki/images/thumb/d/d5/Adchpp_icon.png/100px-Adchpp_icon.png",
+  "/mediawiki/images/thumb/f/fb/Openvms.png/20px-Openvms.png",
+  "/mediawiki/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=vector&amp;270",
+  "/mediawiki/skins/common/ajax.js?270",
+  "/mediawiki/skins/common/wikibits.js?270"
+ ],
+ "recovered_originals": {},
+ "still_missing": [
+  "/mediawiki/images/4/43/Flowlib_graph.png",
+  "/mediawiki/images/e/e9/Embla_graph.png",
+  "/mediawiki/images/thumb/1/11/NetChatLink_Icon.png/20px-NetChatLink_Icon.png",
+  "/mediawiki/images/thumb/1/14/Flexhub-icon-256x256.png/20px-Flexhub-icon-256x256.png",
+  "/mediawiki/images/thumb/2/22/Dcwatch_logo.png/20px-Dcwatch_logo.png",
+  "/mediawiki/images/thumb/3/38/License.png/20px-License.png",
+  "/mediawiki/images/thumb/3/3a/Luadch_logo.jpg/20px-Luadch_logo.jpg",
+  "/mediawiki/images/thumb/3/3f/Contributer.png/20px-Contributer.png",
+  "/mediawiki/images/thumb/4/43/Uhub_logo.png/20px-Uhub_logo.png",
+  "/mediawiki/images/thumb/4/47/Adchpp_screenshot.png/265px-Adchpp_screenshot.png",
+  "/mediawiki/images/thumb/5/5e/Document.png/40px-Document.png",
+  "/mediawiki/images/thumb/6/63/Bmdc64x64.png/20px-Bmdc64x64.png",
+  "/mediawiki/images/thumb/6/6a/Logo192_192.jpg/20px-Logo192_192.jpg",
+  "/mediawiki/images/thumb/7/72/Starhub.png/20px-Starhub.png",
+  "/mediawiki/images/thumb/8/80/Public_domain_icon.png/20px-Public_domain_icon.png",
+  "/mediawiki/images/thumb/8/87/Application.png/20px-Application.png",
+  "/mediawiki/images/thumb/8/87/Application.png/25px-Application.png",
+  "/mediawiki/images/thumb/b/b3/DiCePlusPlus.png/20px-DiCePlusPlus.png",
+  "/mediawiki/images/thumb/d/d1/Documentation.png/20px-Documentation.png",
+  "/mediawiki/images/thumb/d/d5/Adchpp_icon.png/100px-Adchpp_icon.png",
+  "/mediawiki/images/thumb/f/fb/Openvms.png/20px-Openvms.png"
+ ]
+}

@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html dir="ltr" lang="en">
+<head>
+<title>KEYP - ADCPortal Wiki</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="MediaWiki 1.16.0" name="generator"/>
+
+
+<link href="/mediawiki/index.php?title=KEYP&amp;action=creativecommons" rel="meta" title="Creative Commons" type="application/rdf+xml"/>
+<link href="http://www.gnu.org/copyleft/fdl.html" rel="copyright"/>
+
+
+
+
+
+
+
+
+
+
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/mediawiki/skins/vector/csshover.htc")}</style><![endif]-->
+
+<link href="mediawiki/skins/vector/main-ltr.css" media="screen" rel="stylesheet"/><link href="mediawiki/skins/common/shared.css" media="screen" rel="stylesheet"/><link href="mediawiki/site-common.css" media="all" rel="stylesheet"/><link href="mediawiki/site-vector.css" media="all" rel="stylesheet"/><link href="mediawiki/gen.css" media="all" rel="stylesheet"/><link href="overrides.css" media="all" rel="stylesheet"/></head>
+<body class="mediawiki ltr ns-0 ns-subject page-KEYP skin-vector">
+<div class="noprint" id="mw-page-base"></div>
+<div class="noprint" id="mw-head-base"></div>
+<!-- content -->
+<div id="content">
+<a id="top"></a>
+<div id="mw-js-message" style="display:none;"></div>
+<!-- firstHeading -->
+<h1 class="firstHeading" id="firstHeading">KEYP</h1>
+<!-- /firstHeading -->
+<!-- bodyContent -->
+<div id="bodyContent">
+<!-- tagline -->
+<h3 id="siteSub">From ADCPortal Wiki</h3>
+<!-- /tagline -->
+<!-- subtitle -->
+<div id="contentSub"></div>
+<!-- /subtitle -->
+<!-- jumpto -->
+<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+</div>
+<!-- /jumpto -->
+<!-- bodytext -->
+<p>This extension adds a simple, but secure way to protect against man-in-the-middle attacks against ADC when wrapped with TLS (1.0 or later). It does not require setting up a CA or signing keys, but that is still possible if desired.
+</p><p>The extension introduces a keyprint parameter to the ADCS URI. The keyprint parameter is a hash of the server certificate.
+</p><p>The extension also requires clients to publish their own certificates' keyprint in the KP field in the INF. Assuming one trusts the hub enough not to maliciously change the keyprints en route (a reasonable assumption given the hub's existing position of trust), and given that the connection to the hub has been similarly authenticated (either as above or via a directly downloaded trusted certificate), client-client connections are also protected against attempted man-in-the-middle attacks - without messing around with having to get everyone's certificates signed in advance.
+</p><p>The keyprint parameter consists of a hash name, followed by a forward slash ('/'), followed by the Base32-encoded cyrptographic hash of the certificate.
+</p><p>The hash used shall be SHA256. Other extensions may add other hashes, given sufficient security contemplation.
+</p><p>INF field;
+</p>
+<div class="table-scroll"><table border="1" class="wikitable">
+<tr>
+<th> KP
+</th><td>The client's own certificate keyprint.
+</td></tr></table></div>
+<div class="table-scroll"><table class="toc" id="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Keyprint_replacement_behaviour"><span class="tocnumber">1</span> <span class="toctext">Keyprint replacement behaviour</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Keyprint_verification"><span class="tocnumber">2</span> <span class="toctext">Keyprint verification</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Security_Considerations"><span class="tocnumber">3</span> <span class="toctext">Security Considerations</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#General"><span class="tocnumber">3.1</span> <span class="toctext">General</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#Client-Hub"><span class="tocnumber">3.1.1</span> <span class="toctext">Client-Hub</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#Client-Client"><span class="tocnumber">3.1.2</span> <span class="toctext">Client-Client</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Example"><span class="tocnumber">3.1.3</span> <span class="toctext">Example</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#See_Also"><span class="tocnumber">4</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</td></tr></table></div>
+<h3> <span class="mw-headline" id="Keyprint_replacement_behaviour"> Keyprint replacement behaviour </span></h3>
+<p>If a client receives a KP field in an FINF broadcast via a hub it is connected to using ADCS and a trusted key as above (or otherwise), it should be regarded as the valid and correct keyprint for that client's IP/port/hub combination, replacing any earlier keyprint for that IP/port/hub combination.
+</p>
+<h3> <span class="mw-headline" id="Keyprint_verification"> Keyprint verification </span></h3>
+<p>When initiating a TLS handshake with a remote host where the keyprint is known, the client can verify that a man-in-the-middle attack is not occurring by checking if the hash given in the keyprint exactly matches that of the certificate presented during the handshake by the remote host.
+</p><p>Suppose the client is aware of a remote host's keyprint and is in the process of connecting to that host. A certificate substitution attack is in place if the hub presents itself with a certificate that does not match and where the certificate is not the root of the valid signature chain covering the certificate.
+If the client detects such an attack, the client should abort the connection and notify the user with a message stating, for example, "Crypto error: Detected attempted man-in-the-middle attack, aborting". (This error quite possibly represents a real attempted attack that has been foiled; we may try auto-reconnecting but we should NEVER ignore it, or it will succeed. We may wish to avoid stating the keyprint of the certificate that was actually received.)
+</p><p>Optionally, when receiving a TLS handshake, if the client knows what the remote host's keyprint ought to be, the client could also verify this. However, note that only the initiating side needs to check this for the man-in-the-middle protection to be valid; specifically the hub doesn't need to remember, or even understand, clients' keyprints.
+</p>
+<h2> <span class="mw-headline" id="Security_Considerations"> Security Considerations </span></h2>
+<h3> <span class="mw-headline" id="General"> General </span></h3>
+<p>The certificates, including the name fields, are sent in the clear during the initial handshake. Therefore it is recommended to avoid identifying marks in the certificates CommonName fields (for example) that would clearly single them out as being TLS keys used by ADCS:, and the CID field most definitely should not appear. Quite possibly no name fields should appear, or they should be blank. 
+</p>
+<h4> <span class="mw-headline" id="Client-Hub"> Client-Hub </span></h4>
+<p>The keyprint in the ADCS URI prevents a clandestine man-in-the-middle (certificate substitution) attack on the TLS session with the hub, if and only if the kp parameter hasn't been modified by an attacker. 
+</p><p>Suggested countermeasures against this include the following;
+</p>
+<ul><li> Even if otherwise unprotected, an attacker would likely only have a maximum of one opportunity to make the substitution (by changing the kp parameter when the URL is first sent to the user); if it's changed later, it will be detected. ("Casual first-use" security, as often used in SSH.) 
+</li></ul>
+<ul><li> Checking the fingerprint or transferring the hub URL out-of-band (for example by telephone, or in person) could reveal or thwart man-in-the-middle attacks; something's wrong if you don't have the same URL as the hub operator gives out. (PGP-style "sneakernet" security.) 
+</li></ul>
+<ul><li> We would be protected if the URL were in a file signed by some secure means by a party we have already decided we trust not to change the URLs maliciously. Encryption would not be necessary, only a signature to ensure no untrusted party has modified the KP fields. (A signed hublist, possibly.) 
+</li></ul>
+<p>Finally, we would be protected were the hublist/URL retrieved from an https: site signed by a CA we trust not to issue signatures for any domain to someone who doesn't own that domain, and the owner of that domain trusted not to modify the KP fields. (SSL-style security.) 
+</p>
+<h4> <span class="mw-headline" id="Client-Client"> Client-Client </span></h4>
+<p>We are, in particular, trusting the hub not to maliciously modify the KP fields sent by the clients through their INF broadcasts. However;
+</p>
+<ul><li> The hub would gain nothing from swapping the keyprints of its users, as it would not gain anything from mounting a man-in-the-middle attack on its own users that it does not already have the ability to do, as it's the hub; and 
+</li><li> If the client do not trust the hub enough not to maliciously modify the data, why is the client choosing to connect to the hub and transmit the client's IP address through the hub? 
+</li><li> It could be detected by cross-checking with other clients/hubs, as connecting through a malicious hub would clearly show to have a different keyprint to any other hub; therefore any hub doing this would obviously be quickly removed from hublists. 
+</li></ul>
+<h4> <span class="mw-headline" id="Example"> Example </span></h4>
+<div class="table-scroll"><table border="0" class="wikitable">
+<tr>
+<td>adcs://example.com:1234/?kp=SHA256/G3PJC4F4MQ5KOXGE2MPYJW5EW63IC6M7RN7OS663JLLWN2M5I6FQ
+</td></tr></table></div>
+<h2> <span class="mw-headline" id="See_Also"> See Also </span></h2>
+<!-- 
+NewPP limit report
+Preprocessor node count: 31/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<!-- Saved in parser cache with key a250657_wiki:pcache:idhash:51-0!1!0!!en!2!edit=0 and timestamp 20110908110314 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.adcportal.com/wiki/KEYP">http://www.adcportal.com/wiki/KEYP</a>"</div>
+<!-- /bodytext -->
+<!-- catlinks -->
+<div class="catlinks" id="catlinks"><div id="mw-normal-catlinks"><a class="archived-inert" href="#" title="Page not archived">Category</a>: <span dir="ltr"><a href="Category_Protocol.html">Protocol</a></span></div></div> <!-- /catlinks -->
+<div class="visualClear"></div>
+</div>
+<!-- /bodyContent -->
+</div>
+<!-- /content -->
+<!-- header -->
+<div class="noprint" id="mw-head">
+<!-- 0 -->
+<div class="" id="p-personal">
+<h5>Personal tools</h5>
+<ul>
+<li id="pt-login"><a accesskey="o" class="archived-inert" href="#" title="Not available in this archive">Log in</a></li>
+</ul>
+</div>
+<!-- /0 -->
+<div id="left-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-namespaces">
+<h5>Namespaces</h5>
+<ul>
+<li class="selected" id="ca-nstab-main"><a accesskey="c" href="KEYP.html"><span>Page</span></a></li>
+<li class="new" id="ca-talk"><a accesskey="t" class="archived-inert" href="#" title="Not available in this archive"><span>Discussion</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-variants">
+<h5><span>Variants</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+</div>
+<div id="right-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-views">
+<h5>Views</h5>
+<ul>
+<li class="selected" id="ca-view"><a href="KEYP.html"><span>Read</span></a></li>
+<li id="ca-viewsource"><a accesskey="e" class="archived-inert" href="#" title="Not available in this archive"><span>View source</span></a></li>
+<li class="collapsible" id="ca-history"><a accesskey="h" class="archived-inert" href="#" title="Not available in this archive"><span>View history</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-cactions">
+<h5><span>Actions</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+<!-- 2 -->
+<div id="p-search">
+<h5><label for="searchInput">Search</label></h5>
+<form action="#" id="searchform" onsubmit="return false">
+<input name="title" type="hidden" value="Special:Search"/>
+<input accesskey="f" id="searchInput" name="search" title="Search ADCPortal Wiki [f]" type="text" value=""/>
+<input class="searchButton" id="searchGoButton" name="go" title="Go to a page with this exact name if exists" type="submit" value="Go"/>
+<input class="searchButton" id="mw-searchButton" name="fulltext" title="Search the pages for this text" type="submit" value="Search"/>
+</form>
+</div>
+<!-- /2 -->
+</div>
+</div>
+<!-- /header -->
+<!-- panel -->
+<div class="noprint" id="mw-panel">
+<!-- logo -->
+<div id="p-logo"><a href="index.html" style="background-image: url(misc/wiki_logo.png);"></a></div>
+<!-- /logo -->
+<!-- navigation -->
+<div class="portal" id="p-navigation">
+<h5>Navigation</h5>
+<div class="body">
+<ul>
+<li id="n-mainpage-description"><a accesskey="z" href="index.html">Main page</a></li>
+<li id="n-recentchanges"><a accesskey="r" class="archived-inert" href="#" title="Page not archived">Recent changes</a></li>
+<li id="n-randompage"><a accesskey="x" class="archived-inert" href="#" title="Page not archived">Random page</a></li>
+<li id="n-help"><a class="archived-inert" href="#" title="Page not archived">Help</a></li>
+</ul>
+</div>
+</div>
+<!-- /navigation -->
+<!-- SEARCH -->
+<!-- /SEARCH -->
+<!-- TOOLBOX -->
+<div class="portal" id="p-tb">
+<h5>Toolbox</h5>
+<div class="body">
+<ul>
+<li id="t-whatlinkshere"><a accesskey="j" class="archived-inert" href="#" title="Page not archived">What links here</a></li>
+<li id="t-recentchangeslinked"><a accesskey="k" class="archived-inert" href="#" title="Page not archived">Related changes</a></li>
+<li id="t-specialpages"><a accesskey="q" class="archived-inert" href="#" title="Page not archived">Special pages</a></li>
+<li id="t-print"><a accesskey="p" class="archived-inert" href="#" rel="alternate" title="Not available in this archive">Printable version</a></li>
+<li id="t-permalink"><a class="archived-inert" href="#" title="Not available in this archive">Permanent link</a></li>
+</ul>
+</div>
+</div>
+<!-- /TOOLBOX -->
+<!-- LANGUAGES -->
+<!-- /LANGUAGES -->
+</div>
+<!-- /panel -->
+<!-- footer -->
+<div id="footer"><div class="archive-note">This is a static archive of the ADCPortal wiki. It was reconstructed from all available <a href="https://web.archive.org/">Internet Archive</a> snapshots and merged into the most complete version possible. Links to pages that were never captured by the archive are shown in <span class="na">red</span> and cannot be opened.</div>
+<ul id="footer-info">
+<li id="footer-info-lastmod"> This page was last modified on 4 December 2010, at 12:12.</li>
+<li id="footer-info-viewcount">This page has been accessed 1,517 times.</li>
+<li id="footer-info-copyright">Content is available under <a class="external" href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.2</a>.</li>
+</ul>
+<ul id="footer-places">
+<li id="footer-places-privacy"><a class="archived-inert" href="#" title="Page not archived">Privacy policy</a></li>
+<li id="footer-places-about"><a class="archived-inert" href="#" title="Page not archived">About ADCPortal Wiki</a></li>
+<li id="footer-places-disclaimer"><a class="archived-inert" href="#" title="Page not archived">Disclaimers</a></li>
+</ul>
+<ul class="noprint" id="footer-icons">
+<li id="footer-icon-poweredby"><a href="http://www.mediawiki.org/"><img alt="Powered by MediaWiki" height="31" src="mediawiki/skins/common/images/poweredby_mediawiki_88x31.png" width="88"/></a></li>
+<li id="footer-icon-copyright"><a href="http://www.gnu.org/copyleft/fdl.html"><img alt="GNU Free Documentation License 1.2" height="31" src="mediawiki/skins/common/images/gnu-fdl.png" width="88"/></a></li>
+</ul>
+<div style="clear:both"></div>
+</div>
+<!-- /footer -->
+<!-- fixalpha -->
+
+<!-- /fixalpha -->
+
+<!-- Served in 0.407 secs. --> </body>
+</html>
