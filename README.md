@@ -5,7 +5,7 @@ documentation hub for the ADC (Advanced Direct Connect) protocol. The original M
 site went offline after 2011; this repository reconstructs it from Internet Archive
 snapshots and serves it as a self-contained static site.
 
-Live copy: <https://adcportal-wiki-backup.pages.dev> (Cloudflare Pages)
+Live copy: [https://adcpwiki.dcvault.net](https://adcpwiki.dcvault.net/)
 
 ## What this is
 
