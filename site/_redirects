@@ -2,8 +2,14 @@
 # Colon-namespaced pages (Special:/Category:) use "_" in the static filename.
 /wiki/Special:*    /Special_:splat    301
 /wiki/Category:*   /Category_:splat   301
+/wiki/Talk:*       /Talk_:splat       301
+/wiki/User_talk:*      /User_talk_:splat      301
+/wiki/Template_talk:*  /Template_talk_:splat  301
 /Special:*         /Special_:splat    301
 /Category:*        /Category_:splat   301
+/Talk:*            /Talk_:splat       301
+/User_talk:*           /User_talk_:splat      301
+/Template_talk:*       /Template_talk_:splat  301
 /wiki/Main_Page    /                  301
 /wiki              /                  301
 /wiki/*            /:splat            301

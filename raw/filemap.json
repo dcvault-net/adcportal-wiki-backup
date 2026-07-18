@@ -797,5 +797,76 @@
   "group": "articles",
   "bytes": 2520,
   "source": "recovered"
+ },
+ "Talk:BLOM_-_Bloom_Filter": {
+  "file": "Talk_BLOM_-_Bloom_Filter.html",
+  "timestamp": "20110908212948",
+  "url": "http://www.adcportal.com/wiki/Talk:BLOM_-_Bloom_Filter",
+  "group": "talk",
+  "bytes": 16441
+ },
+ "Talk:AirDC++": {
+  "file": "Talk_AirDC++.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "talk",
+  "bytes": 205,
+  "source": "recovered"
+ },
+ "Talk:BLOM": {
+  "file": "Talk_BLOM.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "talk",
+  "bytes": 267,
+  "source": "recovered"
+ },
+ "Talk:Compliancy_list": {
+  "file": "Talk_Compliancy_list.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "talk",
+  "bytes": 11269,
+  "source": "recovered"
+ },
+ "Talk:Luadch_API": {
+  "file": "Talk_Luadch_API.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "talk",
+  "bytes": 268,
+  "source": "recovered"
+ },
+ "Talk:PFS": {
+  "file": "Talk_PFS.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "talk",
+  "bytes": 583,
+  "source": "recovered"
+ },
+ "Talk:RSX++": {
+  "file": "Talk_RSX++.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "talk",
+  "bytes": 232,
+  "source": "recovered"
+ },
+ "User_talk:Pietry": {
+  "file": "User_talk_Pietry.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "talk",
+  "bytes": 99,
+  "source": "recovered"
+ },
+ "Template_talk:Infobox_Extension": {
+  "file": "Template_talk_Infobox_Extension.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "talk",
+  "bytes": 282,
+  "source": "recovered"
  }
 }

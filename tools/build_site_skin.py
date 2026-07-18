@@ -11,6 +11,28 @@ SCRATCH = os.path.dirname(os.path.abspath(__file__))
 filemap = json.load(open(os.path.join(RAW, "filemap.json"), encoding="utf-8"))
 name2file = {name: meta["file"] for name, meta in filemap.items()}
 name2file["Main_Page"] = "index.html"
+
+# MediaWiki titles are case-sensitive after the first letter (so "Flexhub" and
+# "FlexHub" are different pages, usually an article + a #REDIRECT to it), but a
+# static site on a case-insensitive host cannot keep two files that differ only in
+# case. Collapse each such collision onto one canonical file and route every
+# colliding name to it: prefer a genuine Wayback capture, then the larger page
+# (the real article over a tiny redirect stub).
+_groups = collections.defaultdict(list)
+for _nm, _meta in filemap.items():
+    _groups[_meta["file"].lower()].append(_nm)
+write_names = set(filemap)
+for _low, _names in _groups.items():
+    if len(_names) == 1:
+        continue
+    _winner = max(_names, key=lambda n: (0 if filemap[n].get("source") == "recovered" else 1,
+                                         filemap[n].get("bytes", 0)))
+    _win_file = filemap[_winner]["file"]
+    for _nm in _names:
+        name2file[_nm] = _win_file
+        if _nm != _winner:
+            write_names.discard(_nm)
+
 lower2name = {k.lower(): k for k in name2file}
 
 present_images = set()
@@ -29,8 +51,14 @@ REDIRECTS = (
     "# Colon-namespaced pages (Special:/Category:) use \"_\" in the static filename.\n"
     "/wiki/Special:*    /Special_:splat    301\n"
     "/wiki/Category:*   /Category_:splat   301\n"
+    "/wiki/Talk:*       /Talk_:splat       301\n"
+    "/wiki/User_talk:*      /User_talk_:splat      301\n"
+    "/wiki/Template_talk:*  /Template_talk_:splat  301\n"
     "/Special:*         /Special_:splat    301\n"
     "/Category:*        /Category_:splat   301\n"
+    "/Talk:*            /Talk_:splat       301\n"
+    "/User_talk:*           /User_talk_:splat      301\n"
+    "/Template_talk:*       /Template_talk_:splat  301\n"
     "/wiki/Main_Page    /                  301\n"
     "/wiki              /                  301\n"
     "/wiki/*            /:splat            301\n"
@@ -120,6 +148,48 @@ def process(path, name, out_name):
 
     body_content = soup.find(id="bodyContent")
 
+    # namespace tabs (Page / Discussion / Read): genuine captures already carry the
+    # right hrefs, but recovered pages inherited the shell page's tabs (ADC_Protocol),
+    # so recompute them from this page's own name. The link loop below then resolves
+    # the /wiki/ targets to local files or marks them inert.
+    if filemap.get(name, {}).get("source") == "recovered":
+        # map a talk-namespace prefix to its subject-namespace prefix (keys use "_"
+        # for the space inside two-word namespaces, e.g. "User_talk:")
+        TALK_TO_SUBJECT = {
+            "Talk:": "", "User_talk:": "User:", "Template_talk:": "Template:",
+            "Category_talk:": "Category:", "Help_talk:": "Help:", "File_talk:": "File:",
+            "MediaWiki_talk:": "MediaWiki:", "Project_talk:": "Project:",
+        }
+        is_talk = False
+        subject = name
+        talk_target = "Talk:" + name           # a subject page's talk lives at Talk:<name>
+        for _tp, _sp in TALK_TO_SUBJECT.items():
+            if name.startswith(_tp):
+                is_talk = True
+                subject = _sp + name[len(_tp):]  # e.g. User_talk:Pietry -> User:Pietry
+                talk_target = name               # this page IS the talk page
+                break
+
+        def set_tab(tab_id, href, selected, keep_new=False):
+            li = soup.find(id=tab_id)
+            if not li:
+                return
+            a = li.find("a")
+            if a:
+                a["href"] = href
+                a.attrs.pop("class", None)   # drop stale 'new'/inert; loop recomputes
+                a.attrs.pop("title", None)
+            cls = [c for c in (li.get("class") or []) if c not in ("selected", "new")]
+            if keep_new:
+                cls.append("new")            # let the loop clear it iff the link resolves
+            if selected:
+                cls.append("selected")
+            li["class"] = cls
+
+        set_tab("ca-nstab-main", "/wiki/" + subject, not is_talk)
+        set_tab("ca-talk", "/wiki/" + talk_target, is_talk, keep_new=True)
+        set_tab("ca-view", "/wiki/" + name, True)
+
     def in_content(el):
         p = el
         while p is not None:
@@ -155,6 +225,12 @@ def process(path, name, out_name):
     # links -- resolve to a local page where possible; otherwise keep the
     # ORIGINAL colour/class (blue link or red .new redlink) and make it inert
     # with an English tooltip. This matches the original appearance.
+    def clear_tab_new(anchor):
+        # a namespace tab that now resolves must lose the red 'new' class on its <li>
+        li = anchor.find_parent("li")
+        if li and li.get("class"):
+            li["class"] = [c for c in li["class"] if c != "new"]
+
     for a in soup.find_all("a", href=True):
         href = a["href"]
         if href.startswith("/wiki/"):
@@ -166,6 +242,7 @@ def process(path, name, out_name):
                 a["href"] = target + (("#" + frag) if frag else "")
                 a.attrs.pop("title", None)
                 if a.get("class"): a.attrs.pop("class", None)
+                clear_tab_new(a)
                 stats["link_ok"] += 1
             else:
                 a["href"] = "#"
@@ -173,10 +250,25 @@ def process(path, name, out_name):
                 a["title"] = "Page not archived"
                 stats["link_inert"] += 1
         elif href.startswith(("/mediawiki/", "/index.php", "/misc/")):
-            a["href"] = "#"
-            a["class"] = (a.get("class") or []) + ["archived-inert"]
-            a["title"] = "Not available in this archive"
-            stats["link_inert"] += 1
+            # a redlink whose page now exists (e.g. a Discussion tab pointing at a
+            # talk page we recovered) -> wire it up instead of killing it
+            promoted = None
+            if "redlink" in href:
+                q = urllib.parse.urlparse(href.replace("&amp;", "&")).query
+                qs = urllib.parse.parse_qs(q)
+                if "title" in qs:
+                    promoted = resolve_page(qs["title"][0])
+            if promoted:
+                a["href"] = promoted
+                a.attrs.pop("title", None)
+                a.attrs.pop("class", None)
+                clear_tab_new(a)
+                stats["link_ok"] += 1
+            else:
+                a["href"] = "#"
+                a["class"] = (a.get("class") or []) + ["archived-inert"]
+                a["title"] = "Not available in this archive"
+                stats["link_inert"] += 1
         elif href.startswith("//"):
             a["href"] = "https:" + href
         elif href.startswith("http://web.archive.org"):
@@ -219,6 +311,8 @@ if os.path.isdir(os.path.join(RAW, "misc")):
 shutil.copy(os.path.join(SCRATCH, "overrides.css"), os.path.join(SITE, "overrides.css"))
 
 for name, meta in filemap.items():
+    if name not in write_names:      # loser of a case-collision; its file isn't emitted
+        continue
     out = "index.html" if name == "Main_Page" else meta["file"]
     process(os.path.join(WIKI, meta["file"]), name, out)
 
