@@ -7,3 +7,7 @@ desktop.ini
 
 # wrangler local cache/state
 .wrangler/
+
+# recovery working files (local MediaWiki render dir + php config); the source zip is kept
+recovery/
+raw/filemap.pre-recovery.json

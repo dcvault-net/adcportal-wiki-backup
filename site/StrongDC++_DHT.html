@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html dir="ltr" lang="en">
+<head>
+<title>StrongDC++ DHT - ADCPortal Wiki</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="MediaWiki 1.16.0" name="generator"/>
+
+
+<link href="/mediawiki/index.php?title=ADC_Protocol&amp;action=creativecommons" rel="meta" title="Creative Commons" type="application/rdf+xml"/>
+<link href="http://www.gnu.org/copyleft/fdl.html" rel="copyright"/>
+
+
+
+
+
+
+
+
+
+
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/mediawiki/skins/vector/csshover.htc")}</style><![endif]-->
+
+<link href="mediawiki/skins/vector/main-ltr.css" media="screen" rel="stylesheet"/><link href="mediawiki/skins/common/shared.css" media="screen" rel="stylesheet"/><link href="mediawiki/site-common.css" media="all" rel="stylesheet"/><link href="mediawiki/site-vector.css" media="all" rel="stylesheet"/><link href="mediawiki/gen.css" media="all" rel="stylesheet"/><link href="overrides.css" media="all" rel="stylesheet"/></head>
+<body class="mediawiki ltr ns-0 ns-subject page-ADC_Protocol skin-vector">
+<div class="noprint" id="mw-page-base"></div>
+<div class="noprint" id="mw-head-base"></div>
+<!-- content -->
+<div id="content">
+<a id="top"></a>
+<div id="mw-js-message" style="display:none;"></div>
+<!-- firstHeading -->
+<h1 class="firstHeading" id="firstHeading">StrongDC++ DHT</h1>
+<!-- /firstHeading -->
+<!-- bodyContent -->
+<div id="bodyContent"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><p>This document describes one of many versions of P2P network based on Distributed Hash Table. The main idea was taken from Kademlia including some tweaks, mainly from eMule’s KAD network.
+</p>
+<div aria-labelledby="mw-toc-heading" class="toc" id="toc" role="navigation"><input class="toctogglecheckbox" id="toctogglecheckbox" role="button" style="display:none" type="checkbox"/><div class="toctitle" dir="ltr" lang="en"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Protocol"><span class="tocnumber">1</span> <span class="toctext">Protocol</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Node"><span class="tocnumber">2</span> <span class="toctext">Node</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Metric"><span class="tocnumber">3</span> <span class="toctext">Metric</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Routing_table"><span class="tocnumber">4</span> <span class="toctext">Routing table</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Inserting_nodes"><span class="tocnumber">4.1</span> <span class="toctext">Inserting nodes</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Node_expiration"><span class="tocnumber">4.2</span> <span class="toctext">Node expiration</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Removing_nodes"><span class="tocnumber">4.3</span> <span class="toctext">Removing nodes</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Searching_for_a_node"><span class="tocnumber">4.4</span> <span class="toctext">Searching for a node</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Searching_for_a_file"><span class="tocnumber">4.5</span> <span class="toctext">Searching for a file</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Publishing_a_file"><span class="tocnumber">4.6</span> <span class="toctext">Publishing a file</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Joining_the_network"><span class="tocnumber">4.7</span> <span class="toctext">Joining the network</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#Valid_ADC_Commands"><span class="tocnumber">5</span> <span class="toctext">Valid ADC Commands</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="#Notes"><span class="tocnumber">5.1</span> <span class="toctext">Notes</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#See_Also"><span class="tocnumber">6</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
+<h2><span class="mw-headline" id="Protocol">Protocol</span></h2>
+<p>StrongDC++ DHT implementation uses ADC protocol over UDP interface. Default UDP port is 6245. Complete description of ADC commands is at the end of this document.
+</p>
+<h2><span class="mw-headline" id="Node">Node</span></h2>
+<p>This network consists of clients running StrongDC++ or its derivation. These are called nodes and they communicate with each other and store information for each other. Every node consists of CID, IP and UDP port. CID is a 192-bit unique identifier used in ADC network.
+</p>
+<h2><span class="mw-headline" id="Metric">Metric</span></h2>
+<p>Everything (nodes, files…) in the network is identified by 192-bit number. Algorithm to generate these numbers is Tiger Tree Hash. Operations in the network are based on exclusive OR. The distance between two IDs is defined as:<br/>
+</p>
+<figure class="mw-default-size mw-halign-center" typeof="mw:Error mw:File"><a class="archived-inert" href="#" title="Page not archived"><span class="mw-file-element mw-broken-media">File:Dht formula.png</span></a><figcaption></figcaption></figure>
+<h2><span class="mw-headline" id="Routing_table">Routing table</span></h2>
+<p>Current routing table consist only from one bucket, which can contain up to 1920 nodes (CID size * K). This bucket is sorted by the time when each node has been seen active for last time.
+</p>
+<h3><span class="mw-headline" id="Inserting_nodes">Inserting nodes</span></h3>
+<p>Each time the client receives communication from another node, it updates its own routing table. When node is new (i.e. it doesn’t exists in routing table), it is added at the end of the bucket. When the bucket is full, nothing happens. When node is already contained in the routing table, it is moved to the end and set it as alive. This ensures that active nodes are at the end, while inactive nodes are at the beginning.
+</p>
+<h3><span class="mw-headline" id="Node_expiration">Node expiration</span></h3>
+<p>When new node is inserted into routing table it is marked as it will expire very soon. When node is being set alive (i.e. another packet received from him), the node expiration is set according to following table:
+</p>
+<div class="table-scroll"><table border="0" class="wikitable">
+<tbody><tr>
+<th>Node is known for
+</th>
+<th>Node will expire in
+</th>
+<th>Node type will be set to
+</th></tr>
+<tr>
+<td>Just created
+</td>
+<td>Now
+</td>
+<td>3
+</td></tr>
+<tr>
+<td>Less than 1 hour
+</td>
+<td>60 minutes
+</td>
+<td>2
+</td></tr>
+<tr>
+<td>1 – 2 hour
+</td>
+<td>90 minutes
+</td>
+<td>1
+</td></tr>
+<tr>
+<td>More than 2 hours
+</td>
+<td>120 minutes
+</td>
+<td>0
+</td></tr></tbody></table></div>
+<h3><span class="mw-headline" id="Removing_nodes">Removing nodes</span></h3>
+<p>Nodes are checked every minute. The oldest expired node is pinged (by sending INF) and its type is increased by one. It has 2 minutes to respond else it will be marked as expired. If node’s type reaches 4, it will be removed from routing table on next check.
+</p>
+<h3><span class="mw-headline" id="Searching_for_a_node">Searching for a node</span></h3>
+<p>When a client wants to search for a node (with target ID) in the network, it selects 50 nodes which ID is the closest to the target ID and inserts them to the “possible” list sorted by its distance to the target ID. Then it sends SCH request to 3 closest nodes. These nodes respond (if they are online) with RES command containing 10 nodes from their routing table which are closest to our target ID. Searching client inserts these nodes to “possible” list. This list is checked every 3 seconds when it selects another 3 closest nodes and sends the SCH request to them. It must be ensured what request isn’t send twice to the same node. This operation is repeated until the “possible” list is empty or whole search operation passes 45 seconds. Then it waits 15 seconds for possibly delayed results. Now search operation is complete.
+</p>
+<h3><span class="mw-headline" id="Searching_for_a_file">Searching for a file</span></h3>
+<p>Operation of searching for a file is almost the same as a searching for node. There’s only exception when remote node has wanted file in its store, it returns directly file’s source list instead of node list. It returns up to 300 sources.
+</p><p><i><b>Not implemented idea #1:</b></i> <i>When client wants to search for file source, it could look into its own store first. If required file ID is present, it wouldn’t have to send search request at all.</i>
+</p><p><i><b>Not implemented idea #2:</b></i> <i>When remote client receives search file request. It looks into its store for file ID. It should also look into its own sharelist to provide results faster.</i>
+<i></i>
+</p>
+<h3><span class="mw-headline" id="Publishing_a_file">Publishing a file</span></h3>
+<p>When client wants to publish file from its sharelist, it performs normal search request for node which ID is closest to the file ID. But it has 140 seconds to finish operation (instead of 45 seconds). Every node which responds to search request is added to “responded” list. When search operation completes, 10 closest (to file ID) nodes are selected from “responded” list and PUB request is sent to them. Remote nodes respond with STA when the file was correctly stored to their store.
+</p><p><i><b>Not implemented:</b></i> <i>Currently, it doesn’t solve situation when remote node denies publishing our file. It should be ensured that file will always be published to 10 nodes.</i>
+</p>
+<h3><span class="mw-headline" id="Joining_the_network">Joining the network</span></h3>
+<p>When a new node wants to join the network, it must go through a bootstrapping process. It should know at least one node already participating in the network. The more known nodes we have, the more probability that some of them are still online is. The list of such nodes is stored in file dht.xml. When this file contains zero nodes, the list is downloaded from remote server.
+</p><p>The client sends INF command to the nodes in list until one of them responds. These commands aren’t sent at once, but there’s a delay to give a remote node time to respond. When any remote node sends a packet to us (although it’s not a node we contacted), the bootstrapping is stopped and client searches for own ID in 3 minutes.
+</p><p>When client disconnects from the network, it stores up to 50 nodes closest to itself, so it can bootstrap from them next time. These bootstrapping nodes won’t be added to the routing table later because there’s possibility they will be offline.
+</p>
+<h2><span class="mw-headline" id="Valid_ADC_Commands">Valid ADC Commands</span></h2>
+<p><br/>
+SCH - searches for object in the network<br/>
+- TR = requested TTH/CID<br/>
+- TO = token<br/>
+- TY = search type (1 = file, 3 = node, 4 = store)<br/>
+<br/>
+RES - response to SCH<br/>
+- TO = token (it must match the token in SCH)<br/>
+- NX = node/source list in XML format<br/>
+<br/>
+when search type is "file" and node knows sources for searched file, it should directly respond with these sources; in other cases, it should returns K nodes closest to requested TTH/CID.
+</p><p>&lt;source lang="xml"&gt;
+&lt;Nodes&gt;
+	&lt;Source CID="user ID" I4="IP address" U4="UDP port" SI="filesize" PF="is it partial file?"/&gt;
+	&lt;Node CID="user CID" I4="IP address" U4="UDP port"/&gt;
+&lt;/Nodes&gt;
+&lt;/source&gt;
+</p><p>PUB - requests for file publishing<br/>
+- TR = TTH root<br/>
+- SI = file size<br/>
+- PF = 1 - file is partially downloaded (present in our queue)<br/>
+<br/>
+INF - sends our info to node&gt;<br/>
+- TY = 1 - node must response with its own info, 2 - node must set us as online<br/>
+- VE = client version<br/>
+- NI = user's nick<br/>
+- SU = supported features (ADC0, TCP4, UDP4 now supported)<br/>
+<br/>
+CTM - connect to me request<br/>
+- protocol (ADCS/0.10, ADC/1.0)<br/>
+- port<br/>
+- token<br/>
+<br/>
+PSR - partial file request<br/>
+- U4 = our DC UDP port (that one used for classic DC searches, not DHT one!)<br/>
+- TR = file TTH<br/>
+<br/>
+MSG - private message (not supported yet)<br/>
+<br/>
+GET - request to get some special data<br/>
+- type (only "nodes" is currently supported)<br/>
+- identifier (only "dht.xml" is currently supported)<br/>
+<br/>
+SND - response to GET<br/>
+- type (must be same as in received GET)<br/>
+- identifier (must be same as in received GET)<br/>
+- data (when type is "nodes" then node list in XML format)<br/>
+<br/>
+STA - status message<br/>
+- code<br/>
+- description<br/>
+- FC = PUB - response to file publish request (TR contains published file TTH)<br/>
+= FWCHECK - response to UDP firewall check (I4, U4 - our external IP/port)<br/>
+</p>
+<h3><span class="mw-headline" id="Notes">Notes</span></h3>
+<ul><li>each command can contain FW parameter with our internal UDP port, which means that remote node must send us STA with error code 0 and FC set to FWCHECK containing our external IP and UDP port.</li></ul>
+<h2><span class="mw-headline" id="See_Also">See Also</span></h2>
+</div></div>
+<!-- /bodyContent -->
+</div>
+<!-- /content -->
+<!-- header -->
+<div class="noprint" id="mw-head">
+<!-- 0 -->
+<div class="" id="p-personal">
+<h5>Personal tools</h5>
+<ul>
+<li id="pt-login"><a accesskey="o" class="archived-inert" href="#" title="Not available in this archive">Log in</a></li>
+</ul>
+</div>
+<!-- /0 -->
+<div id="left-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-namespaces">
+<h5>Namespaces</h5>
+<ul>
+<li class="selected" id="ca-nstab-main"><a accesskey="c" href="ADC_Protocol.html"><span>Page</span></a></li>
+<li class="new" id="ca-talk"><a accesskey="t" class="archived-inert" href="#" title="Not available in this archive"><span>Discussion</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-variants">
+<h5><span>Variants</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+</div>
+<div id="right-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-views">
+<h5>Views</h5>
+<ul>
+<li class="selected" id="ca-view"><a href="ADC_Protocol.html"><span>Read</span></a></li>
+<li id="ca-viewsource"><a accesskey="e" class="archived-inert" href="#" title="Not available in this archive"><span>View source</span></a></li>
+<li class="collapsible" id="ca-history"><a accesskey="h" class="archived-inert" href="#" title="Not available in this archive"><span>View history</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-cactions">
+<h5><span>Actions</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+<!-- 2 -->
+<div id="p-search">
+<h5><label for="searchInput">Search</label></h5>
+<form action="#" id="searchform" onsubmit="return false">
+<input name="title" type="hidden" value="Special:Search"/>
+<input accesskey="f" id="searchInput" name="search" title="Search ADCPortal Wiki [f]" type="text" value=""/>
+<input class="searchButton" id="searchGoButton" name="go" title="Go to a page with this exact name if exists" type="submit" value="Go"/>
+<input class="searchButton" id="mw-searchButton" name="fulltext" title="Search the pages for this text" type="submit" value="Search"/>
+</form>
+</div>
+<!-- /2 -->
+</div>
+</div>
+<!-- /header -->
+<!-- panel -->
+<div class="noprint" id="mw-panel">
+<!-- logo -->
+<div id="p-logo"><a href="index.html" style="background-image: url(misc/wiki_logo.png);"></a></div>
+<!-- /logo -->
+<!-- navigation -->
+<div class="portal" id="p-navigation">
+<h5>Navigation</h5>
+<div class="body">
+<ul>
+<li id="n-mainpage-description"><a accesskey="z" href="index.html">Main page</a></li>
+<li id="n-recentchanges"><a accesskey="r" href="Special_RecentChanges.html">Recent changes</a></li>
+<li id="n-randompage"><a accesskey="x" class="archived-inert" href="#" title="Page not archived">Random page</a></li>
+<li id="n-help"><a class="archived-inert" href="#" title="Page not archived">Help</a></li>
+</ul>
+</div>
+</div>
+<!-- /navigation -->
+<!-- SEARCH -->
+<!-- /SEARCH -->
+<!-- TOOLBOX -->
+<div class="portal" id="p-tb">
+<h5>Toolbox</h5>
+<div class="body">
+<ul>
+<li id="t-whatlinkshere"><a accesskey="j" class="archived-inert" href="#" title="Page not archived">What links here</a></li>
+<li id="t-recentchangeslinked"><a accesskey="k" class="archived-inert" href="#" title="Page not archived">Related changes</a></li>
+<li id="t-specialpages"><a accesskey="q" href="Special_SpecialPages.html">Special pages</a></li>
+<li id="t-print"><a accesskey="p" class="archived-inert" href="#" rel="alternate" title="Not available in this archive">Printable version</a></li>
+<li id="t-permalink"><a class="archived-inert" href="#" title="Not available in this archive">Permanent link</a></li>
+</ul>
+</div>
+</div>
+<!-- /TOOLBOX -->
+<!-- LANGUAGES -->
+<!-- /LANGUAGES -->
+</div>
+<!-- /panel -->
+<!-- footer -->
+<div id="footer"><div class="archive-note">This page was recovered from a community database backup of the ADCPortal wiki (the original wikitext, rendered back to HTML). It was never captured by the Internet Archive. Images are not part of that backup, and links to pages that are still missing are inactive.</div>
+<ul id="footer-info">
+<li id="footer-info-lastmod"> This page was last modified on 11 January 2011, at 21:03.</li>
+<li id="footer-info-viewcount">This page has been accessed 7,022 times.</li>
+<li id="footer-info-copyright">Content is available under <a class="external" href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.2</a>.</li>
+</ul>
+<ul id="footer-places">
+<li id="footer-places-privacy"><a class="archived-inert" href="#" title="Page not archived">Privacy policy</a></li>
+<li id="footer-places-about"><a class="archived-inert" href="#" title="Page not archived">About ADCPortal Wiki</a></li>
+<li id="footer-places-disclaimer"><a class="archived-inert" href="#" title="Page not archived">Disclaimers</a></li>
+</ul>
+<ul class="noprint" id="footer-icons">
+<li id="footer-icon-poweredby"><a href="http://www.mediawiki.org/"><img alt="Powered by MediaWiki" height="31" src="mediawiki/skins/common/images/poweredby_mediawiki_88x31.png" width="88"/></a></li>
+<li id="footer-icon-copyright"><a href="http://www.gnu.org/copyleft/fdl.html"><img alt="GNU Free Documentation License 1.2" height="31" src="mediawiki/skins/common/images/gnu-fdl.png" width="88"/></a></li>
+</ul>
+<div style="clear:both"></div>
+</div>
+<!-- /footer -->
+<!-- fixalpha -->
+
+<!-- /fixalpha -->
+
+<!-- Served in 1.348 secs. --> </body>
+</html>

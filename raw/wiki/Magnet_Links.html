@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html dir="ltr" lang="en">
+<head>
+<title>Magnet Links - ADCPortal Wiki</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="MediaWiki 1.16.0" name="generator"/>
+<link href="/favicon.ico" rel="shortcut icon"/>
+<link href="/mediawiki/opensearch_desc.php" rel="search" title="ADCPortal Wiki (en)" type="application/opensearchdescription+xml"/>
+<link href="/mediawiki/index.php?title=ADC_Protocol&amp;action=creativecommons" rel="meta" title="Creative Commons" type="application/rdf+xml"/>
+<link href="http://www.gnu.org/copyleft/fdl.html" rel="copyright"/>
+<link href="/mediawiki/index.php?title=Special:RecentChanges&amp;feed=atom" rel="alternate" title="ADCPortal Wiki Atom feed" type="application/atom+xml"/>
+<link href="/mediawiki/skins/vector/main-ltr.css?270" media="screen" rel="stylesheet"/>
+<link href="/mediawiki/skins/common/shared.css?270" media="screen" rel="stylesheet"/>
+<link href="/mediawiki/skins/common/commonPrint.css?270" media="print" rel="stylesheet"/>
+<link href="/mediawiki/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" rel="stylesheet"/>
+<link href="/mediawiki/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" media="print" rel="stylesheet"/>
+<link href="/mediawiki/index.php?title=MediaWiki:Vector.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" rel="stylesheet"/>
+<link href="/mediawiki/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" rel="stylesheet"/>
+<script>
+var skin="vector",
+stylepath="/mediawiki/skins",
+wgUrlProtocols="http\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/wiki/$1",
+wgScriptPath="/mediawiki",
+wgScriptExtension=".php",
+wgScript="/mediawiki/index.php",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="http://www.adcportal.com",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="ADC_Protocol",
+wgTitle="ADC Protocol",
+wgAction="view",
+wgArticleId=2,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=3615,
+wgVersion="1.16.0",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "ADCPortal Wiki", "5": "ADCPortal Wiki talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "adcportal_wiki": 4, "adcportal_wiki_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="ADCPortal Wiki",
+wgCategories=["Stubs", "Protocol information"],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="/mediawiki/skins/common/wikibits.js?270"></script>
+<script src="/mediawiki/skins/common/ajax.js?270"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/mediawiki/skins/vector/csshover.htc")}</style><![endif]-->
+<script src="/mediawiki/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=vector&amp;270"></script>
+</head>
+<body class="mediawiki ltr ns-0 ns-subject page-ADC_Protocol skin-vector">
+<div class="noprint" id="mw-page-base"></div>
+<div class="noprint" id="mw-head-base"></div>
+<!-- content -->
+<div id="content">
+<a id="top"></a>
+<div id="mw-js-message" style="display:none;"></div>
+<!-- firstHeading -->
+<h1 class="firstHeading" id="firstHeading">Magnet Links</h1>
+<!-- /firstHeading -->
+<!-- bodyContent -->
+<div id="bodyContent"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><p>The magnet: URI scheme is a draft open standard defining a URI scheme for magnet links, which are mainly used to reference resources available for download via peer-to-peer networks. Such a link typically identifies a file not by location or name, but by content, more precisely by the content's hash value.
+</p><p>Since it refers to a file based on content or metadata, rather than by location, a magnet link can be considered a kind of Uniform Resource Name, rather than the more common Uniform Resource Locators. Although it could be used for other applications, it is particularly useful in a peer-to-peer context, because it allows resources to be referenced without the need for a continuously available host.
+</p><p>Use of content hashes
+</p><p>The most common use of magnet links is to link to a particular file based on a hash of its contents, producing a unique identifier for the file, similar to an ISBN or catalog number. Unlike traditional identifiers, however, content-based signatures can be generated by anyone who already has the file, and so do not need a central authority to issue them. This makes them popular for use as "guaranteed" search terms within the file sharing community where anyone can distribute a magnet link to ensure that the resource retrieved by that link is the one intended, regardless of how it is retrieved. (While it is technically possible that two files could have the same hash value, it is statistically very unlikely; see Cryptographic hash function).
+</p><p>Another advantage of magnet links is their open nature and platform independence: the same magnet link can be used to download a resource from one of any number of applications on almost any operating system. Because magnets are concise and plain-text, it is possible for users to simply copy-and-paste the links into emails or instant messages, a property not found in, for example, BitTorrent files.
+</p>
+<h2><span class="mw-headline" id="Technical_description">Technical description</span></h2>
+<p>Magnet links consist of a series of one or more parameters, the order of which is not significant, formatted in the same way as the query string on the end of many HTTP URLs. The most common parameter is "xt", meaning "exact topic", which is generally a URN formed from the content hash of a particular file, e.g..
+</p>
+<table border="0" class="wikitable">
+<tbody><tr>
+<td><a class="external free" href="magnet:?xt=urn:sha1:YNCKHTQCWBTRNJIV4WNAE52SJUQCZO5C" rel="nofollow">magnet:?xt=urn:sha1:YNCKHTQCWBTRNJIV4WNAE52SJUQCZO5C</a>
+</td></tr></tbody></table>
+<p>referring to the SHA-1 hash of the file in question. Note that although this refers to a particular file, a search must still be carried out by the client application to determine where, if anywhere, it can obtain that file.
+</p><p>Other parameters defined by the draft standard are:
+</p>
+<ul><li>"dn" ("display name"): a filename to display to the user, for convenience</li>
+<li>"kt" ("keyword topic"): a more general search, specifying search terms rather than a particular file</li>
+<li>"mt" ("manifest topic"): a URI pointing to a "manifest", e.g. a list of further items</li>
+<li>application-specific experimental parameters, which must begin "x."</li></ul>
+<p>The standard also suggests that two parameters of the same type can be used by appending ".1", ".2", etc, e.g
+</p>
+<table border="1" class="wikitable">
+<tbody><tr>
+<td><a class="external free" href="magnet:?xt.1=urn:sha1:YNCKHTQCWBTRNJIV4WNAE52SJUQCZO5C&amp;xt.2=urn:sha1:TXGCZQTH26NL6OUQAJJPFALHG2LTGBC" rel="nofollow">magnet:?xt.1=urn:sha1:YNCKHTQCWBTRNJIV4WNAE52SJUQCZO5C&amp;xt.2=urn:sha1:TXGCZQTH26NL6OUQAJJPFALHG2LTGBC</a>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Links">Links</span></h2>
+<ul><li><a class="external text" href="http://magnet-uri.sourceforge.net/" rel="nofollow">MAGNET-URI Project Web-site</a></li></ul>
+<h2><span class="mw-headline" id="See_Also">See Also</span></h2>
+</div></div>
+<!-- /bodyContent -->
+</div>
+<!-- /content -->
+<!-- header -->
+<div class="noprint" id="mw-head">
+<!-- 0 -->
+<div class="" id="p-personal">
+<h5>Personal tools</h5>
+<ul>
+<li id="pt-login"><a accesskey="o" href="/mediawiki/index.php?title=Special:UserLogin&amp;returnto=ADC_Protocol" title="You are encouraged to log in; however, it is not mandatory [o]">Log in</a></li>
+</ul>
+</div>
+<!-- /0 -->
+<div id="left-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-namespaces">
+<h5>Namespaces</h5>
+<ul>
+<li class="selected" id="ca-nstab-main"><a accesskey="c" href="/wiki/ADC_Protocol" title="View the content page [c]"><span>Page</span></a></li>
+<li class="new" id="ca-talk"><a accesskey="t" href="/mediawiki/index.php?title=Talk:ADC_Protocol&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]"><span>Discussion</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-variants">
+<h5><span>Variants</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+</div>
+<div id="right-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-views">
+<h5>Views</h5>
+<ul>
+<li class="selected" id="ca-view"><a href="/wiki/ADC_Protocol"><span>Read</span></a></li>
+<li id="ca-viewsource"><a accesskey="e" href="/mediawiki/index.php?title=ADC_Protocol&amp;action=edit" title="This page is protected.
+You can view its source [e]"><span>View source</span></a></li>
+<li class="collapsible" id="ca-history"><a accesskey="h" href="/mediawiki/index.php?title=ADC_Protocol&amp;action=history" title="Past revisions of this page [h]"><span>View history</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-cactions">
+<h5><span>Actions</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+<!-- 2 -->
+<div id="p-search">
+<h5><label for="searchInput">Search</label></h5>
+<form action="/mediawiki/index.php" id="searchform">
+<input name="title" type="hidden" value="Special:Search"/>
+<input accesskey="f" id="searchInput" name="search" title="Search ADCPortal Wiki [f]" type="text" value=""/>
+<input class="searchButton" id="searchGoButton" name="go" title="Go to a page with this exact name if exists" type="submit" value="Go"/>
+<input class="searchButton" id="mw-searchButton" name="fulltext" title="Search the pages for this text" type="submit" value="Search"/>
+</form>
+</div>
+<!-- /2 -->
+</div>
+</div>
+<!-- /header -->
+<!-- panel -->
+<div class="noprint" id="mw-panel">
+<!-- logo -->
+<div id="p-logo"><a href="/wiki/Main_Page" style="background-image: url(http://www.adcportal.com/misc/wiki_logo.png);" title="Visit the main page"></a></div>
+<!-- /logo -->
+<!-- navigation -->
+<div class="portal" id="p-navigation">
+<h5>Navigation</h5>
+<div class="body">
+<ul>
+<li id="n-mainpage-description"><a accesskey="z" href="/wiki/Main_Page" title="Visit the main page [z]">Main page</a></li>
+<li id="n-recentchanges"><a accesskey="r" href="/wiki/Special:RecentChanges" title="The list of recent changes in the wiki [r]">Recent changes</a></li>
+<li id="n-randompage"><a accesskey="x" href="/wiki/Special:Random" title="Load a random page [x]">Random page</a></li>
+<li id="n-help"><a href="/wiki/Help:Contents" title="The place to find out">Help</a></li>
+</ul>
+</div>
+</div>
+<!-- /navigation -->
+<!-- SEARCH -->
+<!-- /SEARCH -->
+<!-- TOOLBOX -->
+<div class="portal" id="p-tb">
+<h5>Toolbox</h5>
+<div class="body">
+<ul>
+<li id="t-whatlinkshere"><a accesskey="j" href="/wiki/Special:WhatLinksHere/ADC_Protocol" title="List of all wiki pages that link here [j]">What links here</a></li>
+<li id="t-recentchangeslinked"><a accesskey="k" href="/wiki/Special:RecentChangesLinked/ADC_Protocol" title="Recent changes in pages linked from this page [k]">Related changes</a></li>
+<li id="t-specialpages"><a accesskey="q" href="/wiki/Special:SpecialPages" title="List of all special pages [q]">Special pages</a></li>
+<li id="t-print"><a accesskey="p" href="/mediawiki/index.php?title=ADC_Protocol&amp;printable=yes" rel="alternate" title="Printable version of this page [p]">Printable version</a></li>
+<li id="t-permalink"><a href="/mediawiki/index.php?title=ADC_Protocol&amp;oldid=3615" title="Permanent link to this revision of the page">Permanent link</a></li>
+</ul>
+</div>
+</div>
+<!-- /TOOLBOX -->
+<!-- LANGUAGES -->
+<!-- /LANGUAGES -->
+</div>
+<!-- /panel -->
+<!-- footer -->
+<div id="footer">
+<ul id="footer-info">
+<li id="footer-info-lastmod"> This page was last modified on 11 January 2011, at 21:03.</li>
+<li id="footer-info-viewcount">This page has been accessed 7,022 times.</li>
+<li id="footer-info-copyright">Content is available under <a class="external" href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.2</a>.</li>
+</ul>
+<ul id="footer-places">
+<li id="footer-places-privacy"><a href="/wiki/ADCPortal_Wiki:Privacy_policy" title="ADCPortal Wiki:Privacy policy">Privacy policy</a></li>
+<li id="footer-places-about"><a href="/wiki/ADCPortal_Wiki:About" title="ADCPortal Wiki:About">About ADCPortal Wiki</a></li>
+<li id="footer-places-disclaimer"><a href="/wiki/ADCPortal_Wiki:General_disclaimer" title="ADCPortal Wiki:General disclaimer">Disclaimers</a></li>
+</ul>
+<ul class="noprint" id="footer-icons">
+<li id="footer-icon-poweredby"><a href="http://www.mediawiki.org/"><img alt="Powered by MediaWiki" height="31" src="/mediawiki/skins/common/images/poweredby_mediawiki_88x31.png" width="88"/></a></li>
+<li id="footer-icon-copyright"><a href="http://www.gnu.org/copyleft/fdl.html"><img alt="GNU Free Documentation License 1.2" height="31" src="/mediawiki/skins/common/images/gnu-fdl.png" width="88"/></a></li>
+</ul>
+<div style="clear:both"></div>
+</div>
+<!-- /footer -->
+<!-- fixalpha -->
+<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script>
+<!-- /fixalpha -->
+<script>if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 1.348 secs. --> </body>
+</html>

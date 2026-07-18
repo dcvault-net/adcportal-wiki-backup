@@ -1,0 +1,504 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html dir="ltr" lang="en">
+<head>
+<title>Luadch API - ADCPortal Wiki</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="MediaWiki 1.16.0" name="generator"/>
+
+
+<link href="/mediawiki/index.php?title=ADC_Protocol&amp;action=creativecommons" rel="meta" title="Creative Commons" type="application/rdf+xml"/>
+<link href="http://www.gnu.org/copyleft/fdl.html" rel="copyright"/>
+
+
+
+
+
+
+
+
+
+
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/mediawiki/skins/vector/csshover.htc")}</style><![endif]-->
+
+<link href="mediawiki/skins/vector/main-ltr.css" media="screen" rel="stylesheet"/><link href="mediawiki/skins/common/shared.css" media="screen" rel="stylesheet"/><link href="mediawiki/site-common.css" media="all" rel="stylesheet"/><link href="mediawiki/site-vector.css" media="all" rel="stylesheet"/><link href="mediawiki/gen.css" media="all" rel="stylesheet"/><link href="overrides.css" media="all" rel="stylesheet"/></head>
+<body class="mediawiki ltr ns-0 ns-subject page-ADC_Protocol skin-vector">
+<div class="noprint" id="mw-page-base"></div>
+<div class="noprint" id="mw-head-base"></div>
+<!-- content -->
+<div id="content">
+<a id="top"></a>
+<div id="mw-js-message" style="display:none;"></div>
+<!-- firstHeading -->
+<h1 class="firstHeading" id="firstHeading">Luadch API</h1>
+<!-- /firstHeading -->
+<!-- bodyContent -->
+<div id="bodyContent"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><div aria-labelledby="mw-toc-heading" class="toc" id="toc" role="navigation"><input class="toctogglecheckbox" id="toctogglecheckbox" role="button" style="display:none" type="checkbox"/><div class="toctitle" dir="ltr" lang="en"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Listeners"><span class="tocnumber">2</span> <span class="toctext">Listeners</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Registered_API_functions"><span class="tocnumber">2.1</span> <span class="toctext">Registered API functions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Config_Module"><span class="tocnumber">3</span> <span class="toctext">Config Module</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Hub_Module"><span class="tocnumber">3.1</span> <span class="toctext">Hub Module</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#User_Object"><span class="tocnumber">3.2</span> <span class="toctext">User Object</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#Registered_Users_Calls"><span class="tocnumber">3.2.1</span> <span class="toctext">Registered Users Calls</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-8"><a href="#ADCCMD_Object"><span class="tocnumber">3.3</span> <span class="toctext">ADCCMD Object</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#Links"><span class="tocnumber">4</span> <span class="toctext">Links</span></a></li>
+<li class="toclevel-1"><a href="#See_Also"><span class="tocnumber">5</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
+<h2><span class="mw-headline" id="Introduction">Introduction</span></h2>
+<p><b>Most important:</b>
+</p><p>Luadch scripting is by no means "safe", the custom user scripts are using virtually the same facilities as the core scripts of the hub when you want to shoot yourself in the foot, luadch wont prevent it all user scripts are executed in own protected environments, so syntax errors wont crash the whole hub global vars are forbidden per default the following doc covers the offical API, but you can use all core modules too.
+</p>
+<ul><li>every string used in luadch has to be UTF8 encoded because of ADC specs</li>
+<li>luadch wont convert any scripts, strings, files etc to UTF8 at the moment thats the task of the scripter</li>
+<li>most of the core modules wont perform type checks etc</li>
+<li>some of the official API will</li></ul>
+<p>luadch datatypes:
+</p>
+<ul><li>adcstr: UTF8 encoded string, whitespaces are escaped according to ADC specs (for example "test\sdescription" instead of "test description")</li>
+<li>adccmd: adc command object; every incoming string of a client will be parsed and translated into an object which allows simple manipulation of parameters etc</li>
+<li>user: user object</li>
+<li>bot: same as user, but some methods wont work or make no sense</li>
+<li>handler: a wrapped socket, used by server.lua</li></ul>
+<h2><span class="mw-headline" id="Listeners">Listeners</span></h2>
+<p><b>Example</b>: <i>hub.setlistener( "onPrivateMessage", "pmlistener of script abc.lua", function( user, targetuser, adccmd, msg ) dosomething( ) end )</i>
+<br/>
+</p>
+<h3><span class="mw-headline" id="Registered_API_functions">Registered API functions</span></h3>
+<hr/>
+<p><br/>
+<b>"onError": function( msg )</b>
+</p><p>will be called when error logging is active; msg is error string
+</p><p><br/>
+<b>"onStart": function( )</b>
+</p><p>will be called on script start
+</p><p><br/>
+<b>"onExit": function( )</b>
+</p><p>will be called on script exit
+</p><p><br/>
+<b>"onIncoming": function( user, adccmd )</b>
+</p><p>will be called on incoming data
+</p><p><br/>
+<b>"onConnect": function( user )</b>
+</p><p>will be called when a new user connected and passed identify state, but before login
+</p><p><br/>
+<b>"onLogin": function( user )</b>
+</p><p>will be called when a new user logged in
+</p><p><br/>
+<b>"onLogout": function( user )</b>
+</p><p>will be called when a user quits the hub
+</p><p><br/>
+<b>"onInf": function( user, adccmd )</b>
+</p><p>will be called on incoming INFs and user is in normal state
+</p><p><br/>
+<b>"onBroadcast": function( user, adccmd, msg )</b>
+</p><p>will be called on incoming main chat messages and user is in normal state
+</p><p><br/>
+<b>"onPrivateMessage": function( user, targetuser, adccmd, msg )</b>
+</p><p>will be called on incoming private messages and user is in normal state
+</p><p><br/>
+<b>"onConnectToMe": function( user, targetuser, adccmd )</b>
+</p><p>will be called on incoming CTMs and user is in normal state
+</p><p><br/>
+<b>"onRevConnectToMe": function( user, targetuser,adccmd )</b>
+</p><p>will be called on incoming RCMs and user is in normal state
+</p><p><br/>
+<b>"onSearch": function( user, adccmd )</b>
+</p><p>will be called on incoming search requests and user is in normal state
+</p><p><br/>
+<b>"onSearchResult": function( user, targetuser, adccmd )</b>
+</p><p>will be called on incoming search results and user is in normal state
+</p><p><br/>
+<b>"onTimer": function( )</b>
+</p><p>will be called at least once per second
+</p>
+<h2><span class="mw-headline" id="Config_Module">Config Module</span></h2>
+<p><b>Example: value = cfg.get( key )</b> <i>returns value of cfg.tbl[ key ] or a default value if nothing was found (for example 'local hubname = cfg.get "hub_name"')</i>
+</p>
+<h3><span class="mw-headline" id="Hub_Module">Hub Module</span></h3>
+<hr/>
+<p><b>hub.setlistener( name, key, listener )</b>
+</p><p>regs a new listener for an event; key should be unique, for example '{ }', listener has to be a function which will be called
+</p><p><br/>
+<b>hub.import( script )</b>
+</p><p>imports script as module (for example 'local ucmd = hub.import( "etc_usercommands.lua" )' "
+</p><p><br/>
+<b>hub.restartscripts( )</b>
+</p><p>restarts all scripts
+</p><p><br/>
+<b>hub.reloadcfg( )</b>
+</p><p>reloads cfg.tbl
+</p><p><br/>
+<b>hub.reloadusers( )</b>
+</p><p>reloads user.tbl
+</p><p><br/>
+<b>bot = hub.getbot( )</b>
+</p><p>return hubbot object
+</p><p><br/>
+<b>bot/nil, string = hub.regbot( profile )</b>
+</p><p>regs and returns new bot with profile table in hub; profile should be { nick = nick, desc = description }; in case of errors returns nil, error msg;
+</p><p><br/>
+<b>hub.restart( )</b>
+</p><p>restarts hub
+</p><p><br/>
+<b>hub.exit( )</b>
+</p><p>kills hub
+</p><p><br/>
+<b>boolean/nil, string = hub.reguser( profile )</b>
+</p><p>regs new user with profile; profile should be { by = nick, nick = usernick, password = password, level = level }; in case of errors returns nil, error msg;
+</p><p><br/>
+<b>boolean/nil, string = hub.delreguser( nick, cid )</b>
+</p><p>delregs cid or nick
+</p><p><br/>
+<b>user/nil = hub.iscidonline( cid )</b>
+</p><p>returns user in normal state with user:cid( ) == cid; user can be a bot
+</p><p><br/>
+<b>user/nil = hub.isnickonline( nick )</b>
+</p><p>returns user in normal state with user:nick( ) == nick; user can be a bot
+</p><p><br/>
+<b>user/nil = hub.issidonline( sid )</b>
+</p><p>returns user in normal state with user:sid( ) == sid; user can be a bot
+</p><p><br/>
+<b>adcstr = hub.escapeto( str )</b>
+</p><p>escapes str into adcstr
+</p><p><br/>
+<b>string = hub.escapefrom( adcstr</b> )
+</p><p>escapeto reverse
+</p><p><br/>
+<b>user/nil, user/nil, user/nil = hub.getuser( sid )</b>
+</p><p>returns user in normal state and user ~= bot, user in normalstate, user in any state; user:sid( ) sid for all users
+</p><p><br/>
+<b>number = hub.sendtoall( adcstr )</b>
+</p><p>sends adcstr to all users in normal state and user ~= bot; adcstr has to be a full ADC command string
+</p><p><br/>
+<b>hub.featuresend( adcstr, features )</b>
+</p><p>strange function
+</p><p><br/>
+<b>hub.broadcast( msg, from, pm, me )</b>
+</p><p>same as user.reply, but for all users in normal state and user ~= bot
+</p><p><br/>
+<b>hub.debug( ... )</b>
+</p><p>works like print to screen or script logfile
+</p><p><br/>
+<b>table, table, table = hub.getusers( )</b>
+</p><p>returns following user tables: _nobot_normalstatesids, _normalstatesids, _usersids
+</p><p><br/>
+<b>table, table, table = hub.getregusers( )</b>
+</p><p>returns following reguser tables: _regusers, _regusernicks, _regusercids
+</p>
+<h3><span class="mw-headline" id="User_Object">User Object</span></h3>
+<hr/>
+<p><b>adcstr/nil = user:firstnick( )</b>
+</p><p>returns first login nick of user or nil
+</p><p><br/>
+<b>number = user:serverport( )</b>
+</p><p>returns the serverport user is connected with
+</p><p><br/>
+<b>boolean = user:ssl( )</b>
+</p><p>returns true if user is connected to hub via ssl, else false
+</p><p><br/>
+<b>handler = user:client( )</b>
+</p><p>returns handler object of user used by server.lua
+</p><p><br/>
+<b>string = user:state( )</b>
+</p><p>returns current user state
+</p><p><br/>
+<b>boolean = user:isbot( )</b>
+</p><p>returns true if user is a bot regged by hub/scripts, else false
+</p><p><br/>
+<b>string = user:ip( )</b>
+</p><p>returns IP (IP4)
+</p><p><br/>
+<b>number = user:clientport( )</b>
+</p><p>returns port
+</p><p><br/>
+<b>string, number = user:peer( )</b>
+</p><p>returns IP and port
+</p><p><br/>
+<b>adcstr = user:sid( )</b>
+</p><p>returns SID
+</p><p><br/>
+<b>user:send( adcstr )</b>
+</p><p>sends adcstr to user; adcstr has to be an full ADC command string
+</p><p><br/>
+<b>user:sendsta( code, desc )</b>
+</p><p>sends STA message to user according to ADC specs; code/desc has to be an adcstr
+</p><p><br/>
+<b>adccmd/nil = user:inf( )</b>
+</p><p>returns user INF
+</p><p><br/>
+<b>adccmd/nil = user:sup( )</b>
+</p><p>returns user SUP
+</p><p><br/>
+<b>adcstr/nil = user:cid( )</b>
+</p><p>returns CID
+</p><p><br/>
+<b>adcstr/nil = user:nick( )</b>
+</p><p>returns current nick
+</p><p><br/>
+<b>adcstr/nil = user:description( )</b>
+</p><p>returns current description
+</p><p><br/>
+<b>adcstr/nil = user:email( )</b>
+</p><p>returns email
+</p><p><br/>
+<b>number/nil = user:share( )</b>
+</p><p>returns share in bytes
+</p><p><br/>
+<b>number/nil = user:slots( )</b>
+</p><p>returns open slots
+</p><p><br/>
+<b>adcstr/nil = user:features( )</b>
+</p><p>returns user features
+</p><p><br/>
+<b>number/nil, number/nil, number/nil = user:hubs( )</b>
+</p><p>returns open hubs, reg hubs, op hubs of user
+</p><p><br/>
+<b>adcstr/nil = user:version( )</b>
+</p><p>returns client version
+</p><p><br/>
+<b>boolean/string = user:updatenick( nick, notsend, bypass )</b>
+</p><p>strange function to change current user nick, cant remember what the args are good for
+</p><p><br/>
+<b>user:kill( adcstr )</b>
+</p><p>sends adcstr to user and removes user from hub; adcstr has to be an full ADC command string or nil
+</p><p><br/>
+<b>adcstr/nil = user:salt( )</b>
+</p><p>returns salt of user
+</p><p><br/>
+<b>adcstr = user:hash( )</b>
+</p><p>returns "TIGR"
+</p><p><br/>
+<b>boolean = user:isregged( )</b>
+</p><p>returns true if user is regged
+</p><p><br/>
+<b>boolean = user:reply( msg, from, pm, me )</b>
+</p><p>returns true; msg has to be an UTF8 encoded string, from/pm has to be an user object, me should be "1" for me messages; from, pm, me are optional
+</p><p><br/>
+<b>number = user:rank( )</b>
+</p><p>returns user rank according to ADC specs (16 for hubowner, 32 for hub etc)
+</p><p><br/>
+<b>number = user:level( )</b>
+</p><p>returns user level used by scripts
+</p><p><br/>
+<b>boolean = user:supports( feature )</b>
+</p><p>returns true if user had feature in his SUP; feature has to be an adcstr
+</p><p><br/>
+<b>boolean = user:hasfeature( feature )</b>
+</p><p>returns true if user had feature in SU parameter of his INF; feature has to be an adcstr
+</p>
+<h4><span class="mw-headline" id="Registered_Users_Calls">Registered Users Calls</span></h4>
+<hr/>
+<p><b>adcstr/nil = user:regcid( )</b>
+</p><p>returns regged CID of user or nil if not regged by cid
+</p><p><br/>
+<b>adcstr/nil = user:reghash( )</b>
+</p><p>returns "TIGR" or nil
+</p><p><br/>
+<b>adcstr/nil = user:regnick( )</b>
+</p><p>returns regged nick of user or nil if not regged by nick
+</p><p><br/>
+<b>string/nil = user:password( )</b>
+</p><p>returns user pass; should not be nil or ""
+</p><p><br/>
+<b>boolean/string = user:setregnick( nick, update, notsend )</b>
+</p><p>strange function
+</p><p><br/>
+<b>boolean/string = user:setpassword( password )</b>
+</p><p>sets new user password; password should be string without whitespaces; returns false, error msg in case of failure
+</p><p><br/>
+<b>boolean/string = user:setrank( rank )</b>
+</p><p>strange function
+</p><p><br/>
+<b>boolean/string = user:setlevel( level )</b>
+</p><p>sets new user level; returns false, error msg in case of failure
+</p><p><br/>
+<b>number = user:regid( )</b>
+</p><p>returns position of user in user.tbl
+</p><p><br/>
+<b>table = user:profile( )</b>
+</p><p>returns complete profile of user
+</p>
+<h3><span class="mw-headline" id="ADCCMD_Object">ADCCMD Object</span></h3>
+<hr/>
+<p><b>adcstr/nil = adccmd:pos( pos )</b>
+</p><p>returns parameter on position pos (number)
+</p><p><br/>
+<b>function = adccmd:getallnp( )</b>
+</p><p>returns function to iterate through all named parameters (for example 'for name, value in adccmd:getallnp( ) do ...end')
+</p><p><br/>
+<b>adcstr/nil = adccmd:getnp( target )</b>
+</p><p>returns named parameter target (for example 'local nick = adccmd:getnp( "NI" ) )
+</p><p><br/>
+<b>boolean = adccmd:addnp( target, value )</b>
+</p><p>adds parameter target .. value
+</p><p><br/>
+<b>boolean = adccmd:setnp( target, value )</b>
+</p><p>set value to named parameter target or adds it if not existent
+</p><p><br/>
+<b>boolean = adccmd:deletenp( target )</b>
+</p><p>deletes a named parameter and returns true, or false if nothing was found
+</p><p><br/>
+<b>boolean = adccmd:hasparam( target )</b>
+</p><p>returns true if a parameter or named parameter target was found
+</p><p><br/>
+<b>adcstr = adccmd:adcstring( )</b>
+</p><p>returns the ADC command string of adccmd
+</p><p><br/>
+<b>adcstr/nil = adccmd:mysid( )</b>
+</p><p>returns originator SID if existent
+</p><p><br/>
+<b>adcstr/nil = adccmd:targetsid( )</b>
+</p><p>returns recipient SID if existent
+</p><p><br/>
+<b>adcstr = adccmd:fourcc( )</b>
+</p><p>returns FOURCC
+</p>
+<h2><span class="mw-headline" id="Links">Links</span></h2>
+<p><a class="external text" href="http://sourceforge.net/projects/luadch/" rel="nofollow">Luadch - Sourceforge Page</a>
+</p><p><a class="external text" href="http://luadch.svn.sourceforge.net/viewvc/luadch/trunk/" rel="nofollow">Luadch - SVN Repository</a>
+</p><p><a class="external text" href="http://luadch.sourceforge.net/forum/" rel="nofollow">Luadch - Forums</a>
+</p>
+<h2><span class="mw-headline" id="See_Also">See Also</span></h2>
+</div></div>
+<!-- /bodyContent -->
+</div>
+<!-- /content -->
+<!-- header -->
+<div class="noprint" id="mw-head">
+<!-- 0 -->
+<div class="" id="p-personal">
+<h5>Personal tools</h5>
+<ul>
+<li id="pt-login"><a accesskey="o" class="archived-inert" href="#" title="Not available in this archive">Log in</a></li>
+</ul>
+</div>
+<!-- /0 -->
+<div id="left-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-namespaces">
+<h5>Namespaces</h5>
+<ul>
+<li class="selected" id="ca-nstab-main"><a accesskey="c" href="ADC_Protocol.html"><span>Page</span></a></li>
+<li class="new" id="ca-talk"><a accesskey="t" class="archived-inert" href="#" title="Not available in this archive"><span>Discussion</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-variants">
+<h5><span>Variants</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+</div>
+<div id="right-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-views">
+<h5>Views</h5>
+<ul>
+<li class="selected" id="ca-view"><a href="ADC_Protocol.html"><span>Read</span></a></li>
+<li id="ca-viewsource"><a accesskey="e" class="archived-inert" href="#" title="Not available in this archive"><span>View source</span></a></li>
+<li class="collapsible" id="ca-history"><a accesskey="h" class="archived-inert" href="#" title="Not available in this archive"><span>View history</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-cactions">
+<h5><span>Actions</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+<!-- 2 -->
+<div id="p-search">
+<h5><label for="searchInput">Search</label></h5>
+<form action="#" id="searchform" onsubmit="return false">
+<input name="title" type="hidden" value="Special:Search"/>
+<input accesskey="f" id="searchInput" name="search" title="Search ADCPortal Wiki [f]" type="text" value=""/>
+<input class="searchButton" id="searchGoButton" name="go" title="Go to a page with this exact name if exists" type="submit" value="Go"/>
+<input class="searchButton" id="mw-searchButton" name="fulltext" title="Search the pages for this text" type="submit" value="Search"/>
+</form>
+</div>
+<!-- /2 -->
+</div>
+</div>
+<!-- /header -->
+<!-- panel -->
+<div class="noprint" id="mw-panel">
+<!-- logo -->
+<div id="p-logo"><a href="index.html" style="background-image: url(misc/wiki_logo.png);"></a></div>
+<!-- /logo -->
+<!-- navigation -->
+<div class="portal" id="p-navigation">
+<h5>Navigation</h5>
+<div class="body">
+<ul>
+<li id="n-mainpage-description"><a accesskey="z" href="index.html">Main page</a></li>
+<li id="n-recentchanges"><a accesskey="r" href="Special_RecentChanges.html">Recent changes</a></li>
+<li id="n-randompage"><a accesskey="x" class="archived-inert" href="#" title="Page not archived">Random page</a></li>
+<li id="n-help"><a class="archived-inert" href="#" title="Page not archived">Help</a></li>
+</ul>
+</div>
+</div>
+<!-- /navigation -->
+<!-- SEARCH -->
+<!-- /SEARCH -->
+<!-- TOOLBOX -->
+<div class="portal" id="p-tb">
+<h5>Toolbox</h5>
+<div class="body">
+<ul>
+<li id="t-whatlinkshere"><a accesskey="j" class="archived-inert" href="#" title="Page not archived">What links here</a></li>
+<li id="t-recentchangeslinked"><a accesskey="k" class="archived-inert" href="#" title="Page not archived">Related changes</a></li>
+<li id="t-specialpages"><a accesskey="q" href="Special_SpecialPages.html">Special pages</a></li>
+<li id="t-print"><a accesskey="p" class="archived-inert" href="#" rel="alternate" title="Not available in this archive">Printable version</a></li>
+<li id="t-permalink"><a class="archived-inert" href="#" title="Not available in this archive">Permanent link</a></li>
+</ul>
+</div>
+</div>
+<!-- /TOOLBOX -->
+<!-- LANGUAGES -->
+<!-- /LANGUAGES -->
+</div>
+<!-- /panel -->
+<!-- footer -->
+<div id="footer"><div class="archive-note">This page was recovered from a community database backup of the ADCPortal wiki (the original wikitext, rendered back to HTML). It was never captured by the Internet Archive. Images are not part of that backup, and links to pages that are still missing are inactive.</div>
+<ul id="footer-info">
+<li id="footer-info-lastmod"> This page was last modified on 11 January 2011, at 21:03.</li>
+<li id="footer-info-viewcount">This page has been accessed 7,022 times.</li>
+<li id="footer-info-copyright">Content is available under <a class="external" href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.2</a>.</li>
+</ul>
+<ul id="footer-places">
+<li id="footer-places-privacy"><a class="archived-inert" href="#" title="Page not archived">Privacy policy</a></li>
+<li id="footer-places-about"><a class="archived-inert" href="#" title="Page not archived">About ADCPortal Wiki</a></li>
+<li id="footer-places-disclaimer"><a class="archived-inert" href="#" title="Page not archived">Disclaimers</a></li>
+</ul>
+<ul class="noprint" id="footer-icons">
+<li id="footer-icon-poweredby"><a href="http://www.mediawiki.org/"><img alt="Powered by MediaWiki" height="31" src="mediawiki/skins/common/images/poweredby_mediawiki_88x31.png" width="88"/></a></li>
+<li id="footer-icon-copyright"><a href="http://www.gnu.org/copyleft/fdl.html"><img alt="GNU Free Documentation License 1.2" height="31" src="mediawiki/skins/common/images/gnu-fdl.png" width="88"/></a></li>
+</ul>
+<div style="clear:both"></div>
+</div>
+<!-- /footer -->
+<!-- fixalpha -->
+
+<!-- /fixalpha -->
+
+<!-- Served in 1.348 secs. --> </body>
+</html>

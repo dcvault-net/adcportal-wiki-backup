@@ -1,0 +1,628 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html dir="ltr" lang="en">
+<head>
+<title>BCDC++ Lua API - ADCPortal Wiki</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="MediaWiki 1.16.0" name="generator"/>
+<link href="/favicon.ico" rel="shortcut icon"/>
+<link href="/mediawiki/opensearch_desc.php" rel="search" title="ADCPortal Wiki (en)" type="application/opensearchdescription+xml"/>
+<link href="/mediawiki/index.php?title=ADC_Protocol&amp;action=creativecommons" rel="meta" title="Creative Commons" type="application/rdf+xml"/>
+<link href="http://www.gnu.org/copyleft/fdl.html" rel="copyright"/>
+<link href="/mediawiki/index.php?title=Special:RecentChanges&amp;feed=atom" rel="alternate" title="ADCPortal Wiki Atom feed" type="application/atom+xml"/>
+<link href="/mediawiki/skins/vector/main-ltr.css?270" media="screen" rel="stylesheet"/>
+<link href="/mediawiki/skins/common/shared.css?270" media="screen" rel="stylesheet"/>
+<link href="/mediawiki/skins/common/commonPrint.css?270" media="print" rel="stylesheet"/>
+<link href="/mediawiki/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" rel="stylesheet"/>
+<link href="/mediawiki/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" media="print" rel="stylesheet"/>
+<link href="/mediawiki/index.php?title=MediaWiki:Vector.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" rel="stylesheet"/>
+<link href="/mediawiki/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" rel="stylesheet"/>
+<script>
+var skin="vector",
+stylepath="/mediawiki/skins",
+wgUrlProtocols="http\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/wiki/$1",
+wgScriptPath="/mediawiki",
+wgScriptExtension=".php",
+wgScript="/mediawiki/index.php",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="http://www.adcportal.com",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="ADC_Protocol",
+wgTitle="ADC Protocol",
+wgAction="view",
+wgArticleId=2,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=3615,
+wgVersion="1.16.0",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "ADCPortal Wiki", "5": "ADCPortal Wiki talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "adcportal_wiki": 4, "adcportal_wiki_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="ADCPortal Wiki",
+wgCategories=["Stubs", "Protocol information"],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="/mediawiki/skins/common/wikibits.js?270"></script>
+<script src="/mediawiki/skins/common/ajax.js?270"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/mediawiki/skins/vector/csshover.htc")}</style><![endif]-->
+<script src="/mediawiki/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=vector&amp;270"></script>
+</head>
+<body class="mediawiki ltr ns-0 ns-subject page-ADC_Protocol skin-vector">
+<div class="noprint" id="mw-page-base"></div>
+<div class="noprint" id="mw-head-base"></div>
+<!-- content -->
+<div id="content">
+<a id="top"></a>
+<div id="mw-js-message" style="display:none;"></div>
+<!-- firstHeading -->
+<h1 class="firstHeading" id="firstHeading">BCDC++ Lua API</h1>
+<!-- /firstHeading -->
+<!-- bodyContent -->
+<div id="bodyContent"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><div aria-labelledby="mw-toc-heading" class="toc" id="toc" role="navigation"><input class="toctogglecheckbox" id="toctogglecheckbox" role="button" style="display:none" type="checkbox"/><div class="toctitle" dir="ltr" lang="en"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Registered_API_functions:_DC_class"><span class="tocnumber">1</span> <span class="toctext">Registered API functions: DC class</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#DC():SendHubMessage()"><span class="tocnumber">1.1</span> <span class="toctext">DC():SendHubMessage()</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#Description"><span class="tocnumber">1.1.1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-3 tocsection-4"><a href="#Usage"><span class="tocnumber">1.1.2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#Examples"><span class="tocnumber">1.1.3</span> <span class="toctext">Examples</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-6"><a href="#DC():PrintDebug()"><span class="tocnumber">1.2</span> <span class="toctext">DC():PrintDebug()</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#Description_2"><span class="tocnumber">1.2.1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Usage_2"><span class="tocnumber">1.2.2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#Examples_2"><span class="tocnumber">1.2.3</span> <span class="toctext">Examples</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-10"><a href="#DC():GetClientIp()"><span class="tocnumber">1.3</span> <span class="toctext">DC():GetClientIp()</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="#Description_3"><span class="tocnumber">1.3.1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#Usage_3"><span class="tocnumber">1.3.2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#Examples_3"><span class="tocnumber">1.3.3</span> <span class="toctext">Examples</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-14"><a href="#DC():GetHubIpPort()"><span class="tocnumber">1.4</span> <span class="toctext">DC():GetHubIpPort()</span></a>
+<ul>
+<li class="toclevel-3 tocsection-15"><a href="#Description_4"><span class="tocnumber">1.4.1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="#Usage_4"><span class="tocnumber">1.4.2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="#Examples_4"><span class="tocnumber">1.4.3</span> <span class="toctext">Examples</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-18"><a href="#DC():GetHubUrl()"><span class="tocnumber">1.5</span> <span class="toctext">DC():GetHubUrl()</span></a>
+<ul>
+<li class="toclevel-3 tocsection-19"><a href="#Description_5"><span class="tocnumber">1.5.1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="#Usage_5"><span class="tocnumber">1.5.2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-3 tocsection-21"><a href="#Examples_5"><span class="tocnumber">1.5.3</span> <span class="toctext">Examples</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-22"><a href="#DC():InjectHubMessage()"><span class="tocnumber">1.6</span> <span class="toctext">DC():InjectHubMessage()</span></a>
+<ul>
+<li class="toclevel-3 tocsection-23"><a href="#Description_6"><span class="tocnumber">1.6.1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-3 tocsection-24"><a href="#Usage_6"><span class="tocnumber">1.6.2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-3 tocsection-25"><a href="#Examples_6"><span class="tocnumber">1.6.3</span> <span class="toctext">Examples</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-26"><a href="#DC():HubWindowAttention()"><span class="tocnumber">1.7</span> <span class="toctext">DC():HubWindowAttention()</span></a>
+<ul>
+<li class="toclevel-3 tocsection-27"><a href="#Description_7"><span class="tocnumber">1.7.1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-3 tocsection-28"><a href="#Usage_7"><span class="tocnumber">1.7.2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-3 tocsection-29"><a href="#Examples_7"><span class="tocnumber">1.7.3</span> <span class="toctext">Examples</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-30"><a href="#DC():RunTimer()"><span class="tocnumber">1.8</span> <span class="toctext">DC():RunTimer()</span></a>
+<ul>
+<li class="toclevel-3 tocsection-31"><a href="#Description_8"><span class="tocnumber">1.8.1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-3 tocsection-32"><a href="#Usage_8"><span class="tocnumber">1.8.2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-3 tocsection-33"><a href="#Examples_8"><span class="tocnumber">1.8.3</span> <span class="toctext">Examples</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-34"><a href="#DC():GetSetting()"><span class="tocnumber">1.9</span> <span class="toctext">DC():GetSetting()</span></a>
+<ul>
+<li class="toclevel-3 tocsection-35"><a href="#Description_9"><span class="tocnumber">1.9.1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-3 tocsection-36"><a href="#Usage_9"><span class="tocnumber">1.9.2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-3 tocsection-37"><a href="#Examples_9"><span class="tocnumber">1.9.3</span> <span class="toctext">Examples</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-38"><a href="#DC()GetAppPath"><span class="tocnumber">1.10</span> <span class="toctext">DC()GetAppPath</span></a>
+<ul>
+<li class="toclevel-3 tocsection-39"><a href="#Description_10"><span class="tocnumber">1.10.1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-3 tocsection-40"><a href="#Usage_10"><span class="tocnumber">1.10.2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-3 tocsection-41"><a href="#Examples_10"><span class="tocnumber">1.10.3</span> <span class="toctext">Examples</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-42"><a href="#DC():FromUtf8()"><span class="tocnumber">1.11</span> <span class="toctext">DC():FromUtf8()</span></a>
+<ul>
+<li class="toclevel-3 tocsection-43"><a href="#Description_11"><span class="tocnumber">1.11.1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-3 tocsection-44"><a href="#Usage_11"><span class="tocnumber">1.11.2</span> <span class="toctext">Usage</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-45"><a href="#DC():ToUtf8()"><span class="tocnumber">1.12</span> <span class="toctext">DC():ToUtf8()</span></a>
+<ul>
+<li class="toclevel-3 tocsection-46"><a href="#Description_12"><span class="tocnumber">1.12.1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-3 tocsection-47"><a href="#Usage_12"><span class="tocnumber">1.12.2</span> <span class="toctext">Usage</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-48"><a href="#API-called_Lua_functions"><span class="tocnumber">2</span> <span class="toctext">API-called Lua functions</span></a>
+<ul>
+<li class="toclevel-2 tocsection-49"><a href="#dcpp.OnTimer()"><span class="tocnumber">2.1</span> <span class="toctext">dcpp.OnTimer()</span></a></li>
+<li class="toclevel-2 tocsection-50"><a href="#dcpp.OnCommandEnter()"><span class="tocnumber">2.2</span> <span class="toctext">dcpp.OnCommandEnter()</span></a>
+<ul>
+<li class="toclevel-3 tocsection-51"><a href="#Description_13"><span class="tocnumber">2.2.1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-3 tocsection-52"><a href="#Parameters"><span class="tocnumber">2.2.2</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-3 tocsection-53"><a href="#Return_values"><span class="tocnumber">2.2.3</span> <span class="toctext">Return values</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-54"><a href="#dcpp.FormatChatText"><span class="tocnumber">2.3</span> <span class="toctext">dcpp.FormatChatText</span></a>
+<ul>
+<li class="toclevel-3 tocsection-55"><a href="#Description_14"><span class="tocnumber">2.3.1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-3 tocsection-56"><a href="#Parameters_2"><span class="tocnumber">2.3.2</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-3 tocsection-57"><a href="#Return_values_2"><span class="tocnumber">2.3.3</span> <span class="toctext">Return values</span></a></li>
+<li class="toclevel-3 tocsection-58"><a href="#Notes"><span class="tocnumber">2.3.4</span> <span class="toctext">Notes</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-59"><a href="#dcpp.UserDataIn(),_dcpp.UserDataOut()"><span class="tocnumber">2.4</span> <span class="toctext">dcpp.UserDataIn(), dcpp.UserDataOut()</span></a>
+<ul>
+<li class="toclevel-3 tocsection-60"><a href="#Description_15"><span class="tocnumber">2.4.1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-3 tocsection-61"><a href="#Parameters_3"><span class="tocnumber">2.4.2</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-3 tocsection-62"><a href="#Return_values_3"><span class="tocnumber">2.4.3</span> <span class="toctext">Return values</span></a></li>
+<li class="toclevel-3 tocsection-63"><a href="#Notes_2"><span class="tocnumber">2.4.4</span> <span class="toctext">Notes</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-64"><a href="#nmdch.OnHubAdded(),_adch.OnHubAdded()"><span class="tocnumber">2.5</span> <span class="toctext">nmdch.OnHubAdded(), adch.OnHubAdded()</span></a>
+<ul>
+<li class="toclevel-3 tocsection-65"><a href="#Description_16"><span class="tocnumber">2.5.1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-3 tocsection-66"><a href="#Parameters_4"><span class="tocnumber">2.5.2</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-3 tocsection-67"><a href="#Return_values_4"><span class="tocnumber">2.5.3</span> <span class="toctext">Return values</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-68"><a href="#nmdch.OnHubRemoved(),_adch.OnHubRemoved()"><span class="tocnumber">2.6</span> <span class="toctext">nmdch.OnHubRemoved(), adch.OnHubRemoved()</span></a>
+<ul>
+<li class="toclevel-3 tocsection-69"><a href="#Description_17"><span class="tocnumber">2.6.1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-3 tocsection-70"><a href="#Parameters_5"><span class="tocnumber">2.6.2</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-3 tocsection-71"><a href="#Return_values_5"><span class="tocnumber">2.6.3</span> <span class="toctext">Return values</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-72"><a href="#nmdch.DataArrival(),_adch.DataArrival()"><span class="tocnumber">2.7</span> <span class="toctext">nmdch.DataArrival(), adch.DataArrival()</span></a>
+<ul>
+<li class="toclevel-3 tocsection-73"><a href="#Description_18"><span class="tocnumber">2.7.1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-3 tocsection-74"><a href="#Parameters_6"><span class="tocnumber">2.7.2</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-3 tocsection-75"><a href="#Return_values_6"><span class="tocnumber">2.7.3</span> <span class="toctext">Return values</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><span class="mw-headline" id="Registered_API_functions:_DC_class">Registered API functions: DC class</span></h2>
+<p>The following functions are the members of <i>DC class</i>. You can call them with DC(): prefix. For example: DC():PrintDebug()
+</p>
+<ul><li><a class="mw-selflink-fragment" href="#DC():SendHubMessage()">SendHubMessage</a></li>
+<li><a class="mw-selflink selflink">SendClientMessage</a></li>
+<li><a class="mw-selflink selflink">SendUDP</a></li>
+<li><a class="mw-selflink-fragment" href="#DC():PrintDebug()">PrintDebug</a></li>
+<li><a class="mw-selflink-fragment" href="#DC():GetClientIp()">GetClientIp</a></li>
+<li><a class="mw-selflink-fragment" href="#DC():GetHubIpPort()">GetHubIpPort</a></li>
+<li><a class="mw-selflink-fragment" href="#DC():GetHubUrl()">GetHubUrl</a></li>
+<li><a class="mw-selflink-fragment" href="#DC():InjectHubMessage()">InjectHubMessage</a></li>
+<li><a class="mw-selflink selflink">InjectHubMessageADC</a></li>
+<li><a class="mw-selflink-fragment" href="#DC():HubWindowAttention()">HubWindowAttention</a></li>
+<li><a class="mw-selflink selflink">FindWindowHandle</a></li>
+<li><a class="mw-selflink selflink">SendWindowMessage</a></li>
+<li><a class="mw-selflink selflink">CreateClient</a></li>
+<li><a class="mw-selflink selflink">DeleteClient</a></li>
+<li><a class="mw-selflink-fragment" href="#DC():RunTimer()">RunTimer</a></li>
+<li><a class="mw-selflink-fragment" href="#DC():GetSetting()">GetSetting</a></li>
+<li><a class="mw-selflink-fragment" href="#DC()GetAppPath">GetAppPath</a></li>
+<li><a class="mw-selflink-fragment" href="#DC():FromUtf8()">FromUtf8</a></li>
+<li><a class="mw-selflink-fragment" href="#DC():ToUtf8()">ToUtf8</a></li>
+<li><a class="mw-selflink selflink">new</a></li>
+<li><a class="mw-selflink selflink">DropUserConnection</a></li></ul>
+<h3><span id="DC.28.29:SendHubMessage.28.29"></span><span class="mw-headline" id="DC():SendHubMessage()">DC():SendHubMessage()</span></h3>
+<h4><span class="mw-headline" id="Description">Description</span></h4>
+<p>This function sends a message to the hub. The message should match the specifitations of NMDC or ADC protocol otherwise the hub can't process it.
+</p>
+<h4><span class="mw-headline" id="Usage">Usage</span></h4>
+<p><b>DC():SendHubMessage(&lt;hub_id&gt;, &lt;message&gt;)</b>
+</p>
+<dl><dt>&lt;hub_id&gt;</dt>
+<dd>HubID is the identifier of the hub</dd>
+<dt>&lt;message&gt;</dt>
+<dd>The message-to-send. It should end with a newline in case of an ADC hub, or a pipe in case of an NMDC hub.</dd></dl>
+<h4><span class="mw-headline" id="Examples">Examples</span></h4>
+<p><b>on NMDC hub</b>
+</p><p>DC():SendHubMessage( hub:getId(), "&lt;" .. hub:getOwnNick() .. "&gt; Hi, I'm happy to meet you!|" )
+</p><p><b>on ADC hub</b>
+</p><p>DC():SendHubMessage( this:getId(), "BMSG " .. hub:getOwnSid() .. " Hi,\sI'm\shappy\sto\smeet\syou\n" )
+</p>
+<h3><span id="DC.28.29:PrintDebug.28.29"></span><span class="mw-headline" id="DC():PrintDebug()">DC():PrintDebug()</span></h3>
+<h4><span class="mw-headline" id="Description_2">Description</span></h4>
+<p>The functions write a message to System Log (Debug window in the past).
+</p>
+<h4><span class="mw-headline" id="Usage_2">Usage</span></h4>
+<p><b>DC():PrintDebug(&lt;string&gt;)</b>
+</p>
+<dl><dt>&lt;string&gt;</dt>
+<dd>The message to the log</dd></dl>
+<h4><span class="mw-headline" id="Examples_2">Examples</span></h4>
+<p>DC():PrintDebug("*** Script succesfully loaded")
+</p>
+<h3><span id="DC.28.29:GetClientIp.28.29"></span><span class="mw-headline" id="DC():GetClientIp()">DC():GetClientIp()</span></h3>
+<h4><span class="mw-headline" id="Description_3">Description</span></h4>
+<p>Returns with the Client IP. It can be used in a p2p connection, since the requied parameter is the Client Pointer
+</p>
+<h4><span class="mw-headline" id="Usage_3">Usage</span></h4>
+<p><b>DC():GetClientIp(&lt;client_pointer&gt;)</b>
+</p>
+<dl><dt>&lt;client_pointer&gt;</dt>
+<dd>Client Pointer is a userdata variable containing the connection</dd></dl>
+<h4><span class="mw-headline" id="Examples_3">Examples</span></h4>
+<p>dcpp:setListener( "clientIn", "c2ci",
+	function( userp, line )
+		DC():PrintDebug("Incoming connection IP: " .. DC():GetClientIp(userp) )
+		return nil
+	end
+)
+</p>
+<h3><span id="DC.28.29:GetHubIpPort.28.29"></span><span class="mw-headline" id="DC():GetHubIpPort()">DC():GetHubIpPort()</span></h3>
+<h4><span class="mw-headline" id="Description_4">Description</span></h4>
+<p>This function returns with the IP and port of the specified hub in format <i>x.x.x.x[:port]</i> where port is absent if the NMDC hub runs on port 411.
+</p>
+<h4><span class="mw-headline" id="Usage_4">Usage</span></h4>
+<p><b>DC():GetHubIpPort(&lt;hub_id&gt;)</b>
+</p>
+<dl><dt>&lt;hub_id&gt;</dt>
+<dd>HubID is the identifier of the hub</dd></dl>
+<h4><span class="mw-headline" id="Examples_4">Examples</span></h4>
+<p>if DC():GetHubIpPort( hub:getId() ) == "1.2.3.4:1416" then DC():PrintDebug("I'm cool") end
+</p>
+<h3><span id="DC.28.29:GetHubUrl.28.29"></span><span class="mw-headline" id="DC():GetHubUrl()">DC():GetHubUrl()</span></h3>
+<h4><span class="mw-headline" id="Description_5">Description</span></h4>
+<p>This function returns with the address of the selected hub.
+</p>
+<h4><span class="mw-headline" id="Usage_5">Usage</span></h4>
+<p><b>DC():GetHubUrl(&lt;hub_id&gt;)</b>
+</p>
+<dl><dt>&lt;hub_id&gt;</dt>
+<dd>HubID is the identifier of the hub</dd></dl>
+<h4><span class="mw-headline" id="Examples_5">Examples</span></h4>
+<p>if DC():GetHubUrl( hub:getId() ) == "elite.4242.hu:4242" then DC():PrintDebug("something happened") end
+</p>
+<dl><dd><i>This article needs some work to define the behavior this command</i></dd></dl>
+<h3><span id="DC.28.29:InjectHubMessage.28.29"></span><span class="mw-headline" id="DC():InjectHubMessage()">DC():InjectHubMessage()</span></h3>
+<h4><span class="mw-headline" id="Description_6">Description</span></h4>
+<p>It inserts an NMDC message to the specified hubwindow. The client will see it as a command originated from the hub. You can use it to add chat lines to the client window (or help), add UserCommand and more.
+</p>
+<h4><span class="mw-headline" id="Usage_6">Usage</span></h4>
+<p><b>DC():InjectHubMessage( &lt;hub_id&gt;, &lt;message&gt; )</b>
+</p>
+<dl><dt>&lt;hub_id&gt;</dt>
+<dd>HubID is the identifier of the hub</dd>
+<dt>&lt;message&gt;</dt>
+<dd>The message can be anything your client can process. This includes NMDC commands starting with $ but without the pipe. If the message starts with other than $ mark, it will show up on the chat (this is an intended behavior of DC++, used for /help, status messages, etc). Dollar and pipe marks can be escaped inside the message (&amp;#36; for dollar, &amp;#124; for pipe) to avoid misusing.</dd></dl>
+<h4><span class="mw-headline" id="Examples_6">Examples</span></h4>
+<p>DC():InjectHubMessage( hub:getId(), "*** This is help")
+</p><p>DC():InjectHubMessage( hub:getId(), "&lt;Phantom&gt; Hi, noone can see this. Are you scared?" )
+</p><p>DC():InjectHubMessage( hub:getId(), "$To: " .. hub:getOwnNick() .. " From: [OP]Jety $&lt;" .. hub:getOwnNick() .."&gt; This message is injected into a private chat window with [OP]Jety, although he can't see it since it's not sent to the hub.")
+</p>
+<h3><span id="DC.28.29:HubWindowAttention.28.29"></span><span class="mw-headline" id="DC():HubWindowAttention()">DC():HubWindowAttention()</span></h3>
+<h4><span class="mw-headline" id="Description_7">Description</span></h4>
+<p>The function makes the hubwindow flash. It's useful to notify the user if any important thing happens on the hub.
+</p>
+<h4><span class="mw-headline" id="Usage_7">Usage</span></h4>
+<p><b>DC():HubWindowAttention(&lt;hub_id&gt;)</b>
+</p>
+<dl><dt>&lt;hub_id&gt;</dt>
+<dd>HubID is the identifier of the hubwindow</dd></dl>
+<h4><span class="mw-headline" id="Examples_7">Examples</span></h4>
+<p>DC():HubWindowAttention( hub:getId() )
+</p>
+<h3><span id="DC.28.29:RunTimer.28.29"></span><span class="mw-headline" id="DC():RunTimer()">DC():RunTimer()</span></h3>
+<h4><span class="mw-headline" id="Description_8">Description</span></h4>
+<p>BCDC++ includes a timer which calls dcpp.OnTimer in every second. RunTimer() can enable or disable this timer (disabled by default).
+</p>
+<h4><span class="mw-headline" id="Usage_8">Usage</span></h4>
+<p><b>DC():RunTimer(&lt;enabled&gt;)</b>
+</p>
+<dl><dt>&lt;enabled&gt;</dt>
+<dd>0 disables the timer, all different values enables it</dd></dl>
+<p>It gives a "RunTimer: missing integer (0=off,!0=on)" error when the parameter is missing.
+</p>
+<h4><span class="mw-headline" id="Examples_8">Examples</span></h4>
+<p>DC():RunTimer(1) <i>-- enable timer</i>
+</p>
+<h3><span id="DC.28.29:GetSetting.28.29"></span><span class="mw-headline" id="DC():GetSetting()">DC():GetSetting()</span></h3>
+<h4><span class="mw-headline" id="Description_9">Description</span></h4>
+<p>GetSetting returns with the current values of BCDC++ config. The return value can be a number of a string, depending on the content of the variable.
+</p>
+<h4><span class="mw-headline" id="Usage_9">Usage</span></h4>
+<p><b>DC():GetSetting(&lt;config_variable&gt;)</b>
+</p>
+<dl><dt>&lt;config_variable&gt;</dt>
+<dd>The name of the configuration value defined in SettingsManager (see: SettingsManager class, SettingsManager.cpp) or DCPlusPlus.xml</dd></dl>
+<p>If <b>&lt;config_variable&gt;</b> doesn't exist, it drops a "GetSetting: setting not found" error message.
+</p>
+<h4><span class="mw-headline" id="Examples_9">Examples</span></h4>
+<ul><li>local slots = DC():GetSetting("Slots") <i>-- Returns with the number of upload slots</i></li>
+<li>local message = DC():GetSetting("DefaultAwayMessage") <i>-- Returns with the Default Away Message</i></li></ul>
+<h3><span id="DC.28.29GetAppPath"></span><span class="mw-headline" id="DC()GetAppPath">DC()GetAppPath</span></h3>
+<h4><span class="mw-headline" id="Description_10">Description</span></h4>
+<p>Returns with the name of the BCDC executable's directory. Generally it's not used for locating the .exe but useful for getting location of scripts or text files.
+</p>
+<h4><span class="mw-headline" id="Usage_10">Usage</span></h4>
+<p><b>DC():GetAppPath()</b>
+</p>
+<h4><span class="mw-headline" id="Examples_10">Examples</span></h4>
+<p>local filename = DC():GetAppPath() .. "scripts\slotrules.txt" <i>-- DC():GetAppPath() == "C:\Utilites\BCDC++\"</i>
+</p>
+<h3><span id="DC.28.29:FromUtf8.28.29"></span><span class="mw-headline" id="DC():FromUtf8()">DC():FromUtf8()</span></h3>
+<h4><span class="mw-headline" id="Description_11">Description</span></h4>
+<p>This function converts text from UTF8 to the Active CodePage. Its return value is the converted text.
+</p>
+<h4><span class="mw-headline" id="Usage_11">Usage</span></h4>
+<p><b>DC():FromUtf8( &lt;text&gt; )</b>
+</p>
+<dl><dt>&lt;text&gt;</dt>
+<dd>Text in UTF8</dd></dl>
+<h3><span id="DC.28.29:ToUtf8.28.29"></span><span class="mw-headline" id="DC():ToUtf8()">DC():ToUtf8()</span></h3>
+<h4><span class="mw-headline" id="Description_12">Description</span></h4>
+<p>This function converts text to UTF8 from the Active CodePage. Its return value is the UTF8 text.
+</p>
+<h4><span class="mw-headline" id="Usage_12">Usage</span></h4>
+<p><b>DC():ToUtf8( &lt;text&gt; )</b>
+</p>
+<dl><dt>&lt;text&gt;</dt>
+<dd>Text encoded with the Active CodePage</dd></dl>
+<h2><span class="mw-headline" id="API-called_Lua_functions">API-called Lua functions</span></h2>
+<p>The following functions are called by BCDC++ when a specified event happens. These functions shall be defined in startup.lua.
+</p><p><b>dcpp table</b>
+</p>
+<ul><li><a class="mw-selflink-fragment" href="#dcpp.OnTimer()">OnTimer</a>: dcpp.OnTimer</li>
+<li><a class="mw-selflink-fragment" href="#dcpp.OnCommandEnter()">OnCommandEnter</a>: dcpp.OnCommandEnter</li>
+<li><a class="mw-selflink-fragment" href="#dcpp.FormatChatText">FormatChatText</a>: dcpp.FormatChatText</li>
+<li><a class="mw-selflink-fragment" href="#dcpp.UserDataIn(),_dcpp.UserDataOut()">UserDataIn, UserDataOut</a>:dcpp.UserDataIn, dcpp.UserDataOut</li></ul>
+<p><b>nmdch and adch table</b>
+</p>
+<ul><li><a class="mw-selflink-fragment" href="#nmdch.OnHubAdded(),_adch.OnHubAdded()">OnHubAdded</a>: nmdch.OnHubAdded, adch.OnHubAdded</li>
+<li><a class="mw-selflink-fragment" href="#nmdch.OnHubRemoved(),_adch.OnHubRemoved()">OnHubRemoved</a>: nmdch.OnHubRemoved, adch.OnHubRemoved</li>
+<li><a class="mw-selflink-fragment" href="#nmdch.DataArrival(),_adch.DataArrival()">DataArrival</a>: nmdch.DataArrival, adch.DataArrival</li></ul>
+<h3><span id="dcpp.OnTimer.28.29"></span><span class="mw-headline" id="dcpp.OnTimer()">dcpp.OnTimer()</span></h3>
+<p>BCDC calls dcpp.OnTimer() on every seconds. The function is defined in startup.lua and executes all timer listener one by one. Can be enabled or disabled with the RunTimer function; disabled by default.
+</p>
+<h3><span id="dcpp.OnCommandEnter.28.29"></span><span class="mw-headline" id="dcpp.OnCommandEnter()">dcpp.OnCommandEnter()</span></h3>
+<h4><span class="mw-headline" id="Description_13">Description</span></h4>
+<p>When you enter anything to main chat, BCDC++ calls dcpp.OnCommandEnter() before sending it to the hub. You can use it to process new client-side commands and/or filter or modify the outgoing message. Defined in startup.lua and calls the ownChatOut listeners. If any of the listeners return non-<b>nil</b>, BCDC discards the message.
+</p>
+<h4><span class="mw-headline" id="Parameters">Parameters</span></h4>
+<p><b>dcpp.OnCommandEnter( &lt;hub_id&gt;, &lt;text&gt; )</b>
+</p>
+<dl><dt>&lt;hub_id&gt;</dt>
+<dd>HubID is the identifier of the hub</dd>
+<dt>&lt;text&gt;</dt>
+<dd>The text entered by the user</dd></dl>
+<h4><span class="mw-headline" id="Return_values">Return values</span></h4>
+<p>If return non-<b>nil</b>, BCDC discards the message.
+</p>
+<h3><span class="mw-headline" id="dcpp.FormatChatText">dcpp.FormatChatText</span></h3>
+<h4><span class="mw-headline" id="Description_14">Description</span></h4>
+<p>BCDC++ has RichEdit mainchat. BCDC++ lets the RichText to be formatted by the dcpp.FormatChatText function, so it is called before any message is written to the chat window. Defined in formatting.lua
+</p>
+<h4><span class="mw-headline" id="Parameters_2">Parameters</span></h4>
+<p><b>dcpp.FormatChatText( &lt;hub_id&gt;, &lt;text&gt; )</b>
+</p>
+<dl><dt>&lt;hub_id&gt;</dt>
+<dd>HubID is the identifier of the hub</dd>
+<dt>&lt;text&gt;</dt>
+<dd>The original rich text</dd></dl>
+<h4><span class="mw-headline" id="Return_values_2">Return values</span></h4>
+<p>The function shall return the formatted text. Then, BCDC will send that to the chat.
+</p>
+<h4><span class="mw-headline" id="Notes">Notes</span></h4>
+<ul><li>Unsure about the coding, if I'm right, &lt;text&gt; is in UTF-8</li></ul>
+<h3><span id="dcpp.UserDataIn.28.29.2C_dcpp.UserDataOut.28.29"></span><span class="mw-headline" id="dcpp.UserDataIn(),_dcpp.UserDataOut()">dcpp.UserDataIn(), dcpp.UserDataOut()</span></h3>
+<h4><span class="mw-headline" id="Description_15">Description</span></h4>
+<p>These functions are called when an NMDC client-to-client message is sent or arrives.
+</p>
+<h4><span class="mw-headline" id="Parameters_3">Parameters</span></h4>
+<ul><li><b>dcpp.UserDataIn( &lt;clt_pointer&gt;, &lt;msg&gt; )</b></li>
+<li><b>dcpp.UserDataOut( &lt;clt_pointer&gt;, &lt;msg&gt; )</b></li></ul>
+<dl><dt>&lt;clt_pointer&gt;</dt>
+<dd>Client Pointer, a userdata variable containing the connection.</dd>
+<dt>&lt;msg&gt;</dt>
+<dd>The sent or received message</dd></dl>
+<h4><span class="mw-headline" id="Return_values_3">Return values</span></h4>
+<p>Returning non-<b>nil</b> kills the connection
+</p>
+<h4><span class="mw-headline" id="Notes_2">Notes</span></h4>
+<ul><li>At this moment, UserDataIn/Out is called only in NMDC connections</li>
+<li>Only messages starting with $ trigger the call. Other raw data are ignored</li></ul>
+<p><br/>
+</p>
+<h3><span id="nmdch.OnHubAdded.28.29.2C_adch.OnHubAdded.28.29"></span><span class="mw-headline" id="nmdch.OnHubAdded(),_adch.OnHubAdded()">nmdch.OnHubAdded(), adch.OnHubAdded()</span></h3>
+<h4><span class="mw-headline" id="Description_16">Description</span></h4>
+<p>When you connect to a hub, BCDC++ calls one of the functions: nmdch.OnHubAdded() for NMDC hubs, adch.OnHubAdded() for ADC hubs. They are defined in startup.lua and call the appropriate addHub function.
+</p>
+<h4><span class="mw-headline" id="Parameters_4">Parameters</span></h4>
+<p><b>nmdch.OnHubAdded( &lt;hub_id&gt; )</b>
+</p><p><b>adch.OnHubAdded( &lt;hub_id&gt; )</b>
+</p>
+<dl><dt>&lt;hub_id&gt;</dt>
+<dd>HubID is the identifier of the new hub. In the future when you call a Registered API function, you have to use this identifier to select the hub.</dd></dl>
+<h4><span class="mw-headline" id="Return_values_4">Return values</span></h4>
+<p>None
+</p>
+<h3><span id="nmdch.OnHubRemoved.28.29.2C_adch.OnHubRemoved.28.29"></span><span class="mw-headline" id="nmdch.OnHubRemoved(),_adch.OnHubRemoved()">nmdch.OnHubRemoved(), adch.OnHubRemoved()</span></h3>
+<h4><span class="mw-headline" id="Description_17">Description</span></h4>
+<p>When you disconnect from a hub, BCDC calls the nmdch.OnHubRemoved() function for NMDC hub or adch.OnHubRemoved() for ADC hub. They are defined in startup.lua and call the removeHub function.
+</p>
+<h4><span class="mw-headline" id="Parameters_5">Parameters</span></h4>
+<p><b>nmdch.OnHubRemoved( &lt;hub_id&gt; )</b>
+</p><p><b>adch.OnHubRemoved( &lt;hub_id&gt; )</b>
+</p>
+<dl><dt>&lt;hub_id&gt;</dt>
+<dd>HubID is the unique identifier of the hub</dd></dl>
+<h4><span class="mw-headline" id="Return_values_5">Return values</span></h4>
+<p>None
+</p>
+<h3><span id="nmdch.DataArrival.28.29.2C_adch.DataArrival.28.29"></span><span class="mw-headline" id="nmdch.DataArrival(),_adch.DataArrival()">nmdch.DataArrival(), adch.DataArrival()</span></h3>
+<h4><span class="mw-headline" id="Description_18">Description</span></h4>
+<p>When any data arrives from the NMDC hub, BCDC++ calls this function. It's defined in startup.lua.
+</p><p>First it calls the raw listeners. If any of the listeners returns with a non-<b>nil</b> value, the command will be discarded and no further processing happens. Otherwise it tries to process the message. If a known NMDC command is found ($MyINFO, $Search, &lt;..&gt;) it calls the appropriate function. See startup.lua for details.
+</p>
+<h4><span class="mw-headline" id="Parameters_6">Parameters</span></h4>
+<p><b>nmdch.DataArrival( &lt;hub_id&gt;, &lt;message&gt; )</b>
+</p><p><b>adch.DataArrival( &lt;hub_id&gt;, &lt;message&gt; )</b>
+</p>
+<dl><dt>&lt;hub_id&gt;</dt>
+<dd>HubID identifies the hub individually</dd>
+<dt>&lt;message&gt;</dt>
+<dd>The command which comes from the hub</dd></dl>
+<h4><span class="mw-headline" id="Return_values_6">Return values</span></h4>
+<p>Non-<b>nil</b> discards the message.
+</p></div></div>
+<!-- /bodyContent -->
+</div>
+<!-- /content -->
+<!-- header -->
+<div class="noprint" id="mw-head">
+<!-- 0 -->
+<div class="" id="p-personal">
+<h5>Personal tools</h5>
+<ul>
+<li id="pt-login"><a accesskey="o" href="/mediawiki/index.php?title=Special:UserLogin&amp;returnto=ADC_Protocol" title="You are encouraged to log in; however, it is not mandatory [o]">Log in</a></li>
+</ul>
+</div>
+<!-- /0 -->
+<div id="left-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-namespaces">
+<h5>Namespaces</h5>
+<ul>
+<li class="selected" id="ca-nstab-main"><a accesskey="c" href="/wiki/ADC_Protocol" title="View the content page [c]"><span>Page</span></a></li>
+<li class="new" id="ca-talk"><a accesskey="t" href="/mediawiki/index.php?title=Talk:ADC_Protocol&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]"><span>Discussion</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-variants">
+<h5><span>Variants</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+</div>
+<div id="right-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-views">
+<h5>Views</h5>
+<ul>
+<li class="selected" id="ca-view"><a href="/wiki/ADC_Protocol"><span>Read</span></a></li>
+<li id="ca-viewsource"><a accesskey="e" href="/mediawiki/index.php?title=ADC_Protocol&amp;action=edit" title="This page is protected.
+You can view its source [e]"><span>View source</span></a></li>
+<li class="collapsible" id="ca-history"><a accesskey="h" href="/mediawiki/index.php?title=ADC_Protocol&amp;action=history" title="Past revisions of this page [h]"><span>View history</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-cactions">
+<h5><span>Actions</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+<!-- 2 -->
+<div id="p-search">
+<h5><label for="searchInput">Search</label></h5>
+<form action="/mediawiki/index.php" id="searchform">
+<input name="title" type="hidden" value="Special:Search"/>
+<input accesskey="f" id="searchInput" name="search" title="Search ADCPortal Wiki [f]" type="text" value=""/>
+<input class="searchButton" id="searchGoButton" name="go" title="Go to a page with this exact name if exists" type="submit" value="Go"/>
+<input class="searchButton" id="mw-searchButton" name="fulltext" title="Search the pages for this text" type="submit" value="Search"/>
+</form>
+</div>
+<!-- /2 -->
+</div>
+</div>
+<!-- /header -->
+<!-- panel -->
+<div class="noprint" id="mw-panel">
+<!-- logo -->
+<div id="p-logo"><a href="/wiki/Main_Page" style="background-image: url(http://www.adcportal.com/misc/wiki_logo.png);" title="Visit the main page"></a></div>
+<!-- /logo -->
+<!-- navigation -->
+<div class="portal" id="p-navigation">
+<h5>Navigation</h5>
+<div class="body">
+<ul>
+<li id="n-mainpage-description"><a accesskey="z" href="/wiki/Main_Page" title="Visit the main page [z]">Main page</a></li>
+<li id="n-recentchanges"><a accesskey="r" href="/wiki/Special:RecentChanges" title="The list of recent changes in the wiki [r]">Recent changes</a></li>
+<li id="n-randompage"><a accesskey="x" href="/wiki/Special:Random" title="Load a random page [x]">Random page</a></li>
+<li id="n-help"><a href="/wiki/Help:Contents" title="The place to find out">Help</a></li>
+</ul>
+</div>
+</div>
+<!-- /navigation -->
+<!-- SEARCH -->
+<!-- /SEARCH -->
+<!-- TOOLBOX -->
+<div class="portal" id="p-tb">
+<h5>Toolbox</h5>
+<div class="body">
+<ul>
+<li id="t-whatlinkshere"><a accesskey="j" href="/wiki/Special:WhatLinksHere/ADC_Protocol" title="List of all wiki pages that link here [j]">What links here</a></li>
+<li id="t-recentchangeslinked"><a accesskey="k" href="/wiki/Special:RecentChangesLinked/ADC_Protocol" title="Recent changes in pages linked from this page [k]">Related changes</a></li>
+<li id="t-specialpages"><a accesskey="q" href="/wiki/Special:SpecialPages" title="List of all special pages [q]">Special pages</a></li>
+<li id="t-print"><a accesskey="p" href="/mediawiki/index.php?title=ADC_Protocol&amp;printable=yes" rel="alternate" title="Printable version of this page [p]">Printable version</a></li>
+<li id="t-permalink"><a href="/mediawiki/index.php?title=ADC_Protocol&amp;oldid=3615" title="Permanent link to this revision of the page">Permanent link</a></li>
+</ul>
+</div>
+</div>
+<!-- /TOOLBOX -->
+<!-- LANGUAGES -->
+<!-- /LANGUAGES -->
+</div>
+<!-- /panel -->
+<!-- footer -->
+<div id="footer">
+<ul id="footer-info">
+<li id="footer-info-lastmod"> This page was last modified on 11 January 2011, at 21:03.</li>
+<li id="footer-info-viewcount">This page has been accessed 7,022 times.</li>
+<li id="footer-info-copyright">Content is available under <a class="external" href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.2</a>.</li>
+</ul>
+<ul id="footer-places">
+<li id="footer-places-privacy"><a href="/wiki/ADCPortal_Wiki:Privacy_policy" title="ADCPortal Wiki:Privacy policy">Privacy policy</a></li>
+<li id="footer-places-about"><a href="/wiki/ADCPortal_Wiki:About" title="ADCPortal Wiki:About">About ADCPortal Wiki</a></li>
+<li id="footer-places-disclaimer"><a href="/wiki/ADCPortal_Wiki:General_disclaimer" title="ADCPortal Wiki:General disclaimer">Disclaimers</a></li>
+</ul>
+<ul class="noprint" id="footer-icons">
+<li id="footer-icon-poweredby"><a href="http://www.mediawiki.org/"><img alt="Powered by MediaWiki" height="31" src="/mediawiki/skins/common/images/poweredby_mediawiki_88x31.png" width="88"/></a></li>
+<li id="footer-icon-copyright"><a href="http://www.gnu.org/copyleft/fdl.html"><img alt="GNU Free Documentation License 1.2" height="31" src="/mediawiki/skins/common/images/gnu-fdl.png" width="88"/></a></li>
+</ul>
+<div style="clear:both"></div>
+</div>
+<!-- /footer -->
+<!-- fixalpha -->
+<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script>
+<!-- /fixalpha -->
+<script>if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 1.348 secs. --> </body>
+</html>

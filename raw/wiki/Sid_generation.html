@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html dir="ltr" lang="en">
+<head>
+<title>Sid generation - ADCPortal Wiki</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="MediaWiki 1.16.0" name="generator"/>
+<link href="/favicon.ico" rel="shortcut icon"/>
+<link href="/mediawiki/opensearch_desc.php" rel="search" title="ADCPortal Wiki (en)" type="application/opensearchdescription+xml"/>
+<link href="/mediawiki/index.php?title=ADC_Protocol&amp;action=creativecommons" rel="meta" title="Creative Commons" type="application/rdf+xml"/>
+<link href="http://www.gnu.org/copyleft/fdl.html" rel="copyright"/>
+<link href="/mediawiki/index.php?title=Special:RecentChanges&amp;feed=atom" rel="alternate" title="ADCPortal Wiki Atom feed" type="application/atom+xml"/>
+<link href="/mediawiki/skins/vector/main-ltr.css?270" media="screen" rel="stylesheet"/>
+<link href="/mediawiki/skins/common/shared.css?270" media="screen" rel="stylesheet"/>
+<link href="/mediawiki/skins/common/commonPrint.css?270" media="print" rel="stylesheet"/>
+<link href="/mediawiki/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" rel="stylesheet"/>
+<link href="/mediawiki/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" media="print" rel="stylesheet"/>
+<link href="/mediawiki/index.php?title=MediaWiki:Vector.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" rel="stylesheet"/>
+<link href="/mediawiki/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" rel="stylesheet"/>
+<script>
+var skin="vector",
+stylepath="/mediawiki/skins",
+wgUrlProtocols="http\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/wiki/$1",
+wgScriptPath="/mediawiki",
+wgScriptExtension=".php",
+wgScript="/mediawiki/index.php",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="http://www.adcportal.com",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="ADC_Protocol",
+wgTitle="ADC Protocol",
+wgAction="view",
+wgArticleId=2,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=3615,
+wgVersion="1.16.0",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "ADCPortal Wiki", "5": "ADCPortal Wiki talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "adcportal_wiki": 4, "adcportal_wiki_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="ADCPortal Wiki",
+wgCategories=["Stubs", "Protocol information"],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="/mediawiki/skins/common/wikibits.js?270"></script>
+<script src="/mediawiki/skins/common/ajax.js?270"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/mediawiki/skins/vector/csshover.htc")}</style><![endif]-->
+<script src="/mediawiki/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=vector&amp;270"></script>
+</head>
+<body class="mediawiki ltr ns-0 ns-subject page-ADC_Protocol skin-vector">
+<div class="noprint" id="mw-page-base"></div>
+<div class="noprint" id="mw-head-base"></div>
+<!-- content -->
+<div id="content">
+<a id="top"></a>
+<div id="mw-js-message" style="display:none;"></div>
+<!-- firstHeading -->
+<h1 class="firstHeading" id="firstHeading">Sid generation</h1>
+<!-- /firstHeading -->
+<!-- bodyContent -->
+<div id="bodyContent"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><div aria-labelledby="mw-toc-heading" class="toc" id="toc" role="navigation"><input class="toctogglecheckbox" id="toctogglecheckbox" role="button" style="display:none" type="checkbox"/><div class="toctitle" dir="ltr" lang="en"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Background"><span class="tocnumber">2</span> <span class="toctext">Background</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Algorithms"><span class="tocnumber">3</span> <span class="toctext">Algorithms</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Random_SID_allocation"><span class="tocnumber">3.1</span> <span class="toctext">Random SID allocation</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Incremental_SID_allocation"><span class="tocnumber">3.2</span> <span class="toctext">Incremental SID allocation</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Pre-allocated_recyclable_SIDs"><span class="tocnumber">3.3</span> <span class="toctext">Pre-allocated recyclable SIDs</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Incremental_recyclable_SID_allocation"><span class="tocnumber">3.4</span> <span class="toctext">Incremental recyclable SID allocation</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#References"><span class="tocnumber">3.5</span> <span class="toctext">References</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+<h1><span class="mw-headline" id="Introduction">Introduction</span></h1>
+<p>This article explains several possible algorithms for hub implementations to allocate and assign <a href="/wiki/ADC_Protocol#Session_ID" title="ADC Protocol">Session IDs</a> (or SIDs) to ADC clients.
+</p>
+<h1><span class="mw-headline" id="Background">Background</span></h1>
+<p>In ADC the <a href="/wiki/ADC_Protocol#Session_ID" title="ADC Protocol">Session ID</a> (or SID) uniquely identifies a user while connected to a hub, and the user will be assigned a SID at the time of login. Once assigned, the SID cannot be changed without a reconnect.
+</p><p>The SID is a 4 byte sequence of Base32 characters consisting of 32 possible characters, A-Z and 2-7. This means there can be 32^4 different SIDs (slightly over 1 million).
+</p><p>Suggestion: 
+The first SID, 0 which is encoded as 'AAAA' is reserved for the hub (although not used in the protocol currently). A regular expression that matches a SID is: "[A-Z2-7]{4}".
+</p><p>There is no reserved SID for hub in the protocol in 1.0 that option was removed in previous draft version.
+</p>
+<h1><span class="mw-headline" id="Algorithms">Algorithms</span></h1>
+<h2><span class="mw-headline" id="Random_SID_allocation">Random SID allocation</span></h2>
+<p>This algorithm is implemented in <a href="/wiki/ADCH++" title="ADCH++">ADCH++</a>.
+</p>
+<ol><li>When client logs in: SID = random number between 1 and 1048576.</li>
+<li>if (SID in use) go to 1.</li>
+<li>Assign SID to user</li></ol>
+<p>Advantages:
+</p>
+<ul><li>Very simple to implement.</li></ul>
+<p>Disadvantages:
+</p>
+<ul><li>Theoretically, if a hub has close to the maximum allowed users (1 Million), the algorithm of generating a unique SID becomes very costly. On a hub consiting of a few thousand users this is negligible if looking up users based on SID is fast.</li>
+<li>In order to make this algorithm efficient: looking up users based on the SID must be cheap.</li></ul>
+<h2><span class="mw-headline" id="Incremental_SID_allocation">Incremental SID allocation</span></h2>
+<p>This algorithm is implemented in <a href="/wiki/UHub" title="UHub">uHub</a>.
+</p>
+<ol><li>When hub starts, set: counter = 0</li>
+<li>When client logs in: SID = ((++counter) % 1048576)</li>
+<li>if (counter &gt; 1048576) and (SID == 0 or in use) go to 2.</li>
+<li>Assign SID to user</li></ol>
+<p>Advantages:
+</p>
+<ul><li>Simple to implement.</li>
+<li>For the first 1048576 allocated SIDs one does not need to check for SID collisions.</li></ul>
+<p>Disadvantages:
+</p>
+<ul><li>Information leak: Assuming less than 1M login attempts have been made, one can easily figure out how many users have logged in before.</li>
+<li>In order to make this algorithm efficient after 1M connections: looking up users based on the SID must be cheap.</li></ul>
+<h2><span class="mw-headline" id="Pre-allocated_recyclable_SIDs">Pre-allocated recyclable SIDs</span></h2>
+<p>This idea came from <a href="/wiki/User:Pietry" title="User:Pietry">Pietry</a> and <a href="/wiki/User:DarkKlor" title="User:DarkKlor">darkKlor</a> <sup class="reference" id="cite_ref-1"><a href="#cite_note-1"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></a></sup>. Implemented in NetfractionHub.
+</p>
+<ul><li>Allocate a queue large enough to contain SIDs for the maximum users allowed (or dynamically, regarding the user count and the maximum allowed)</li>
+<li>Pre-initialize the queue with unique SIDs (for example in ascending order)</li>
+<li>When client logs in: Assign the first SID from the end of the queue</li>
+<li>When client logs out: push the SID to the beginning of the queue</li></ul>
+<p>Advantages:
+</p>
+<ul><li>No need to check for duplicate SIDs when users log in.</li></ul>
+<p>Disadvantages:
+</p>
+<ul><li>If max_users is too large, a lot of memory is allocated but not used (one can allocate as users come in, the maximum user count would be just a reference)</li>
+<li>If the queue is kept as a linked list of SIDs, even more memory is allocated.</li>
+<li>If the queue is kept as an array, a lot of memory moving needs to be performed when users log out.</li>
+<li>Changing the max_users limit while the hub is running is slightly more complicated (see below)</li>
+<li>Negligible: While starting up, the hub needs to allocate and fill the queues.</li></ul>
+<p>Changing the max_users limit:
+</p>
+<ul><li>if max_users is increased, another set of unique SIDs needs to be added to the front of the queue</li>
+<li>if max_users is decreased, no change is needed, it just means the queue will still have unused elements in it if the hub becomes full (or remove some elements from the not used end of the queue)</li></ul>
+<h2><span class="mw-headline" id="Incremental_recyclable_SID_allocation">Incremental recyclable SID allocation</span></h2>
+<p>This is planned for Luadch.
+</p>
+<ol><li>When hub starts, set counter = 0</li>
+<li>When client logs in: take last element of SID array if exist and delete it or SID = something like ((++counter) % 1048576)</li>
+<li>Assign SID to user</li>
+<li>When client logs out: store client SID as last element in SID array</li></ol>
+<p>Advantages: 
+</p>
+<ul><li>Simple to implement (at least in Lua).</li>
+<li>You never need to check collisons.</li></ul>
+<p>Disadvantages: 
+</p>
+<ul><li>Information leak: you can find out the max user peak of the hub in a session.</li>
+<li>The SID array grows when more clients logout then login; in worst case, the hub is empty and the array contains all created SIDs of the session.</li></ul>
+<p>See a <a class="external text" href="http://pastebin.com/f3f54ceeb" rel="nofollow">Lua implemetation</a> using coroutines.
+</p>
+<h2><span class="mw-headline" id="References">References</span></h2>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text"><a class="external text" href="http://adcportal.sourceforge.net/forums/viewtopic.php?f=10&amp;t=465" rel="nofollow">Netfraction Inception by Pietry (Feb 28, 2009)</a></span>
+</li>
+</ol></div>
+<h1><span class="mw-headline" id="See_also">See also</span></h1></div></div>
+<!-- /bodyContent -->
+</div>
+<!-- /content -->
+<!-- header -->
+<div class="noprint" id="mw-head">
+<!-- 0 -->
+<div class="" id="p-personal">
+<h5>Personal tools</h5>
+<ul>
+<li id="pt-login"><a accesskey="o" href="/mediawiki/index.php?title=Special:UserLogin&amp;returnto=ADC_Protocol" title="You are encouraged to log in; however, it is not mandatory [o]">Log in</a></li>
+</ul>
+</div>
+<!-- /0 -->
+<div id="left-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-namespaces">
+<h5>Namespaces</h5>
+<ul>
+<li class="selected" id="ca-nstab-main"><a accesskey="c" href="/wiki/ADC_Protocol" title="View the content page [c]"><span>Page</span></a></li>
+<li class="new" id="ca-talk"><a accesskey="t" href="/mediawiki/index.php?title=Talk:ADC_Protocol&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]"><span>Discussion</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-variants">
+<h5><span>Variants</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+</div>
+<div id="right-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-views">
+<h5>Views</h5>
+<ul>
+<li class="selected" id="ca-view"><a href="/wiki/ADC_Protocol"><span>Read</span></a></li>
+<li id="ca-viewsource"><a accesskey="e" href="/mediawiki/index.php?title=ADC_Protocol&amp;action=edit" title="This page is protected.
+You can view its source [e]"><span>View source</span></a></li>
+<li class="collapsible" id="ca-history"><a accesskey="h" href="/mediawiki/index.php?title=ADC_Protocol&amp;action=history" title="Past revisions of this page [h]"><span>View history</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-cactions">
+<h5><span>Actions</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+<!-- 2 -->
+<div id="p-search">
+<h5><label for="searchInput">Search</label></h5>
+<form action="/mediawiki/index.php" id="searchform">
+<input name="title" type="hidden" value="Special:Search"/>
+<input accesskey="f" id="searchInput" name="search" title="Search ADCPortal Wiki [f]" type="text" value=""/>
+<input class="searchButton" id="searchGoButton" name="go" title="Go to a page with this exact name if exists" type="submit" value="Go"/>
+<input class="searchButton" id="mw-searchButton" name="fulltext" title="Search the pages for this text" type="submit" value="Search"/>
+</form>
+</div>
+<!-- /2 -->
+</div>
+</div>
+<!-- /header -->
+<!-- panel -->
+<div class="noprint" id="mw-panel">
+<!-- logo -->
+<div id="p-logo"><a href="/wiki/Main_Page" style="background-image: url(http://www.adcportal.com/misc/wiki_logo.png);" title="Visit the main page"></a></div>
+<!-- /logo -->
+<!-- navigation -->
+<div class="portal" id="p-navigation">
+<h5>Navigation</h5>
+<div class="body">
+<ul>
+<li id="n-mainpage-description"><a accesskey="z" href="/wiki/Main_Page" title="Visit the main page [z]">Main page</a></li>
+<li id="n-recentchanges"><a accesskey="r" href="/wiki/Special:RecentChanges" title="The list of recent changes in the wiki [r]">Recent changes</a></li>
+<li id="n-randompage"><a accesskey="x" href="/wiki/Special:Random" title="Load a random page [x]">Random page</a></li>
+<li id="n-help"><a href="/wiki/Help:Contents" title="The place to find out">Help</a></li>
+</ul>
+</div>
+</div>
+<!-- /navigation -->
+<!-- SEARCH -->
+<!-- /SEARCH -->
+<!-- TOOLBOX -->
+<div class="portal" id="p-tb">
+<h5>Toolbox</h5>
+<div class="body">
+<ul>
+<li id="t-whatlinkshere"><a accesskey="j" href="/wiki/Special:WhatLinksHere/ADC_Protocol" title="List of all wiki pages that link here [j]">What links here</a></li>
+<li id="t-recentchangeslinked"><a accesskey="k" href="/wiki/Special:RecentChangesLinked/ADC_Protocol" title="Recent changes in pages linked from this page [k]">Related changes</a></li>
+<li id="t-specialpages"><a accesskey="q" href="/wiki/Special:SpecialPages" title="List of all special pages [q]">Special pages</a></li>
+<li id="t-print"><a accesskey="p" href="/mediawiki/index.php?title=ADC_Protocol&amp;printable=yes" rel="alternate" title="Printable version of this page [p]">Printable version</a></li>
+<li id="t-permalink"><a href="/mediawiki/index.php?title=ADC_Protocol&amp;oldid=3615" title="Permanent link to this revision of the page">Permanent link</a></li>
+</ul>
+</div>
+</div>
+<!-- /TOOLBOX -->
+<!-- LANGUAGES -->
+<!-- /LANGUAGES -->
+</div>
+<!-- /panel -->
+<!-- footer -->
+<div id="footer">
+<ul id="footer-info">
+<li id="footer-info-lastmod"> This page was last modified on 11 January 2011, at 21:03.</li>
+<li id="footer-info-viewcount">This page has been accessed 7,022 times.</li>
+<li id="footer-info-copyright">Content is available under <a class="external" href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.2</a>.</li>
+</ul>
+<ul id="footer-places">
+<li id="footer-places-privacy"><a href="/wiki/ADCPortal_Wiki:Privacy_policy" title="ADCPortal Wiki:Privacy policy">Privacy policy</a></li>
+<li id="footer-places-about"><a href="/wiki/ADCPortal_Wiki:About" title="ADCPortal Wiki:About">About ADCPortal Wiki</a></li>
+<li id="footer-places-disclaimer"><a href="/wiki/ADCPortal_Wiki:General_disclaimer" title="ADCPortal Wiki:General disclaimer">Disclaimers</a></li>
+</ul>
+<ul class="noprint" id="footer-icons">
+<li id="footer-icon-poweredby"><a href="http://www.mediawiki.org/"><img alt="Powered by MediaWiki" height="31" src="/mediawiki/skins/common/images/poweredby_mediawiki_88x31.png" width="88"/></a></li>
+<li id="footer-icon-copyright"><a href="http://www.gnu.org/copyleft/fdl.html"><img alt="GNU Free Documentation License 1.2" height="31" src="/mediawiki/skins/common/images/gnu-fdl.png" width="88"/></a></li>
+</ul>
+<div style="clear:both"></div>
+</div>
+<!-- /footer -->
+<!-- fixalpha -->
+<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script>
+<!-- /fixalpha -->
+<script>if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 1.348 secs. --> </body>
+</html>

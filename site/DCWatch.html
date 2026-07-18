@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html dir="ltr" lang="en">
+<head>
+<title>DCWatch - ADCPortal Wiki</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="MediaWiki 1.16.0" name="generator"/>
+
+
+<link href="/mediawiki/index.php?title=ADC_Protocol&amp;action=creativecommons" rel="meta" title="Creative Commons" type="application/rdf+xml"/>
+<link href="http://www.gnu.org/copyleft/fdl.html" rel="copyright"/>
+
+
+
+
+
+
+
+
+
+
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/mediawiki/skins/vector/csshover.htc")}</style><![endif]-->
+
+<link href="mediawiki/skins/vector/main-ltr.css" media="screen" rel="stylesheet"/><link href="mediawiki/skins/common/shared.css" media="screen" rel="stylesheet"/><link href="mediawiki/site-common.css" media="all" rel="stylesheet"/><link href="mediawiki/site-vector.css" media="all" rel="stylesheet"/><link href="mediawiki/gen.css" media="all" rel="stylesheet"/><link href="overrides.css" media="all" rel="stylesheet"/></head>
+<body class="mediawiki ltr ns-0 ns-subject page-ADC_Protocol skin-vector">
+<div class="noprint" id="mw-page-base"></div>
+<div class="noprint" id="mw-head-base"></div>
+<!-- content -->
+<div id="content">
+<a id="top"></a>
+<div id="mw-js-message" style="display:none;"></div>
+<!-- firstHeading -->
+<h1 class="firstHeading" id="firstHeading">DCWatch</h1>
+<!-- /firstHeading -->
+<!-- bodyContent -->
+<div id="bodyContent"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><table cellspacing="5" class="infobox vevent" style="width: 22em; text-align: left; font-size: 88%; line-height: 1.5em;"><caption class="summary" style="font-size: 125%; font-weight: bold;">DCWatch</caption>
+<tbody><tr><td class="" colspan="2" style="text-align:center; font-size: 125%; font-weight: bold;"><span typeof="mw:Error mw:File"><a class="archived-inert" href="#" title="Page not archived"><span class="mw-file-element mw-broken-media" data-width="100">File:Dcwatch logo.png</span></a></span></td></tr><tr><td class="" colspan="2" style="text-align:center;"> <span typeof="mw:Error mw:File"><a class="archived-inert" href="#" title="Page not archived"><span class="mw-file-element mw-broken-media" data-width="230">File:Dcwatch screen.png</span></a></span> <br/>
+<span style="">DCWatch running in Windows Vista</span></td></tr><tr><th style="">Developed by</th><td class="" style="">CyB</td></tr><tr><th style="">Initial release</th><td class="" style="">2007</td></tr><tr><th style="">Stable release</th><td class="" style="">N / A <sub class="plainlinks">[<a class="archived-inert" href="#" rel="nofollow" title="Page not archived">edit</a>]</sub></td></tr><tr><th style="">Beta release</th><td class="" style="">N / A <sub class="plainlinks">[<a class="archived-inert" href="#" rel="nofollow" title="Page not archived">edit</a>]</sub></td></tr><tr><th style="">Written in</th><td class="" style="">Java, LUA</td></tr><tr><th style="">Platform</th><td class="" style="">Windows, Linux</td></tr><tr><th style="">Available in</th><td class="" style="">2 languages</td></tr><tr><th style="">Type</th><td class="" style="">Misc</td></tr><tr><th style="">License</th><td class="" style=""><a href="GNU_GPL_3.html">GNU GPL 3</a></td></tr><tr><th style="">Website</th><td class="" style=""><a class="external text" href="http://dcwatch.hu" rel="nofollow">DCWatch Official Website</a><br/><a class="external text" href="https://launchpad.net/dcwatch" rel="nofollow">DCWatch Launchpad Website</a></td></tr>
+</tbody></table>
+<div aria-labelledby="mw-toc-heading" class="toc" id="toc" role="navigation"><input class="toctogglecheckbox" id="toctogglecheckbox" role="button" style="display:none" type="checkbox"/><div class="toctitle" dir="ltr" lang="en"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Scripting_Example"><span class="tocnumber">2</span> <span class="toctext">Scripting Example</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Statistics_PHP_Files"><span class="tocnumber">3</span> <span class="toctext">Statistics PHP Files</span></a></li>
+<li class="toclevel-1"><a href="#Number_of_users_on_the_hub"><span class="tocnumber">4</span> <span class="toctext">Number of users on the hub</span></a></li>
+<li class="toclevel-1"><a href="#This_service_is_not_available"><span class="tocnumber">5</span> <span class="toctext">This service is not available</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Links"><span class="tocnumber">5.1</span> <span class="toctext">Links</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Implementations"><span class="tocnumber">5.2</span> <span class="toctext">Implementations</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><span class="mw-headline" id="Introduction">Introduction</span></h2>
+<p>DCWatch is an open source Direct Connect Bot. It supports both NMDC and ADC protocol, and it uses <a href="ADC_Software_List.html#Embla">Embla</a> protocol implementation library.
+</p><p>The bot has several uses it provide rss <a href="Proposed_Extensions.html#FEED">feed</a> to hubs via ADC extension, the feed extension is still under drafting mode this is a preliminary implementation to test its uses. The bot can connect other hubs via <a href="Proposed_Extensions.html#LINK">link</a> extension it may even connect Jabber accounts and it also provides a LUA scripting interface for those who wishes to make scripts (see <a class="mw-selflink-fragment" href="#Scripting_Example">script example</a> below).
+</p><p>Since the bot is built on the <a href="ADC_Software_List.html#Embla">Embla</a> library it got support for many protocol extensions some of them are <a href="Proposed_Extensions.html#SHA1">SHA1</a>, <a href="PING.html">PING</a>, <a href="Proposed_Extensions.html#TYPE">TYPE</a>, <a href="Proposed_Extensions.html#FEED">FEED</a>, <a href="Proposed_Extensions.html#LINK">LINK</a>, <a href="Proposed_Extensions.html#UCMD">UCMD</a> that makes the bot very useful if any LUA Scripter or Java Developer wishes to make new ideas for the bot.
+</p><p>Version 0.4x runs both in 32bits and 64bits environments with support for both Linux distributions and Windows Operating systems.
+</p><p>List of features in 0.4x:
+</p>
+<ul><li>Chatlink - Chatlink is used to connect hubs or jabber accounts</li>
+<li>Connection - Apart of chatlink this is used to make the connection</li>
+<li>Feed - Provides and manages hubs with RSS and ATOM feeds</li>
+<li>gc - Java Garbage Collector</li>
+<li>Info - Show <a class="mw-selflink-fragment" href="#Statistics_PHP_Files">statistic</a> and general information via PHP to a web server uses Google Charts API</li>
+<li>Language - Language management</li>
+<li>Plugin - It has a plugin manager</li>
+<li>User - it has a User management system to grant administration rights</li></ul>
+<h2><span class="mw-headline" id="Scripting_Example">Scripting Example</span></h2>
+<div id="luascript" style="width:100%;text-align:left;font-size:85%;">
+<p>&lt;source lang="lua"&gt;
+--[[	
+	Copyright (C) 2008-2009  Viktor Bal�zs
+</p><p>	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+</p><p>	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+</p><p>	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see &lt;<a class="external free" href="http://www.gnu.org/licenses/" rel="nofollow">http://www.gnu.org/licenses/</a>&gt;.
+]]--
+</p><p>demo = {}
+</p><p>function demo.dataReceived( data )
+	result = false	
+</p><p>	if data:getType() == "command" then
+		kleodora:debug( "command: " .. data:getValue():toString() )
+	else
+		kleodora:debug( data:getType() )
+	end
+</p><p>	return result
+end
+</p><p>demoProxy = luajava.createProxy( "hu.dcwatch.common.service.ServiceListener", demo )
+kleodora:addListener( "demo.lua", demoProxy )
+&lt;/source&gt;
+</p>
+</div>
+<h2><span class="mw-headline" id="Statistics_PHP_Files">Statistics PHP Files</span></h2>
+<div id="phpscript" style="width:100%;text-align:left;font-size:85%;">
+<p>&lt;source lang="php"&gt;
+- &lt;?php
+</p><p>function generateChartURL( $width, $height, $margin, $background_color, $line_color, $line_width, $data ){
+	if( $width &gt; 300 ){
+		$x_axis = "0:|0:00|3:00|6:00|9:00|12:00|15:00|18:00|21:00|24:00";
+	}else{
+		$x_axis = "0:|0:00||6:00||12:00||18:00||24:00";
+	}
+</p><p>	if( $height &gt; 150 ){
+		$y_axis = "1:||500|1000|1500|2000|2500|3000|3500|4000|4500|5000";
+	}else{
+		$y_axis = "1:|||1000||2000||3000||4000||5000";
+	}
+</p><p>	$chart_url = "<a class="external free" href="http://chart.apis.google.com/chart" rel="nofollow">http://chart.apis.google.com/chart</a>?" .
+		"chs=" . $width . "x" . $height . "&amp;" .
+		"cht=lc&amp;" .
+		"chxt=x,y&amp;" .
+		"chg=4.166,10,1,2&amp;" .
+		"chf=bg,s," . $background_color . "&amp;" .
+		"chco=" . $line_color . "&amp;" .
+		"chls=" . $line_width . "&amp;" .
+		"chxl=" . $x_axis . "|" . $y_axis. "&amp;" .
+		"chma=" . $margin . "&amp;" .
+		"chd=t:" . $data;
+</p><p>	return $chart_url;
+}
+</p><p>function googleChartURL( $datasource, $width, $height, $margin, $background_color, $line_color, $line_width ){
+	$data = "";
+</p><p>	if( file_exists( $datasource ) ){
+		$handler = fopen( $datasource, 'r' );
+		$data = fgets( $handler );
+		fclose( $handler );
+	}
+</p><p>	return generateChartURL( $width, $height, $margin, $background_color, $line_color, $line_width, $data );
+}
+</p><p>?&gt;
+&lt;/source&gt;
+</p>
+</div>
+<p><br/>
+</p>
+<div id="phpscript" style="width:100%;text-align:left;font-size:85%;">
+<p>&lt;source lang="php"&gt;
+&lt;?php
+if( file_exists( "/home/hub/dcwatch/charts/google_chart.php" ) ){
+	include_once( "/home/hub/dcwatch/charts/google_chart.php" );
+</p><p>	//-- FIXME -------------------------------------------------------------------------------------------
+	$url = "http://" . $_SERVER["SERVER_NAME"];
+	if( $_SERVER["SERVER_PORT"] != 80) {
+		$url = $url . $_SERVER["SERVER_PORT"];
+	}
+	$url = $url . "/dcwatch/";
+	//------------------------------------------------------------------------------------------------------
+</p><p>	$archive = "/dcwatch/charts/archive";
+	$statistic = "usercount";
+</p><p>	if( $_REQUEST["date"] == "" ) {
+		$date = date("Y-m-d");
+	}else{
+		$date = $_REQUEST["date"];
+	}
+</p><p>	$log_file = $archive . "/" . $statistic . "_" . $date . ".log";
+</p><p>	$today = strtotime( $date );
+	$prev_date = strtotime( "-1 day", $today );
+	$next_date = strtotime( "+1day", $today );
+</p>
+	echo "<h1><span class="mw-headline" id="Number_of_users_on_the_hub">Number of users on the hub</span></h1>";
+	echo "<p class="mw-empty-elt"></p>&lt;tbody&gt;";
+	echo "";
+	echo "";
+	echo "";
+	echo "&lt;/tbody&gt;<div class="table-scroll"><table border='\"0\"'><tbody><tr><td style="\22 text-align:">&lt;a href=\"" . $url . "?date=" . date("Y-m-d", $prev_date) . "\"&gt;" . date("Y-m-d", $prev_date) . "&lt;/a&gt;</td><td style="\22 text-align:">&lt;a href=\"" . $url . "\"&gt;ma&lt;/a&gt;</td><td style="\22 text-align:">&lt;a href=\"" . $url . "?date=" . date("Y-m-d", $next_date) . "\"&gt;" . date("Y-m-d", $next_date) . "&lt;/a&gt;</td></tr></tbody></table></div><p class="mw-empty-elt"></p>";
+	echo "<p style="\22 text-align:">";
+	echo "&lt;img src=\"" . googleChartURL( $log_file, 600, 300, "50,30,30,30", "EECF80", "B12C00", "3.0" ) . "\"/&gt;";
+	echo "<br/><strong>" . date("Y-m-d", $today) . "</strong></p>";
+<p>}else{
+</p>
+	echo "<h1><span class="mw-headline" id="This_service_is_not_available">This service is not available</span></h1>";
+<p>}
+?&gt;
+&lt;/source&gt;
+</p>
+</div>
+<h2><span class="mw-headline" id="Links">Links</span></h2>
+<ul><li><a class="external text" href="http://dcwatch.hu" rel="nofollow">DCWatch Official Website</a></li>
+<li><a class="external text" href="https://launchpad.net/dcwatch" rel="nofollow">DCWatch Launchpad Website</a></li></ul>
+<h2><span class="mw-headline" id="Implementations">Implementations</span></h2>
+<div id="textsize" style="width:100%;text-align:left;font-size:95%;">
+<div class="notice metadata" id="supportbox" style="background: #F8F8F8; border: 1px solid #DDDDDD; padding: 5px;"><span typeof="mw:Error mw:File"><a class="archived-inert" href="#" title="Page not archived"><span class="mw-file-element mw-broken-media" data-width="25">File:Application.png</span></a></span> This product has implemented the following extensions: <a href="ADCS_-_Symmetrical_Encryption_in_ADC.html">ADCS</a>,<a href="FEED_-_RSS_feeds.html">FEED</a>,<a href="TIGR.html">TIGR</a>,<a href="Proposed_Extensions.html">LINK</a>,<a href="PING.html">PING</a>,<a href="TIGR.html">TIGR</a>,<a href="TYPE_-_Typing_notification.html">TYPE</a>,<a href="UCMD.html">UCMD</a></div></div></div></div>
+<!-- /bodyContent -->
+</div>
+<!-- /content -->
+<!-- header -->
+<div class="noprint" id="mw-head">
+<!-- 0 -->
+<div class="" id="p-personal">
+<h5>Personal tools</h5>
+<ul>
+<li id="pt-login"><a accesskey="o" class="archived-inert" href="#" title="Not available in this archive">Log in</a></li>
+</ul>
+</div>
+<!-- /0 -->
+<div id="left-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-namespaces">
+<h5>Namespaces</h5>
+<ul>
+<li class="selected" id="ca-nstab-main"><a accesskey="c" href="ADC_Protocol.html"><span>Page</span></a></li>
+<li class="new" id="ca-talk"><a accesskey="t" class="archived-inert" href="#" title="Not available in this archive"><span>Discussion</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-variants">
+<h5><span>Variants</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+</div>
+<div id="right-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-views">
+<h5>Views</h5>
+<ul>
+<li class="selected" id="ca-view"><a href="ADC_Protocol.html"><span>Read</span></a></li>
+<li id="ca-viewsource"><a accesskey="e" class="archived-inert" href="#" title="Not available in this archive"><span>View source</span></a></li>
+<li class="collapsible" id="ca-history"><a accesskey="h" class="archived-inert" href="#" title="Not available in this archive"><span>View history</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-cactions">
+<h5><span>Actions</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+<!-- 2 -->
+<div id="p-search">
+<h5><label for="searchInput">Search</label></h5>
+<form action="#" id="searchform" onsubmit="return false">
+<input name="title" type="hidden" value="Special:Search"/>
+<input accesskey="f" id="searchInput" name="search" title="Search ADCPortal Wiki [f]" type="text" value=""/>
+<input class="searchButton" id="searchGoButton" name="go" title="Go to a page with this exact name if exists" type="submit" value="Go"/>
+<input class="searchButton" id="mw-searchButton" name="fulltext" title="Search the pages for this text" type="submit" value="Search"/>
+</form>
+</div>
+<!-- /2 -->
+</div>
+</div>
+<!-- /header -->
+<!-- panel -->
+<div class="noprint" id="mw-panel">
+<!-- logo -->
+<div id="p-logo"><a href="index.html" style="background-image: url(misc/wiki_logo.png);"></a></div>
+<!-- /logo -->
+<!-- navigation -->
+<div class="portal" id="p-navigation">
+<h5>Navigation</h5>
+<div class="body">
+<ul>
+<li id="n-mainpage-description"><a accesskey="z" href="index.html">Main page</a></li>
+<li id="n-recentchanges"><a accesskey="r" href="Special_RecentChanges.html">Recent changes</a></li>
+<li id="n-randompage"><a accesskey="x" class="archived-inert" href="#" title="Page not archived">Random page</a></li>
+<li id="n-help"><a class="archived-inert" href="#" title="Page not archived">Help</a></li>
+</ul>
+</div>
+</div>
+<!-- /navigation -->
+<!-- SEARCH -->
+<!-- /SEARCH -->
+<!-- TOOLBOX -->
+<div class="portal" id="p-tb">
+<h5>Toolbox</h5>
+<div class="body">
+<ul>
+<li id="t-whatlinkshere"><a accesskey="j" class="archived-inert" href="#" title="Page not archived">What links here</a></li>
+<li id="t-recentchangeslinked"><a accesskey="k" class="archived-inert" href="#" title="Page not archived">Related changes</a></li>
+<li id="t-specialpages"><a accesskey="q" href="Special_SpecialPages.html">Special pages</a></li>
+<li id="t-print"><a accesskey="p" class="archived-inert" href="#" rel="alternate" title="Not available in this archive">Printable version</a></li>
+<li id="t-permalink"><a class="archived-inert" href="#" title="Not available in this archive">Permanent link</a></li>
+</ul>
+</div>
+</div>
+<!-- /TOOLBOX -->
+<!-- LANGUAGES -->
+<!-- /LANGUAGES -->
+</div>
+<!-- /panel -->
+<!-- footer -->
+<div id="footer"><div class="archive-note">This page was recovered from a community database backup of the ADCPortal wiki (the original wikitext, rendered back to HTML). It was never captured by the Internet Archive. Images are not part of that backup, and links to pages that are still missing are inactive.</div>
+<ul id="footer-info">
+<li id="footer-info-lastmod"> This page was last modified on 11 January 2011, at 21:03.</li>
+<li id="footer-info-viewcount">This page has been accessed 7,022 times.</li>
+<li id="footer-info-copyright">Content is available under <a class="external" href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.2</a>.</li>
+</ul>
+<ul id="footer-places">
+<li id="footer-places-privacy"><a class="archived-inert" href="#" title="Page not archived">Privacy policy</a></li>
+<li id="footer-places-about"><a class="archived-inert" href="#" title="Page not archived">About ADCPortal Wiki</a></li>
+<li id="footer-places-disclaimer"><a class="archived-inert" href="#" title="Page not archived">Disclaimers</a></li>
+</ul>
+<ul class="noprint" id="footer-icons">
+<li id="footer-icon-poweredby"><a href="http://www.mediawiki.org/"><img alt="Powered by MediaWiki" height="31" src="mediawiki/skins/common/images/poweredby_mediawiki_88x31.png" width="88"/></a></li>
+<li id="footer-icon-copyright"><a href="http://www.gnu.org/copyleft/fdl.html"><img alt="GNU Free Documentation License 1.2" height="31" src="mediawiki/skins/common/images/gnu-fdl.png" width="88"/></a></li>
+</ul>
+<div style="clear:both"></div>
+</div>
+<!-- /footer -->
+<!-- fixalpha -->
+
+<!-- /fixalpha -->
+
+<!-- Served in 1.348 secs. --> </body>
+</html>

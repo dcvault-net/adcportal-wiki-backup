@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html dir="ltr" lang="en">
+<head>
+<title>RSX++ Plugin API - ADCPortal Wiki</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="MediaWiki 1.16.0" name="generator"/>
+
+
+<link href="/mediawiki/index.php?title=ADC_Protocol&amp;action=creativecommons" rel="meta" title="Creative Commons" type="application/rdf+xml"/>
+<link href="http://www.gnu.org/copyleft/fdl.html" rel="copyright"/>
+
+
+
+
+
+
+
+
+
+
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/mediawiki/skins/vector/csshover.htc")}</style><![endif]-->
+
+<link href="mediawiki/skins/vector/main-ltr.css" media="screen" rel="stylesheet"/><link href="mediawiki/skins/common/shared.css" media="screen" rel="stylesheet"/><link href="mediawiki/site-common.css" media="all" rel="stylesheet"/><link href="mediawiki/site-vector.css" media="all" rel="stylesheet"/><link href="mediawiki/gen.css" media="all" rel="stylesheet"/><link href="overrides.css" media="all" rel="stylesheet"/></head>
+<body class="mediawiki ltr ns-0 ns-subject page-ADC_Protocol skin-vector">
+<div class="noprint" id="mw-page-base"></div>
+<div class="noprint" id="mw-head-base"></div>
+<!-- content -->
+<div id="content">
+<a id="top"></a>
+<div id="mw-js-message" style="display:none;"></div>
+<!-- firstHeading -->
+<h1 class="firstHeading" id="firstHeading">RSX++ Plugin API</h1>
+<!-- /firstHeading -->
+<!-- bodyContent -->
+<div id="bodyContent"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><div aria-labelledby="mw-toc-heading" class="toc" id="toc" role="navigation"><input class="toctogglecheckbox" id="toctogglecheckbox" role="button" style="display:none" type="checkbox"/><div class="toctitle" dir="ltr" lang="en"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#About_Plugins"><span class="tocnumber">1</span> <span class="toctext">About Plugins</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Plugin_IDs"><span class="tocnumber">1.1</span> <span class="toctext">Plugin IDs</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="#PluginAPI"><span class="tocnumber">2</span> <span class="toctext">PluginAPI</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Members"><span class="tocnumber">2.1</span> <span class="toctext">Members</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#logMessage"><span class="tocnumber">2.1.1</span> <span class="toctext">logMessage</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#getDataPath"><span class="tocnumber">2.1.2</span> <span class="toctext">getDataPath</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#getVersion"><span class="tocnumber">2.1.3</span> <span class="toctext">getVersion</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#getMainWnd"><span class="tocnumber">2.1.4</span> <span class="toctext">getMainWnd</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#getSetting"><span class="tocnumber">2.1.5</span> <span class="toctext">getSetting</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#setSetting"><span class="tocnumber">2.1.6</span> <span class="toctext">setSetting</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#getClientSetting"><span class="tocnumber">2.1.7</span> <span class="toctext">getClientSetting</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#getClientSettingInt"><span class="tocnumber">2.1.8</span> <span class="toctext">getClientSettingInt</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#OpenHub"><span class="tocnumber">2.1.9</span> <span class="toctext">OpenHub</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="#CloseHub"><span class="tocnumber">2.1.10</span> <span class="toctext">CloseHub</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="#showToolTip"><span class="tocnumber">2.1.11</span> <span class="toctext">showToolTip</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="#RegexMatch"><span class="tocnumber">2.1.12</span> <span class="toctext">RegexMatch</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="#WildcardMatch"><span class="tocnumber">2.1.13</span> <span class="toctext">WildcardMatch</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-18"><a href="#Enums"><span class="tocnumber">2.2</span> <span class="toctext">Enums</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#iOnlineUser"><span class="tocnumber">2.3</span> <span class="toctext">iOnlineUser</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#Members_2"><span class="tocnumber">2.4</span> <span class="toctext">Members</span></a>
+<ul>
+<li class="toclevel-3 tocsection-21"><a href="#p_get"><span class="tocnumber">2.4.1</span> <span class="toctext">p_get</span></a></li>
+<li class="toclevel-3 tocsection-22"><a href="#p_set"><span class="tocnumber">2.4.2</span> <span class="toctext">p_set</span></a></li>
+<li class="toclevel-3 tocsection-23"><a href="#p_isClientType"><span class="tocnumber">2.4.3</span> <span class="toctext">p_isClientType</span></a></li>
+<li class="toclevel-3 tocsection-24"><a href="#p_isTcpActive"><span class="tocnumber">2.4.4</span> <span class="toctext">p_isTcpActive</span></a></li>
+<li class="toclevel-3 tocsection-25"><a href="#p_sendPM"><span class="tocnumber">2.4.5</span> <span class="toctext">p_sendPM</span></a></li>
+<li class="toclevel-3 tocsection-26"><a href="#p_getUserClient"><span class="tocnumber">2.4.6</span> <span class="toctext">p_getUserClient</span></a></li>
+<li class="toclevel-3 tocsection-27"><a href="#p_inc"><span class="tocnumber">2.4.7</span> <span class="toctext">p_inc</span></a></li>
+<li class="toclevel-3 tocsection-28"><a href="#p_dec"><span class="tocnumber">2.4.8</span> <span class="toctext">p_dec</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-29"><a href="#Links"><span class="tocnumber">3</span> <span class="toctext">Links</span></a></li>
+<li class="toclevel-1"><a href="#See_Also"><span class="tocnumber">4</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
+<h2><span class="mw-headline" id="About_Plugins">About Plugins</span></h2>
+<p>RSX++ provide a simpe Plugin Interface to extend client functions.
+</p>
+<ul><li>Language: C++</li>
+<li>Compiler: Microsoft Visual C++ (2003 .NET, 2005, 2008, including Express Editions)</li>
+<li>STL: Any suitable, RSX++ uses own string implementation (rString class)</li></ul>
+<p><br/>
+RSX++ export functions to interact with core to external library called RSXPlusPlus.lib - provided with API package (you can also get it by compiling RSX++ code).
+Additionally, all actions are passed trought PluginInterface class (plugin must export pointer to this class, you must override functions to handle certain actions).
+There are two Interface Classes to represent main RSX++ objects:
+</p><p>iClient - this class represents Hub (Client class). By this interface you can get basic info about hub, find user or store settings for certain hubs.
+iOnlineUser - this class represents User connected to hub (OnlineUser). By this class we get access to user variables. Most of them are available via p_get function which returns values from Identity Field's Map for given field name (for example: NI represents Nick, DE represents description).
+</p>
+<h3><span class="mw-headline" id="Plugin_IDs">Plugin IDs</span></h3>
+<p>List of used Plugin IDs (each plugin must have own, unique ID).
+If someone made a plugin for RSX++, please send to me used ID to place it here.
+</p>
+<ul><li>TestAPI - 10</li>
+<li>MediaPlayers - 11</li>
+<li>SnapWindow - 12</li></ul>
+<p><br/>
+</p>
+<h2><span class="mw-headline" id="PluginAPI">PluginAPI</span></h2>
+<p>This class is used to interact with Core (Plugin -&gt; RSX++).
+</p>
+<pre>API Revision: 1.2.0.1
+</pre>
+<p>Header: PluginAPI.h
+</p>
+<h3><span class="mw-headline" id="Members">Members</span></h3>
+<hr/>
+<h4><span class="mw-headline" id="logMessage">logMessage</span></h4>
+<p>Send a message to status log (shown in status toolbar at the bottom of RSX++ window).
+</p>
+<h4><span class="mw-headline" id="getDataPath">getDataPath</span></h4>
+<p>Get a path to root directory (where RSXPlusPlus.exe is placed).
+</p>
+<h4><span class="mw-headline" id="getVersion">getVersion</span></h4>
+<p>argument: int
+Get version as a string for given type.
+</p>
+<h4><span class="mw-headline" id="getMainWnd">getMainWnd</span></h4>
+<p>argument: HWND
+Set Main Window Handle for the argument.
+</p>
+<h4><span class="mw-headline" id="getSetting">getSetting</span></h4>
+<p>argument: int, rString
+Get a setting as string. First argument is a plugin ID, second is a setting name (you can access other plugin's settings).
+</p>
+<h4><span class="mw-headline" id="setSetting">setSetting</span></h4>
+<p>argument: int, rString, rString
+Set a setting as a string. First argument is plugin ID, second is a setting name, third is a setting value.
+</p>
+<h4><span class="mw-headline" id="getClientSetting">getClientSetting</span></h4>
+<p>argument: rString, bool
+Get a RSX++ setting as a string. First argument is a setting name, second one tells where function should search for given setting (RSX++ uses two settings managers which results in two config files - RSXSettings.xml and DCPlusPlus.xml), true for RSX++ Manager, false for Default Manager.
+</p>
+<h4><span class="mw-headline" id="getClientSettingInt">getClientSettingInt</span></h4>
+<p>argument: rString, bool
+Get a RSX++ setting as a int. Same rule as for getClientSetting.
+</p>
+<h4><span class="mw-headline" id="OpenHub">OpenHub</span></h4>
+<p>argument: rString
+Open a new hub window and connect to given address.
+</p>
+<h4><span class="mw-headline" id="CloseHub">CloseHub</span></h4>
+<p>argument: rString
+Close an existing hub window and disconnect from hub with given address.
+</p>
+<h4><span class="mw-headline" id="showToolTip">showToolTip</span></h4>
+<p>argument: rString, rString, int
+Show a ToolTip (it respect RSX++ settings about showing notifications). First argument is a ToolTip name, second is a message content, third is a Icon type (see Enums in header file).
+</p>
+<h4><span class="mw-headline" id="RegexMatch">RegexMatch</span></h4>
+<p>argument: rString, rString
+Do a simple Regex match (using boost regex). First argument is a string that have to be matched and second is a regular expression (if expression is invalid, false is returned).
+</p>
+<h4><span class="mw-headline" id="WildcardMatch">WildcardMatch</span></h4>
+<p>argument: rString, rString, char, bool
+Do a Wildard Match. First argument is a string that have to be matched, second is a pattern, third is a delimiter/separator, fourth is option to use set or not.
+</p>
+<h3><span class="mw-headline" id="Enums">Enums</span></h3>
+<p>Chat Message Style
+ToolTip Style
+Version Type
+</p>
+<h3><span class="mw-headline" id="iOnlineUser">iOnlineUser</span></h3>
+<p>Class represents OnlineUser object (a connected to at least one hub user).
+Header: UserInterface.h
+</p>
+<h3><span class="mw-headline" id="Members_2">Members</span></h3>
+<hr/>
+<h4><span class="mw-headline" id="p_get">p_get</span></h4>
+<p>argument: char
+Get a Identity Field value for given field name.
+</p>
+<h4><span class="mw-headline" id="p_set">p_set</span></h4>
+<p>argument: char, rString
+Set a Identity Field value for given field name.
+</p>
+<h4><span class="mw-headline" id="p_isClientType">p_isClientType</span></h4>
+<p>argument: int
+Check user Client Type. First argument is a mask which contains values that should be checked. Default values for certain client type:
+1: Bot, 2: Registered (ADC only), 4: Operator, 8: SuperUser (ADC only), 16: Owner (ADC only), 32: Hub (ADC only)
+</p>
+<h4><span class="mw-headline" id="p_isTcpActive">p_isTcpActive</span></h4>
+<p>Returns true if user can handle active connections (have public IP and opened port for DC connections).
+</p>
+<h4><span class="mw-headline" id="p_sendPM">p_sendPM</span></h4>
+<p>argument: rString, bool
+Send a Private Message to user. First argument is a message content, second argument tells if this message should be sent in third person form.
+</p>
+<h4><span class="mw-headline" id="p_getUserClient">p_getUserClient</span></h4>
+<p>Get a pointer to iClient (Hub/Client Iterface) which user is connected to.
+</p>
+<h4><span class="mw-headline" id="p_inc">p_inc</span></h4>
+<p>Increment a reference counter to prevent OnlineUser and iOnlineUser class destruction. Use wisely.
+</p>
+<h4><span class="mw-headline" id="p_dec">p_dec</span></h4>
+<p>Decrement a reference counter. Use it, if you have used p_inc somewhere in code to balance reference count.
+</p>
+<h2><span class="mw-headline" id="Links">Links</span></h2>
+<ul><li><a class="external text" href="http://rsxplusplus.wiki.sourceforge.net/" rel="nofollow">RSX++ Wiki</a></li>
+<li><a class="external text" href="http://developer.berlios.de/devlog/adrian007/" rel="nofollow">RSX++ Developer Blog</a></li></ul>
+<h2><span class="mw-headline" id="See_Also">See Also</span></h2>
+</div></div>
+<!-- /bodyContent -->
+</div>
+<!-- /content -->
+<!-- header -->
+<div class="noprint" id="mw-head">
+<!-- 0 -->
+<div class="" id="p-personal">
+<h5>Personal tools</h5>
+<ul>
+<li id="pt-login"><a accesskey="o" class="archived-inert" href="#" title="Not available in this archive">Log in</a></li>
+</ul>
+</div>
+<!-- /0 -->
+<div id="left-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-namespaces">
+<h5>Namespaces</h5>
+<ul>
+<li class="selected" id="ca-nstab-main"><a accesskey="c" href="ADC_Protocol.html"><span>Page</span></a></li>
+<li class="new" id="ca-talk"><a accesskey="t" class="archived-inert" href="#" title="Not available in this archive"><span>Discussion</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-variants">
+<h5><span>Variants</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+</div>
+<div id="right-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-views">
+<h5>Views</h5>
+<ul>
+<li class="selected" id="ca-view"><a href="ADC_Protocol.html"><span>Read</span></a></li>
+<li id="ca-viewsource"><a accesskey="e" class="archived-inert" href="#" title="Not available in this archive"><span>View source</span></a></li>
+<li class="collapsible" id="ca-history"><a accesskey="h" class="archived-inert" href="#" title="Not available in this archive"><span>View history</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-cactions">
+<h5><span>Actions</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+<!-- 2 -->
+<div id="p-search">
+<h5><label for="searchInput">Search</label></h5>
+<form action="#" id="searchform" onsubmit="return false">
+<input name="title" type="hidden" value="Special:Search"/>
+<input accesskey="f" id="searchInput" name="search" title="Search ADCPortal Wiki [f]" type="text" value=""/>
+<input class="searchButton" id="searchGoButton" name="go" title="Go to a page with this exact name if exists" type="submit" value="Go"/>
+<input class="searchButton" id="mw-searchButton" name="fulltext" title="Search the pages for this text" type="submit" value="Search"/>
+</form>
+</div>
+<!-- /2 -->
+</div>
+</div>
+<!-- /header -->
+<!-- panel -->
+<div class="noprint" id="mw-panel">
+<!-- logo -->
+<div id="p-logo"><a href="index.html" style="background-image: url(misc/wiki_logo.png);"></a></div>
+<!-- /logo -->
+<!-- navigation -->
+<div class="portal" id="p-navigation">
+<h5>Navigation</h5>
+<div class="body">
+<ul>
+<li id="n-mainpage-description"><a accesskey="z" href="index.html">Main page</a></li>
+<li id="n-recentchanges"><a accesskey="r" href="Special_RecentChanges.html">Recent changes</a></li>
+<li id="n-randompage"><a accesskey="x" class="archived-inert" href="#" title="Page not archived">Random page</a></li>
+<li id="n-help"><a class="archived-inert" href="#" title="Page not archived">Help</a></li>
+</ul>
+</div>
+</div>
+<!-- /navigation -->
+<!-- SEARCH -->
+<!-- /SEARCH -->
+<!-- TOOLBOX -->
+<div class="portal" id="p-tb">
+<h5>Toolbox</h5>
+<div class="body">
+<ul>
+<li id="t-whatlinkshere"><a accesskey="j" class="archived-inert" href="#" title="Page not archived">What links here</a></li>
+<li id="t-recentchangeslinked"><a accesskey="k" class="archived-inert" href="#" title="Page not archived">Related changes</a></li>
+<li id="t-specialpages"><a accesskey="q" href="Special_SpecialPages.html">Special pages</a></li>
+<li id="t-print"><a accesskey="p" class="archived-inert" href="#" rel="alternate" title="Not available in this archive">Printable version</a></li>
+<li id="t-permalink"><a class="archived-inert" href="#" title="Not available in this archive">Permanent link</a></li>
+</ul>
+</div>
+</div>
+<!-- /TOOLBOX -->
+<!-- LANGUAGES -->
+<!-- /LANGUAGES -->
+</div>
+<!-- /panel -->
+<!-- footer -->
+<div id="footer"><div class="archive-note">This page was recovered from a community database backup of the ADCPortal wiki (the original wikitext, rendered back to HTML). It was never captured by the Internet Archive. Images are not part of that backup, and links to pages that are still missing are inactive.</div>
+<ul id="footer-info">
+<li id="footer-info-lastmod"> This page was last modified on 11 January 2011, at 21:03.</li>
+<li id="footer-info-viewcount">This page has been accessed 7,022 times.</li>
+<li id="footer-info-copyright">Content is available under <a class="external" href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.2</a>.</li>
+</ul>
+<ul id="footer-places">
+<li id="footer-places-privacy"><a class="archived-inert" href="#" title="Page not archived">Privacy policy</a></li>
+<li id="footer-places-about"><a class="archived-inert" href="#" title="Page not archived">About ADCPortal Wiki</a></li>
+<li id="footer-places-disclaimer"><a class="archived-inert" href="#" title="Page not archived">Disclaimers</a></li>
+</ul>
+<ul class="noprint" id="footer-icons">
+<li id="footer-icon-poweredby"><a href="http://www.mediawiki.org/"><img alt="Powered by MediaWiki" height="31" src="mediawiki/skins/common/images/poweredby_mediawiki_88x31.png" width="88"/></a></li>
+<li id="footer-icon-copyright"><a href="http://www.gnu.org/copyleft/fdl.html"><img alt="GNU Free Documentation License 1.2" height="31" src="mediawiki/skins/common/images/gnu-fdl.png" width="88"/></a></li>
+</ul>
+<div style="clear:both"></div>
+</div>
+<!-- /footer -->
+<!-- fixalpha -->
+
+<!-- /fixalpha -->
+
+<!-- Served in 1.348 secs. --> </body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html dir="ltr" lang="en">
+<head>
+<title>Code Example Blom - ADCPortal Wiki</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="MediaWiki 1.16.0" name="generator"/>
+
+
+<link href="/mediawiki/index.php?title=ADC_Protocol&amp;action=creativecommons" rel="meta" title="Creative Commons" type="application/rdf+xml"/>
+<link href="http://www.gnu.org/copyleft/fdl.html" rel="copyright"/>
+
+
+
+
+
+
+
+
+
+
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/mediawiki/skins/vector/csshover.htc")}</style><![endif]-->
+
+<link href="mediawiki/skins/vector/main-ltr.css" media="screen" rel="stylesheet"/><link href="mediawiki/skins/common/shared.css" media="screen" rel="stylesheet"/><link href="mediawiki/site-common.css" media="all" rel="stylesheet"/><link href="mediawiki/site-vector.css" media="all" rel="stylesheet"/><link href="mediawiki/gen.css" media="all" rel="stylesheet"/><link href="overrides.css" media="all" rel="stylesheet"/></head>
+<body class="mediawiki ltr ns-0 ns-subject page-ADC_Protocol skin-vector">
+<div class="noprint" id="mw-page-base"></div>
+<div class="noprint" id="mw-head-base"></div>
+<!-- content -->
+<div id="content">
+<a id="top"></a>
+<div id="mw-js-message" style="display:none;"></div>
+<!-- firstHeading -->
+<h1 class="firstHeading" id="firstHeading">Code Example Blom</h1>
+<!-- /firstHeading -->
+<!-- bodyContent -->
+<div id="bodyContent"><div class="mw-content-ltr mw-parser-output" dir="ltr" lang="en"><p>The following is an implementation of BLOM in Python.
+</p><p>&lt;source lang="Python"&gt;
+</p>
+<pre> from math import log, ceil
+ import base64, sys
+ try:
+ 
+         from bitarray import bitarray
+ except ImportError:
+         print """
+         Bitarray module required.
+         <a class="external free" href="http://pypi.python.org/pypi/bitarray/" rel="nofollow">http://pypi.python.org/pypi/bitarray/</a>
+         """
+         
+ HASH_BITS = 192
+ def toBase32(s):
+         """Returns a base32 encoded string, stripped from padding"""
+         return base64.b32encode(s).strip('=')
+         
+ def fromBase32(base32):
+         """Padds a base32 string and returns it decoded"""
+         quanta, leftover = divmod(len(base32), 8)
+         if leftover:
+                 base32+='='*(8-leftover)
+         try:
+                 return base64.b32decode(base32)
+         except TypeError, e:
+                 print str(e)+' %s  size: %d'% ( base32, len(base32))
+                 
+ class HashBloom(object):
+         
+         @staticmethod
+         def get_k(_n, _h):
+                 """get_k(n, h), get largest possible k"""
+                 _k = HASH_BITS/_h
+                 while _k &gt; 1:
+                         m = HashBloom.get_m(_n, _k)
+                         if m &gt;&gt; _h == 0:
+                                 return _k
+                         _k -= 1
+                 return 1
+                 
+         @staticmethod
+         def get_m(_n, _k):
+                 """get_m(n,k),   m = int(ceil((_n * _k) /log(2))),  return int(m+64-(m%64))"""
+                 m = int(ceil((_n * _k) /log(2)))
+                 return int(m+64-(m%64))
+                 
+         def __init__(self, data=None):
+                 self.k = 0
+                 self.h = 0
+                 self.bitarray = bitarray(0)
+                 if data: self.add(data)
+                 
+         def add(self, tth):
+                 """add(tth), adds tth value to bloomfilter"""
+                 for i in range(0, self.k):
+                         self.bitarray[self._pos(tth, i)] = 1
+                         
+         def __len__(self):
+                 return len(self.bitarray)
+                 
+         def __str__(self):
+                 return self.bitarray.tostring()
+         
+         def __contains__(self, tth):
+                 """__contains__(tth), check if tth exists in bloomfliter"""
+                 if len(self.bitarray) == 0:
+                         return False
+                 for i in range(0, self.k):
+                         if not self.bitarray[self._pos(tth, i)]:
+                                 return False
+                 return True
+                         
+         def reset(self, k, m, h):
+                 """reset(k, m, h) , k, h, and resize bitarray to len(m)"""
+                 self.bitarray = bitarray(m*[0],endian=sys.byteorder)
+                 self.k = k
+                 self.h = h
+                 
+         def dataReset(self, data, k, h):
+                 """reset(data, k, h) , k, h, and resize bitarray to len(data) and set data to bitarray"""
+                 self.k = k
+                 self.h = h
+                 self.bitarray = bitarray(len(data)*8*[0],endian=sys.byteorder)
+                 
+                 for i in range(0, len(data)):
+                         for j in range(0,7):
+                                 self.bitarray[i*8+j] = (((ord(data[i]) &gt;&gt; j) &amp; 1) != 0)
+                 
+         def match(self, tth):
+                 """match(tth), same as __contains__"""
+                 return self.__contains__(tth)
+                 
+                 
+         def _pos(self, tth, n):
+                 if (n+1)*self.h &gt; HASH_BITS:
+                         return 0
+                 x=0
+                 start = n*self.h
+                 for i in range(0, self.h):
+                         bit = start+i
+                         byte = bit/ 8
+                         pos = bit % 8
+                         if ord(fromBase32(str(tth))[byte]) &amp; (1 &lt;&lt; pos):
+                                 x |= (1 &lt;&lt; i)
+                 return x % len(self.bitarray)
+         
+         
+         
+         
+ 
+ def testBloomVectors(k, m, h, tths, ctrl):
+         hb=HashBloom()
+         hb.reset(k,m,h)
+         for tth in tths:
+                 hb.add(tth)
+         ok_ctrl = (ctrl == toBase32(hb.bitarray.tostring()))
+         ok_match = hb.match(tths[0])
+         
+         return ok_ctrl , ok_match
+         
+ testvalues = (
+ (8, 1024, 24, ('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',), 'AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'),
+ (8, 1024, 24, ('BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',), 'AEAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'),
+ (8, 1024, 24, ('QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',), 'AEAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'),
+ (8, 1024, 24, ('BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA','QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'), 'AEAQAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'),
+ (8, 1024, 24, ('UDRJ6EGCH3CGWIIU2V6CH7VLFN4N2PCZKSPTBQA',), 'AAAAAAAABAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQACAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA'),
+ (2, 1024, 64, ('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',), 'AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'),
+ (2, 1024, 64, ('BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',), 'AEAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'),
+ (2, 1024, 64, ('QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',), 'AEAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'),
+ (2, 1024, 64, ('BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA','QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',), 'AEAQAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'),
+ (2, 1024, 64, ('UDRJ6EGCH3CGWIIU2V6CH7VLFN4N2PCZKSPTBQA',), 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'),
+ )
+ 
+ def calculateProbability(k, n, m, h):
+         return ((1.0 - (1.0 - 1.0 / m)**(k * n))**k)
+         
+ 
+ if __name__ == '__main__':
+         print "Preforming %d bloomfilter creation tests" % len(testvalues)
+         for n,args in enumerate(testvalues):
+                 ok_ctrl, ok_match = testBloomVectors(*args) 
+                 print "%d of %d tests complete, bloom creation = %s, bloom match = %s" % (n+1, len(testvalues),str(ok_ctrl), str(ok_match))
+         print   
+         print 
+         print "Calculating of probable false positives"
+         
+         print
+         h=24
+         kstr='[h=%d]\t\t|\t'%h
+         print '-'*174
+         for i in range(1,9):
+                 kstr += "[k=%d]\t|\t" % i
+         print kstr
+         print '-'*174
+         for n in [500, 2500, 5000, 10000, 20*1000, 50*1000, 100*1000, 150*1000, 200*1000, 250*1000, 500*1000]:
+                 sep = <i></i>
+                 if n &lt; 99999:
+                         sep='\t'
+                 line = "[n=%d]%s\t|"%(n, sep)#+sep
+                 for k in range(1,9):
+                         m = HashBloom.get_m(n,k)
+                         p= calculateProbability(k, n, m, h)
+                         #line+= ("\t\t%.2f%%" % (100-p*100))
+                         line+= "\t%.5f%%\t|" % (p)
+                 print line
+                 print '-'*174
+                 
+         print m/8
+</pre>
+<p>&lt;/source&gt;
+</p>
+<h2><span class="mw-headline" id="See_Also">See Also</span></h2></div></div>
+<!-- /bodyContent -->
+</div>
+<!-- /content -->
+<!-- header -->
+<div class="noprint" id="mw-head">
+<!-- 0 -->
+<div class="" id="p-personal">
+<h5>Personal tools</h5>
+<ul>
+<li id="pt-login"><a accesskey="o" class="archived-inert" href="#" title="Not available in this archive">Log in</a></li>
+</ul>
+</div>
+<!-- /0 -->
+<div id="left-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-namespaces">
+<h5>Namespaces</h5>
+<ul>
+<li class="selected" id="ca-nstab-main"><a accesskey="c" href="ADC_Protocol.html"><span>Page</span></a></li>
+<li class="new" id="ca-talk"><a accesskey="t" class="archived-inert" href="#" title="Not available in this archive"><span>Discussion</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-variants">
+<h5><span>Variants</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+</div>
+<div id="right-navigation">
+<!-- 0 -->
+<div class="vectorTabs" id="p-views">
+<h5>Views</h5>
+<ul>
+<li class="selected" id="ca-view"><a href="ADC_Protocol.html"><span>Read</span></a></li>
+<li id="ca-viewsource"><a accesskey="e" class="archived-inert" href="#" title="Not available in this archive"><span>View source</span></a></li>
+<li class="collapsible" id="ca-history"><a accesskey="h" class="archived-inert" href="#" title="Not available in this archive"><span>View history</span></a></li>
+</ul>
+</div>
+<!-- /0 -->
+<!-- 1 -->
+<div class="vectorMenu emptyPortlet" id="p-cactions">
+<h5><span>Actions</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<!-- /1 -->
+<!-- 2 -->
+<div id="p-search">
+<h5><label for="searchInput">Search</label></h5>
+<form action="#" id="searchform" onsubmit="return false">
+<input name="title" type="hidden" value="Special:Search"/>
+<input accesskey="f" id="searchInput" name="search" title="Search ADCPortal Wiki [f]" type="text" value=""/>
+<input class="searchButton" id="searchGoButton" name="go" title="Go to a page with this exact name if exists" type="submit" value="Go"/>
+<input class="searchButton" id="mw-searchButton" name="fulltext" title="Search the pages for this text" type="submit" value="Search"/>
+</form>
+</div>
+<!-- /2 -->
+</div>
+</div>
+<!-- /header -->
+<!-- panel -->
+<div class="noprint" id="mw-panel">
+<!-- logo -->
+<div id="p-logo"><a href="index.html" style="background-image: url(misc/wiki_logo.png);"></a></div>
+<!-- /logo -->
+<!-- navigation -->
+<div class="portal" id="p-navigation">
+<h5>Navigation</h5>
+<div class="body">
+<ul>
+<li id="n-mainpage-description"><a accesskey="z" href="index.html">Main page</a></li>
+<li id="n-recentchanges"><a accesskey="r" href="Special_RecentChanges.html">Recent changes</a></li>
+<li id="n-randompage"><a accesskey="x" class="archived-inert" href="#" title="Page not archived">Random page</a></li>
+<li id="n-help"><a class="archived-inert" href="#" title="Page not archived">Help</a></li>
+</ul>
+</div>
+</div>
+<!-- /navigation -->
+<!-- SEARCH -->
+<!-- /SEARCH -->
+<!-- TOOLBOX -->
+<div class="portal" id="p-tb">
+<h5>Toolbox</h5>
+<div class="body">
+<ul>
+<li id="t-whatlinkshere"><a accesskey="j" class="archived-inert" href="#" title="Page not archived">What links here</a></li>
+<li id="t-recentchangeslinked"><a accesskey="k" class="archived-inert" href="#" title="Page not archived">Related changes</a></li>
+<li id="t-specialpages"><a accesskey="q" href="Special_SpecialPages.html">Special pages</a></li>
+<li id="t-print"><a accesskey="p" class="archived-inert" href="#" rel="alternate" title="Not available in this archive">Printable version</a></li>
+<li id="t-permalink"><a class="archived-inert" href="#" title="Not available in this archive">Permanent link</a></li>
+</ul>
+</div>
+</div>
+<!-- /TOOLBOX -->
+<!-- LANGUAGES -->
+<!-- /LANGUAGES -->
+</div>
+<!-- /panel -->
+<!-- footer -->
+<div id="footer"><div class="archive-note">This page was recovered from a community database backup of the ADCPortal wiki (the original wikitext, rendered back to HTML). It was never captured by the Internet Archive. Images are not part of that backup, and links to pages that are still missing are inactive.</div>
+<ul id="footer-info">
+<li id="footer-info-lastmod"> This page was last modified on 11 January 2011, at 21:03.</li>
+<li id="footer-info-viewcount">This page has been accessed 7,022 times.</li>
+<li id="footer-info-copyright">Content is available under <a class="external" href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.2</a>.</li>
+</ul>
+<ul id="footer-places">
+<li id="footer-places-privacy"><a class="archived-inert" href="#" title="Page not archived">Privacy policy</a></li>
+<li id="footer-places-about"><a class="archived-inert" href="#" title="Page not archived">About ADCPortal Wiki</a></li>
+<li id="footer-places-disclaimer"><a class="archived-inert" href="#" title="Page not archived">Disclaimers</a></li>
+</ul>
+<ul class="noprint" id="footer-icons">
+<li id="footer-icon-poweredby"><a href="http://www.mediawiki.org/"><img alt="Powered by MediaWiki" height="31" src="mediawiki/skins/common/images/poweredby_mediawiki_88x31.png" width="88"/></a></li>
+<li id="footer-icon-copyright"><a href="http://www.gnu.org/copyleft/fdl.html"><img alt="GNU Free Documentation License 1.2" height="31" src="mediawiki/skins/common/images/gnu-fdl.png" width="88"/></a></li>
+</ul>
+<div style="clear:both"></div>
+</div>
+<!-- /footer -->
+<!-- fixalpha -->
+
+<!-- /fixalpha -->
+
+<!-- Served in 1.348 secs. --> </body>
+</html>

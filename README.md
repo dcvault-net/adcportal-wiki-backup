@@ -14,6 +14,14 @@ before it stopped serving real content (redirects from late 2011, domain parking
 404 by 2016). Each page here uses its newest genuine capture, merged from all snapshots into
 the most complete version possible. Nothing newer exists in the archive.
 
+In addition, 64 pages that the Wayback Machine never captured were recovered from a
+community database backup of the wiki (the original wikitext as of February 2011), provided
+by a former admin. They were rendered back to HTML with a local MediaWiki (so templates and
+infoboxes expand) and reskinned to match the rest of the archive. These pages carry their own
+footer note. That backup holds no image binaries, so images on recovered pages show as
+placeholders. Three pages that once existed (BNF, NetChatLink, Violating Distribution Sites)
+survive in neither source and remain as inactive links.
+
 The reconstruction keeps the original MediaWiki Vector appearance: the original skin CSS
 (`main-ltr.css`, `shared.css`) and the site's own `MediaWiki:Common.css` / `Vector.css` /
 `gen.css` were recovered from the archive and are served locally. Wayback toolbar injection

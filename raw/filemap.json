@@ -285,5 +285,517 @@
   "url": "http://www.adcportal.com/wiki/Special:RecentChanges",
   "group": "special",
   "bytes": 30755
+ },
+ "ADCPortal": {
+  "file": "ADCPortal.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 8414,
+  "source": "recovered"
+ },
+ "ADCPortal_Info": {
+  "file": "ADCPortal_Info.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 576,
+  "source": "recovered"
+ },
+ "ADCS": {
+  "file": "ADCS.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 303,
+  "source": "recovered"
+ },
+ "ADC_1.0_Software_List": {
+  "file": "ADC_1.0_Software_List.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 246,
+  "source": "recovered"
+ },
+ "ADC_History": {
+  "file": "ADC_History.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 9408,
+  "source": "recovered"
+ },
+ "ADC_Proposals_list": {
+  "file": "ADC_Proposals_list.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 13100,
+  "source": "recovered"
+ },
+ "AML": {
+  "file": "AML.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 15102,
+  "source": "recovered"
+ },
+ "AirDC++": {
+  "file": "AirDC++.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 8490,
+  "source": "recovered"
+ },
+ "Apache_License_2.0": {
+  "file": "Apache_License_2.0.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 13677,
+  "source": "recovered"
+ },
+ "ApexDC++": {
+  "file": "ApexDC++.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 8646,
+  "source": "recovered"
+ },
+ "Article_Links": {
+  "file": "Article_Links.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 501,
+  "source": "recovered"
+ },
+ "BCDC++_Lua_API": {
+  "file": "BCDC++_Lua_API.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 30797,
+  "source": "recovered"
+ },
+ "BLOM": {
+  "file": "BLOM.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 252,
+  "source": "recovered"
+ },
+ "BLOM_Python": {
+  "file": "BLOM_Python.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 319,
+  "source": "recovered"
+ },
+ "BSD_License": {
+  "file": "BSD_License.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 3117,
+  "source": "recovered"
+ },
+ "BZIP": {
+  "file": "BZIP.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 2843,
+  "source": "recovered"
+ },
+ "Beta_Tester": {
+  "file": "Beta_Tester.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 2900,
+  "source": "recovered"
+ },
+ "Code_Example_Blom": {
+  "file": "Code_Example_Blom.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 8876,
+  "source": "recovered"
+ },
+ "Compliancy_List": {
+  "file": "Compliancy_List.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 240,
+  "source": "recovered"
+ },
+ "Compliancy_list": {
+  "file": "Compliancy_list.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 5866,
+  "source": "recovered"
+ },
+ "Creative_Commons": {
+  "file": "Creative_Commons.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 1188,
+  "source": "recovered"
+ },
+ "DCBouncer": {
+  "file": "DCBouncer.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 8690,
+  "source": "recovered"
+ },
+ "DCWatch": {
+  "file": "DCWatch.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 12800,
+  "source": "recovered"
+ },
+ "DCpp_Inheritance": {
+  "file": "DCpp_Inheritance.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 1947,
+  "source": "recovered"
+ },
+ "DFAV": {
+  "file": "DFAV.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 279,
+  "source": "recovered"
+ },
+ "DFAV_-_Distributed_Favorites": {
+  "file": "DFAV_-_Distributed_Favorites.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 1567,
+  "source": "recovered"
+ },
+ "DSHub": {
+  "file": "DSHub.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 14157,
+  "source": "recovered"
+ },
+ "Developer": {
+  "file": "Developer.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 1335,
+  "source": "recovered"
+ },
+ "Development_Libraries": {
+  "file": "Development_Libraries.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 5013,
+  "source": "recovered"
+ },
+ "Extra_Links": {
+  "file": "Extra_Links.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 475,
+  "source": "recovered"
+ },
+ "FEED_-_RSS_feeds": {
+  "file": "FEED_-_RSS_feeds.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 1964,
+  "source": "recovered"
+ },
+ "FO_-_Failover_hub_addresses": {
+  "file": "FO_-_Failover_hub_addresses.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 2422,
+  "source": "recovered"
+ },
+ "Flexhub": {
+  "file": "Flexhub.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 6248,
+  "source": "recovered"
+ },
+ "GNU_LGPL_2.1": {
+  "file": "GNU_LGPL_2.1.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 2369,
+  "source": "recovered"
+ },
+ "Hidden_status_for_client_type": {
+  "file": "Hidden_status_for_client_type.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 1342,
+  "source": "recovered"
+ },
+ "Hublist": {
+  "file": "Hublist.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 5558,
+  "source": "recovered"
+ },
+ "Invalid_feature_error_code": {
+  "file": "Invalid_feature_error_code.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 1222,
+  "source": "recovered"
+ },
+ "LC_-_Locale_specification": {
+  "file": "LC_-_Locale_specification.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 1716,
+  "source": "recovered"
+ },
+ "LGPL_2.1": {
+  "file": "LGPL_2.1.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 231,
+  "source": "recovered"
+ },
+ "Luadch": {
+  "file": "Luadch.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 7441,
+  "source": "recovered"
+ },
+ "Luadch_API": {
+  "file": "Luadch_API.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 14910,
+  "source": "recovered"
+ },
+ "MIT_License": {
+  "file": "MIT_License.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 1536,
+  "source": "recovered"
+ },
+ "Magnet": {
+  "file": "Magnet.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 231,
+  "source": "recovered"
+ },
+ "Magnet_Links": {
+  "file": "Magnet_Links.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 4022,
+  "source": "recovered"
+ },
+ "PFSR_-_Partial_file_sharing": {
+  "file": "PFSR_-_Partial_file_sharing.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 2108,
+  "source": "recovered"
+ },
+ "Proposals": {
+  "file": "Proposals.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 249,
+  "source": "recovered"
+ },
+ "Proposed_Extensions": {
+  "file": "Proposed_Extensions.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 249,
+  "source": "recovered"
+ },
+ "QP_-_Upload_queue_notification": {
+  "file": "QP_-_Upload_queue_notification.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 1418,
+  "source": "recovered"
+ },
+ "RSX++": {
+  "file": "RSX++.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 9131,
+  "source": "recovered"
+ },
+ "RSX++_Plugin_API": {
+  "file": "RSX++_Plugin_API.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 11644,
+  "source": "recovered"
+ },
+ "Rejected_Extensions": {
+  "file": "Rejected_Extensions.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 2075,
+  "source": "recovered"
+ },
+ "SUDP": {
+  "file": "SUDP.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 282,
+  "source": "recovered"
+ },
+ "SUDP_-_Encrypting_UDP_traffic": {
+  "file": "SUDP_-_Encrypting_UDP_traffic.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 2938,
+  "source": "recovered"
+ },
+ "Sid_generation": {
+  "file": "Sid_generation.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 8075,
+  "source": "recovered"
+ },
+ "Software": {
+  "file": "Software.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 246,
+  "source": "recovered"
+ },
+ "Spam_scale": {
+  "file": "Spam_scale.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 7190,
+  "source": "recovered"
+ },
+ "StrongDC++_DHT": {
+  "file": "StrongDC++_DHT.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 11719,
+  "source": "recovered"
+ },
+ "TS": {
+  "file": "TS.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 258,
+  "source": "recovered"
+ },
+ "TS_-_Timestamp_in_MSG": {
+  "file": "TS_-_Timestamp_in_MSG.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 1734,
+  "source": "recovered"
+ },
+ "TYPE_-_Typing_notification": {
+  "file": "TYPE_-_Typing_notification.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 1306,
+  "source": "recovered"
+ },
+ "Toast": {
+  "file": "Toast.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 225,
+  "source": "recovered"
+ },
+ "UHub": {
+  "file": "UHub.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 6249,
+  "source": "recovered"
+ },
+ "Wiki_Info": {
+  "file": "Wiki_Info.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 601,
+  "source": "recovered"
+ },
+ "ZLIB": {
+  "file": "ZLIB.html",
+  "timestamp": "20110207000000",
+  "url": "recovered-dump",
+  "group": "articles",
+  "bytes": 2520,
+  "source": "recovered"
  }
 }

@@ -43,9 +43,22 @@ ARCHIVE_NOTE = (
     'pages that were never captured by the archive are shown in '
     '<span class="na">red</span> and cannot be opened.'
 )
+RECOVERED_NOTE = (
+    'This page was recovered from a community database backup of the ADCPortal wiki '
+    '(the original wikitext, rendered back to HTML). It was never captured by the '
+    'Internet Archive. Images are not part of that backup, and links to pages that '
+    'are still missing are inactive.'
+)
+
+# titles that changed between the recovered dump (Feb 2011) and the Wayback capture (Sep 2011)
+ALIASES = {
+    "Code_Example:Blom": "Code_Example_Blom",
+    "Code_Example:_Blom": "Code_Example_Blom",
+}
 
 def resolve_page(target):
     t = urllib.parse.unquote(target).replace(" ", "_")
+    t = ALIASES.get(t, t)
     if t in name2file: return name2file[t]
     if t.lower() in lower2name: return name2file[lower2name[t.lower()]]
     if ":" in t: return None   # namespaced pages (Special:/File:/Category:) resolve by exact match only
@@ -186,8 +199,9 @@ def process(path, name, out_name):
     # add the reconstruction note at the top of the original footer
     footer = soup.find(id="footer")
     if footer:
+        note_html = RECOVERED_NOTE if filemap.get(name, {}).get("source") == "recovered" else ARCHIVE_NOTE
         note = soup.new_tag("div"); note["class"] = "archive-note"
-        note.append(BeautifulSoup(ARCHIVE_NOTE, "html.parser"))
+        note.append(BeautifulSoup(note_html, "html.parser"))
         footer.insert(0, note)
         stats["footer_note"] += 1
 
